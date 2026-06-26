@@ -1,0 +1,18 @@
+{
+  "name": "Herminox — Free Amazon Calculators",
+  "short_name": "Herminox",
+  "description": "Free, private calculators for Amazon sellers and buyers. No signup, nothing leaves your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1B2138",
+  "background_color": "#F5F0E8",
+  "icons": [
+    {"src": "/assets/favicon-16.png",  "sizes": "16x16",   "type": "image/png"},
+    {"src": "/assets/favicon-32.png",  "sizes": "32x32",   "type": "image/png"},
+    {"src": "/assets/favicon-48.png",  "sizes": "48x48",   "type": "image/png"},
+    {"src": "/assets/icon-192.png",    "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "/assets/icon-512.png",    "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "categories": ["finance", "business", "utilities"],
+  "lang": "en-US"
+}

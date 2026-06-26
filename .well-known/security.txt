@@ -1,0 +1,5 @@
+# https://securitytxt.org/ — responsible disclosure policy
+Contact: mailto:security@herminox.com
+Expires: 2027-06-20T00:00:00.000Z
+Preferred-Languages: en, ru
+Canonical: https://herminox.com/.well-known/security.txt

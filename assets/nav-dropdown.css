@@ -1,0 +1,149 @@
+﻿/* ============================================================
+   Herminox.com — Dropdown navigation (retro edition)
+   ============================================================ */
+
+/* ── trigger ── */
+.nav-group{position:relative;display:flex;align-items:center}
+.nav-group-trigger{
+  display:inline-flex;align-items:center;gap:5px;
+  color:var(--ink2);text-decoration:none;
+  font-size:13px;font-weight:500;letter-spacing:.02em;text-transform:uppercase;
+  transition:color .15s;cursor:pointer;
+  padding:4px 0;
+}
+.nav-group:hover .nav-group-trigger,.nav-group-trigger:hover{color:var(--accent)}
+.nav-group-trigger::after,.nav-drop-item::after,.nav-drop-footer a::after{display:none!important}
+.nav-caret{width:10px;height:6px;flex-shrink:0;transition:transform .22s cubic-bezier(.34,1.4,.64,1);color:inherit}
+.nav-group:hover .nav-caret,.nav-group:focus-within .nav-caret{transform:rotate(180deg)}
+
+/* ── transparent bridge: fills the gap so mouse can reach the panel ── */
+.nav-group::after{
+  content:"";position:absolute;
+  top:100%;left:-20px;right:-20px;height:14px;
+  background:transparent;
+  display:none;
+}
+.nav-group:hover::after{display:block}
+
+/* ── panel ── */
+.nav-dropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:50%;
+  transform:translateX(-50%) translateY(-10px) scale(.97);
+  transform-origin:top center;
+  min-width:280px;
+  background:#F8F4ED;
+  border:1.5px solid var(--line2,#B5A98E);
+  border-radius:14px;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.9) inset,
+    0 32px 80px -24px rgba(27,33,56,.42),
+    0 8px 24px -10px rgba(27,33,56,.22);
+  padding:8px;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  /* open: spring in; close: quick fade out */
+  transition:
+    opacity .18s ease,
+    visibility .18s ease,
+    transform .22s cubic-bezier(.16,1,.3,1);
+  z-index:999;
+}
+/* arrow tip */
+.nav-dropdown::before{
+  content:"";position:absolute;top:-6px;left:50%;
+  width:11px;height:11px;
+  background:#F8F4ED;
+  border-left:1.5px solid var(--line2,#B5A98E);
+  border-top:1.5px solid var(--line2,#B5A98E);
+  transform:translateX(-50%) rotate(45deg);
+  border-radius:2px 0 0 0;
+}
+/* ornate corner accent on panel */
+.nav-dropdown::after{
+  content:"";position:absolute;
+  bottom:8px;right:8px;
+  width:12px;height:12px;
+  border-bottom:1.5px solid var(--accent,#C97B1A);
+  border-right:1.5px solid var(--accent,#C97B1A);
+  border-radius:0 0 3px 0;
+  opacity:.5;
+  pointer-events:none;
+}
+
+/* open state */
+.nav-group:hover .nav-dropdown,
+.nav-group:focus-within .nav-dropdown{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(-50%) translateY(0) scale(1);
+}
+
+/* ── items ── */
+.nav-drop-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:9px;
+  text-decoration:none;color:var(--ink,#1B2138);
+  transition:background .15s,transform .15s;
+  position:relative;
+}
+.nav-drop-item::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:2px;height:0;border-radius:99px;
+  background:var(--accent,#C97B1A);
+  transition:height .15s ease;
+}
+.nav-drop-item:hover{background:var(--paper2,#EBE4D6);transform:translateX(3px)}
+.nav-drop-item:hover::before{height:70%}
+
+/* ── icon tile ── */
+.ndi-icon{
+  flex-shrink:0;width:40px;height:40px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;position:relative;overflow:hidden;
+  box-shadow:0 4px 14px -4px rgba(0,0,0,.32);
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .2s;
+}
+.ndi-icon::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.24) 0%,transparent 55%);
+}
+.nav-drop-item:hover .ndi-icon{transform:rotate(-8deg) scale(1.12);box-shadow:0 8px 20px -4px rgba(0,0,0,.38)}
+/* Seller tool colors */
+.ndi-green {background:linear-gradient(145deg,#52C088,#2d7a55)}   /* FBA — forest green */
+.ndi-amber {background:linear-gradient(145deg,#EDA244,#A5640F)}   /* Inventory — warm amber */
+.ndi-royal {background:linear-gradient(145deg,#3A52A8,#1F2D66)}   /* ACoS — deep navy */
+/* Buyer tool colors — fully distinct from each other & from sellers */
+.ndi-crimson{background:linear-gradient(145deg,#D94040,#9B1C1C)}  /* Cost Per Use — brick red */
+.ndi-teal   {background:linear-gradient(145deg,#1A9A88,#0C6B5C)}  /* Unit Price — dark teal */
+.ndi-violet {background:linear-gradient(145deg,#8B45D0,#5B1FA0)}  /* Return — royal violet */
+
+/* ── text stack ── */
+.ndi-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ndi-text strong{font-size:13px;font-weight:700;color:var(--ink,#1B2138);line-height:1.25}
+.ndi-text span{font-size:11px;color:var(--ink2,#5A6175);line-height:1.3}
+
+/* ── section divider + footer ── */
+.nav-drop-footer{margin-top:4px;padding:8px 12px 4px;border-top:1px solid var(--line,#C8BFA8)}
+.nav-drop-footer a{
+  font-family:"DM Mono","Courier New",monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent,#C97B1A);text-decoration:none;font-weight:600;
+  transition:color .15s;
+}
+.nav-drop-footer a:hover{color:#A5640F}
+
+/* ── mobile ── */
+@media(max-width:900px){
+  .nav-dropdown{display:none}
+  .nav-caret{display:none}
+}
+
+/* ── reduced motion ── */
+@media(prefers-reduced-motion:reduce){
+  .nav-dropdown{transition:opacity .1s ease,visibility .1s ease}
+  .nav-caret,.nav-drop-item,.ndi-icon{transition:none}
+}

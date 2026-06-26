@@ -1,0 +1,3 @@
+# Netlify redirects
+# favicon.ico at root — browsers look here by default
+/favicon.ico  /assets/favicon.ico  200

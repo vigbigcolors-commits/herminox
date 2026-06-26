@@ -1,0 +1,53 @@
+﻿# .cursorignore — keep Cursor's index & AI context lean (saves tokens)
+# Works like .gitignore: listed paths are excluded from indexing / AI context.
+# Source we actively edit (HTML, CSS, JS, SVG) stays available.
+
+# -- Dependencies & build output --
+node_modules/
+dist/
+build/
+.cache/
+.temp/
+.tmp/
+
+# -- Binary / raster media (not editable as text, expensive to load) --
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.avif
+*.mp4
+*.webm
+*.pdf
+
+# -- Fonts --
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.otf
+
+# -- Archives --
+*.zip
+*.gz
+*.tar
+*.rar
+*.7z
+
+# -- Lock & log files --
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.log
+
+# -- OS / editor junk --
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# -- VCS internals --
+.git/

@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle (optional, for social/OG) -->
+  <!-- <circle cx="100" cy="100" r="96" fill="#1B2138"/> -->
+  
+  <!-- Outer frame — ledger border -->
+  <rect x="24" y="24" width="152" height="152" rx="20" stroke="#1B2138" stroke-width="8"/>
+  
+  <!-- Left vertical of H — shorter (column A) -->
+  <line x1="68" y1="130" x2="68" y2="62" stroke="#1B2138" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Right vertical of H — taller (column B, profit growth) -->
+  <line x1="132" y1="130" x2="132" y2="50" stroke="#1B2138" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Crossbar — ascending from left to right (growth line) -->
+  <line x1="68" y1="96" x2="132" y2="80" stroke="#1B2138" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Amber precision dot at the top of right column -->
+  <circle cx="132" cy="50" r="8" fill="#E8991F"/>
+</svg>

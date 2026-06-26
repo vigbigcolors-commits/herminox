@@ -1,0 +1,83 @@
+# Security + caching headers.
+# Supported as-is by Netlify and Cloudflare Pages. For Vercel use vercel.json,
+# for Apache use .htaccess, for Nginx use add_header — same directives.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+# Long-lived, content-addressable-ish static assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Global and shared CSS/JS
+/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/legal/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Per-tool stylesheets and scripts — revalidate daily
+/sellers/fba-calculator/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sellers/fba-calculator/app.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sellers/acos-breakeven/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sellers/acos-breakeven/app.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sellers/inventory-breakeven/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/sellers/inventory-breakeven/app.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/buyers/unit-price/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/buyers/unit-price/app.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/buyers/cost-per-use/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/buyers/cost-per-use/app.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/buyers/return-tracker/style.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/buyers/return-tracker/app.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# HTML pages — always revalidate so updates ship instantly
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sellers/*/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/buyers/*/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/about/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/our-goal/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/terms/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/privacy/
+  Cache-Control: public, max-age=0, must-revalidate
