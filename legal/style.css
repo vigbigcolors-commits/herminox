@@ -207,10 +207,16 @@ body::before{
 .foot-col a{display:block;color:var(--ink);text-decoration:none;font-size:13px;margin-bottom:8px;transition:color .15s}
 .foot-col a:hover{color:var(--accent)}
 .foot-copy{
-  max-width:var(--max-wide);margin:0 auto;padding:14px 48px 48px;
+  max-width:var(--max-wide);margin:0 auto;padding:14px 48px 4px;
   font-size:11px;color:var(--ink2);text-align:center;
   font-family:var(--mono);letter-spacing:.04em;
   border-top:1px solid var(--line);
+}
+.foot-disclaimer{
+  max-width:var(--max-wide);margin:0 auto;padding:8px 48px 48px;
+  font-size:10px;color:var(--ink2);text-align:center;
+  font-family:var(--mono);letter-spacing:.03em;line-height:1.6;
+  opacity:.75;
 }
 
 /* ============ RESPONSIVE ============ */

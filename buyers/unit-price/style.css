@@ -964,7 +964,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .foot-col a:hover{color:var(--accent)}
 .disclaimer{max-width:var(--max);margin:0 auto;padding:0 48px 20px}
 .disclaimer p{font-size:11px;color:var(--ink2);line-height:1.6;font-family:var(--mono);letter-spacing:.02em;border-top:1px solid var(--line);padding-top:18px}
-.foot-copy{max-width:var(--max);margin:0 auto;padding:14px 48px 40px;font-size:11px;color:var(--ink2);text-align:center;font-family:var(--mono);letter-spacing:.04em}
+.foot-copy{max-width:var(--max);margin:0 auto;padding:14px 48px 4px;font-size:11px;color:var(--ink2);text-align:center;font-family:var(--mono);letter-spacing:.04em}
+.foot-disclaimer{max-width:var(--max);margin:0 auto;padding:6px 48px 40px;font-size:10px;color:var(--ink2);text-align:center;font-family:var(--mono);letter-spacing:.03em;line-height:1.6;opacity:.75}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1024px){
