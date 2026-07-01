@@ -832,21 +832,12 @@ body::before{
   font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
   color:var(--accent);
 }
-.live-tag{
+.live-tag,.rate-tag{
   display:inline-flex;align-items:center;gap:6px;
   font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--accent-bright);
-  border:1px solid rgba(232,153,31,.35);border-radius:99px;padding:5px 12px 5px 8px;
-  background:rgba(232,153,31,.08);
-}
-.live-dot{
-  width:7px;height:7px;border-radius:50%;background:var(--accent-bright);
-  box-shadow:0 0 0 0 rgba(232,153,31,.6);
-  animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(232,153,31,.45)}
-  50%{box-shadow:0 0 0 5px rgba(232,153,31,0)}
+  border:1px solid rgba(232,153,31,.35);border-radius:99px;padding:5px 12px;
+  background:rgba(232,153,31,.08);white-space:nowrap;
 }
 
 /* ── calc grid: inputs | results ── */

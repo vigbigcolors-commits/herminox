@@ -156,13 +156,12 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .tool-head-l{display:flex;flex-direction:column;gap:4px}
 .tool-label{font-family:var(--sans);font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--fin-tx);text-transform:none}
 .tool-sublabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fin-muted)}
-.live-tag{
+.live-tag,.rate-tag{
   display:flex;align-items:center;gap:7px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--fin-muted);padding:6px 12px;border-radius:99px;
-  background:var(--fin-surface);border:1px solid var(--fin-border);
+  background:var(--fin-surface);border:1px solid var(--fin-border);white-space:nowrap;
 }
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--fin-green);box-shadow:0 0 8px var(--fin-green);animation:fin-pulse 2s ease-in-out infinite}
 
 /* two-column body */
 .up-body{
