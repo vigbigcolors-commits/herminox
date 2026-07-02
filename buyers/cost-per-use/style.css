@@ -751,6 +751,13 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   .orn-divider{padding:20px 20px}
   .orn-divider::before{left:20px;right:20px}
 }
+@media(max-width:640px){
+  .nav{flex-wrap:wrap;padding:12px 14px;gap:8px}
+  .nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%;min-width:0}
+  .nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}
+  .logo-text{font-size:14px}
+  .stats-grid{grid-template-columns:1fr}
+}
 @media(prefers-reduced-motion:reduce){
   .playbook-deco--1,.playbook-deco--2,.card-badge--secret,.playbook-cta,.chapter-num{animation:none}
   .playbook-hero h2,.playbook-hero h2 em{animation:none;background:unset;-webkit-text-fill-color:unset;color:inherit}

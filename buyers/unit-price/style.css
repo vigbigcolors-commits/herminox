@@ -171,7 +171,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 
 /* two-column body */
 .up-body{
-  display:grid;grid-template-columns:1.55fr 1fr;gap:20px;
+  display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;
   padding:24px 28px;
   min-width:0;
 }
@@ -314,7 +314,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .add-variant:disabled{opacity:.35;cursor:not-allowed}
 
 /* ---- right: KPI metrics + verdict ---- */
-.up-results{display:flex;flex-direction:column;gap:12px;min-width:0}
+.up-results{display:flex;flex-direction:column;gap:12px;min-width:0;width:100%}
 .up-metric{
   background:var(--fin-surface);border:1px solid var(--fin-border);
   border-radius:var(--fin-r);padding:18px 20px;
@@ -976,9 +976,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1024px){
-  .up-body{grid-template-columns:1fr}
-  .up-results{display:grid;grid-template-columns:1fr;gap:12px}
-  .up-metric{min-width:0}
+  .up-body{grid-template-columns:minmax(0,1fr)}
+  .up-results{display:flex;flex-direction:column;gap:12px;width:100%}
+  .up-metric{flex:none;min-width:0;width:100%;max-width:100%}
   .verdict-box{margin-top:0}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2n){border-right:none}
@@ -1027,8 +1027,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   .up-inputs{padding:18px 16px}
   .family-btn{font-size:9px;padding:10px 6px;flex-direction:column;gap:4px}
   .family-btn svg{width:14px;height:14px}
-  .up-results{flex-direction:column}
-  .up-metric{min-width:0}
+  .up-results{display:flex;flex-direction:column}
+  .up-metric{flex:none;min-width:0;width:100%}
   .bar-row{grid-template-columns:64px 1fr 68px;gap:8px}
   .trust-inner{flex-direction:column;padding:0}
   .trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center;width:100%}
@@ -1051,6 +1051,13 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   .orn-divider::before{left:20px;right:20px}
   .compare{font-size:12px}
   .compare th,.compare td{padding:10px}
+}
+@media(max-width:640px){
+  .nav{flex-wrap:wrap;padding:12px 14px;gap:8px}
+  .nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%;min-width:0}
+  .nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}
+  .logo-text{font-size:14px}
+  .stats-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   .playbook-deco--1,.playbook-deco--2,.card-badge--secret,.playbook-cta,.chapter-num,.playbook-hero h2,.playbook-hero h2 em,.variant,.verdict-stamp{animation:none}

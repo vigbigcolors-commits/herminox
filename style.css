@@ -947,3 +947,10 @@ body::before{
   .hermi-bubble{max-width:min(260px,calc(100vw - 100px))}
   .prose-deco{width:32px;height:32px}
 }
+@media(max-width:640px){
+  .nav{flex-wrap:wrap;padding:12px 14px;gap:8px}
+  .nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%;min-width:0}
+  .nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}
+  .logo-text{font-size:14px}
+  .stats-grid{grid-template-columns:1fr}
+}
