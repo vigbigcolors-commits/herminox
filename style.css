@@ -35,10 +35,27 @@ html{scroll-behavior:smooth}
   --max:1200px;
 }
 
+html{scroll-behavior:smooth;overflow-x:clip;scrollbar-width:thin;scrollbar-color:var(--accent) var(--paper2)}
 body{
   font-family:var(--sans);color:var(--ink);
   background:var(--paper);line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overflow-x:clip;max-width:100%;
+}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--paper2);border-left:1px solid var(--line)}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,var(--accent-bright),var(--accent));
+  border-radius:99px;border:2px solid var(--paper2);
+}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-deep)}
+
+/* ============ SCROLL PROGRESS (homepage) ============ */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:4px;width:0%;z-index:300;pointer-events:none;
+  background:linear-gradient(90deg,var(--accent-deep),var(--accent-bright),var(--gold));
+  box-shadow:0 0 12px rgba(232,153,31,.55);
+  transition:width .08s linear;
 }
 
 /* ============ SCROLL REVEAL ANIMATIONS ============ */

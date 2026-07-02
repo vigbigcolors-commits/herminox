@@ -68,6 +68,8 @@
 </head>
 <body>
 
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <header class="nav">
   <a href="/" class="logo" aria-label="Home">
     <svg class="logo-mark" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -966,6 +968,18 @@
     document.addEventListener('click', function(e){ if(open && !e.target.closest('.hermi')) hideTip(); });
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && open) hideTip(); });
   }
+})();
+</script>
+<script>
+(function(){
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
 </script>
 <script defer src="/assets/back-to-top.js"></script>
