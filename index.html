@@ -58,8 +58,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @media(max-width:900px){.promo{padding:0 20px;margin-top:18px}.nav{padding:14px 24px}.nav-links{gap:14px}.nav-badge{display:none}}
 @media(max-width:640px){.promo{padding:0 20px}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}}
 </style>
-<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="style.css"></noscript>
+<link rel="stylesheet" href="style.css">
 <link rel="preload" href="/assets/nav-dropdown.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="/assets/nav-dropdown.css"></noscript>
 </head>
@@ -135,12 +134,20 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   </div>
   <button class="promo-nav promo-prev" type="button" aria-label="Previous slide">‹</button>
   <button class="promo-nav promo-next" type="button" aria-label="Next slide">›</button>
-  <div class="promo-dots" id="promoDots" aria-label="Choose slide"></div>
+  <div class="promo-dots" id="promoDots" aria-label="Choose slide">
+    <button class="promo-dot on" type="button" aria-label="Go to slide 1"></button>
+    <button class="promo-dot" type="button" aria-label="Go to slide 2"></button>
+    <button class="promo-dot" type="button" aria-label="Go to slide 3"></button>
+    <button class="promo-dot" type="button" aria-label="Go to slide 4"></button>
+    <button class="promo-dot" type="button" aria-label="Go to slide 5"></button>
+    <button class="promo-dot" type="button" aria-label="Go to slide 6"></button>
+    <button class="promo-dot" type="button" aria-label="Go to slide 7"></button>
+  </div>
 </section>
 
 <!-- ================= HERO ================= -->
 <section class="split">
-  <div class="split-card split-card--dark reveal">
+  <div class="split-card split-card--dark">
     <div class="split-header">
       <div class="split-icon">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +195,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     </div>
   </div>
 
-  <div class="split-card reveal reveal-d1">
+  <div class="split-card">
     <div class="split-header">
       <div class="split-icon">
         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -848,12 +855,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   var dotsWrap = document.getElementById('promoDots');
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
+  var dots = dotsWrap.children;
   for(var d=0; d<n; d++){ (function(d){
-    var b = document.createElement('button');
-    b.className = 'promo-dot'; b.type = 'button';
-    b.setAttribute('aria-label','Go to slide '+(d+1));
-    b.addEventListener('click', function(){ go(d); });
-    dotsWrap.appendChild(b);
+    if(dots[d]) dots[d].addEventListener('click', function(){ go(d); });
   })(d); }
 
   function step(){ return n>1 ? slides[1].offsetLeft - slides[0].offsetLeft : slides[0].offsetWidth; }
