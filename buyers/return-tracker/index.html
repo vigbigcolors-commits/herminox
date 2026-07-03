@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smart Return &amp; Capital Dashboard 2026 — Track Amazon Return Deadlines &amp; Locked Cash | Free, No Signup</title>
+<title>Herminox — Smart Return &amp; Capital Dashboard 2026 | Track Return Deadlines</title>
 <meta name="description" content="Free return tracker with smart-paste receipt parsing, 30+ retailer return policies, holiday-extension logic to January 31, locked-capital scoreboard, credit-card warranty tracking, and calendar reminders. Includes a 3,300-word returns playbook. Private — runs entirely in your browser.">
 <link rel="canonical" href="https://herminox.com/buyers/return-tracker/">
 
@@ -17,26 +17,26 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Herminox">
-<meta property="og:title" content="Smart Return &amp; Capital Dashboard 2026 — Never Miss a Return Deadline">
+<meta property="og:title" content="Herminox — Smart Return &amp; Capital Dashboard 2026 | Never Miss a Return Deadline">
 <meta property="og:description" content="Paste a receipt, see your locked capital, get the real deadline — including holiday extensions — and export calendar reminders. Free, private, client-side.">
 <meta property="og:url" content="https://herminox.com/buyers/return-tracker/">
 <meta property="og:image" content="https://herminox.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Smart Return Tracker — never miss an Amazon return deadline, free">
+<meta property="og:image:alt" content="Herminox Smart Return Tracker — never miss a return deadline, free">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Smart Return & Capital Dashboard 2026 — Never Miss a Return Deadline">
+<meta name="twitter:title" content="Herminox — Smart Return &amp; Capital Dashboard 2026 | Never Miss a Return Deadline">
 <meta name="twitter:description" content="Paste a receipt, see locked capital and real return deadline including holiday extensions. Free, private, no signup.">
 <meta name="twitter:image" content="https://herminox.com/assets/og-image.jpg">
 
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional"></noscript>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 <link rel="stylesheet" href="/assets/nav-dropdown.css">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Smart Return & Capital Dashboard","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A private, client-side dashboard that tracks Amazon and major-retailer return deadlines, applies holiday return policy, calculates locked capital and exports calendar reminders.","featureList":["Smart-Paste receipt parser","Retailer policy engine for 30+ US stores","Holiday return policy logic","Credit-card warranty extension","Locked capital tracker","Calendar reminders (.ics) at 7 and 2 days"]}
+{"@context":"https://schema.org","@type":"WebApplication","name":"Herminox Smart Return & Capital Dashboard","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"A private, client-side dashboard that tracks Amazon and major-retailer return deadlines, applies holiday return policy, calculates locked capital and exports calendar reminders.","featureList":["Smart-Paste receipt parser","Retailer policy engine for 30+ US stores","Holiday return policy logic","Credit-card warranty extension","Locked capital tracker","Calendar reminders (.ics) at 7 and 2 days"]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://herminox.com/"},{"@type":"ListItem","position":2,"name":"Buyers","item":"https://herminox.com/buyers/"},{"@type":"ListItem","position":3,"name":"Return & Capital Dashboard","item":"https://herminox.com/buyers/return-tracker/"}]}
@@ -133,7 +133,7 @@
         <span class="tool-label">Return &amp; Capital Dashboard</span>
         <span class="tool-sublabel">financial toolkit · client-side</span>
       </div>
-      <span class="live-tag"><span class="live-dot" aria-hidden="true"></span>live</span>
+      <span class="rate-tag">Updated Jun 2026</span>
     </div>
 
     <div class="rt-body">
@@ -142,8 +142,9 @@
         <p class="rt-panel-label">Input data</p>
 
         <div class="rt-paste-wrap">
-          <label class="rt-flabel" for="rt-paste">Smart-paste <span>— order email or receipt</span></label>
-          <textarea id="rt-paste" class="rt-textarea" rows="3" placeholder="Paste your Amazon / Walmart / Best Buy order confirmation here…"></textarea>
+          <label class="rt-flabel" for="rt-paste">Smart-paste <span>— order email or receipt text</span></label>
+          <textarea id="rt-paste" class="rt-textarea" rows="3" placeholder="Paste order confirmation text from any retailer…"></textarea>
+          <p class="rt-paste-note">Parsed locally in your browser — never uploaded.</p>
           <div class="rt-paste-row">
             <button type="button" id="rt-parse" class="rt-btn rt-btn--accent">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 3v4M3 5h4M6 17v4M4 19h4M13 3l3.5 8.5L25 15l-8.5 3.5L13 27l-3.5-8.5L1 15l8.5-3.5L13 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -188,7 +189,7 @@
 
       <!-- Right: KPI cards -->
       <div class="rt-results">
-        <p class="rt-panel-label">Live summary</p>
+        <p class="rt-panel-label">Summary</p>
         <div class="rt-metric rt-metric--purple">
           <span class="rt-metric-label">Capital locked</span>
           <span class="rt-metric-value" id="rt-capital">$0.00</span>

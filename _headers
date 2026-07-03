@@ -18,47 +18,47 @@
 
 # Global and shared CSS/JS
 /style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /legal/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 # Per-tool stylesheets and scripts — revalidate daily
 /sellers/fba-calculator/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /sellers/fba-calculator/app.js
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /sellers/acos-breakeven/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /sellers/acos-breakeven/app.js
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /sellers/inventory-breakeven/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /sellers/inventory-breakeven/app.js
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /buyers/unit-price/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /buyers/unit-price/app.js
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /buyers/cost-per-use/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /buyers/cost-per-use/app.js
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /buyers/return-tracker/style.css
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /buyers/return-tracker/app.js
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=3600, must-revalidate
 
 # HTML pages — always revalidate so updates ship instantly
 /*.html

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Amazon Calculators — FBA, ACoS & Inventory | Herminox</title>
+<title>Herminox — Free Amazon Calculators | FBA, ACoS &amp; Inventory 2026</title>
 <meta name="description" content="Free, private calculators for Amazon sellers and buyers — FBA profit, ACoS breakeven, inventory payback, unit price and cost per use. No signup required.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://herminox.com/">
@@ -19,7 +19,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Herminox">
-<meta property="og:title" content="Free Amazon Calculators — FBA, ACoS & Inventory | Herminox">
+<meta property="og:title" content="Herminox — Free Amazon Calculators | FBA, ACoS &amp; Inventory 2026">
 <meta property="og:description" content="Free, private calculators for Amazon sellers and buyers — FBA profit, ACoS breakeven, inventory payback, unit price and cost per use. No signup required.">
 <meta property="og:url" content="https://herminox.com/">
 <meta property="og:image" content="https://herminox.com/assets/og-image.jpg">
@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Amazon Calculators — FBA, ACoS & Inventory | Herminox">
+<meta name="twitter:title" content="Herminox — Free Amazon Calculators | FBA, ACoS &amp; Inventory 2026">
 <meta name="twitter:description" content="Free, private calculators for Amazon sellers and buyers. No signup, nothing leaves your browser.">
 <meta name="twitter:image" content="https://herminox.com/assets/og-image.jpg">
 
@@ -41,6 +41,8 @@
 <noscript><link rel="stylesheet" href="/assets/nav-dropdown.css"></noscript>
 </head>
 <body>
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="nav">
   <a href="/" class="logo" aria-label="Home">
@@ -296,7 +298,7 @@
   <div class="calc-card" aria-label="FBA profit calculator preview">
     <div class="calc-head">
       <span class="calc-label">FBA Profit Calculator</span>
-      <span class="live-dot" aria-hidden="true"></span>
+      <span class="rate-tag">2026 rate card</span>
     </div>
     <div class="calc-row">
       <div class="field">
@@ -976,6 +978,18 @@
 {"@type":"Question","name":"What net margin should I target before selling on Amazon FBA?","acceptedAnswer":{"@type":"Answer","text":"Most experienced FBA operators treat 15–30% net margin before advertising as workable, above 30% as strong, and below 15% as fragile once returns and PPC are included. Use the FBA Profit Calculator for pre-ad margin, then the ACoS Breakeven Calculator to find your maximum viable ad spend."}},
 {"@type":"Question","name":"Can I use these calculators on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every Herminox calculator is fully responsive and works on any modern smartphone or tablet browser with no app required. All calculation runs locally in your browser, so the tools also work offline once loaded."}}
 ]}
+</script>
+<script>
+(function(){
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h > 0 ? (window.scrollY / h * 100) + '%' : '0%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 </script>
 <script defer src="/assets/back-to-top.js"></script>
 </body>

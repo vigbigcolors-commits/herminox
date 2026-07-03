@@ -35,10 +35,27 @@ html{scroll-behavior:smooth}
   --max:1200px;
 }
 
+html{scroll-behavior:smooth;overflow-x:clip;scrollbar-width:thin;scrollbar-color:var(--accent) var(--paper2)}
 body{
   font-family:var(--sans);color:var(--ink);
   background:var(--paper);line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overflow-x:clip;max-width:100%;
+}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--paper2);border-left:1px solid var(--line)}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,var(--accent-bright),var(--accent));
+  border-radius:99px;border:2px solid var(--paper2);
+}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-deep)}
+
+/* ============ SCROLL PROGRESS (homepage) ============ */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:4px;width:0%;z-index:300;pointer-events:none;
+  background:linear-gradient(90deg,var(--accent-deep),var(--accent-bright),var(--gold));
+  box-shadow:0 0 12px rgba(232,153,31,.55);
+  transition:width .08s linear;
 }
 
 /* ============ SCROLL REVEAL ANIMATIONS ============ */
@@ -297,14 +314,10 @@ body::before{
 }
 .calc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
 .calc-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-tx2)}
-.live-dot{
-  width:8px;height:8px;border-radius:50%;background:var(--accent-bright);
-  box-shadow:0 0 0 0 rgba(232,153,31,.6);
-  animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(232,153,31,.45)}
-  50%{box-shadow:0 0 0 6px rgba(232,153,31,0)}
+.rate-tag{
+  font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--dark-tx2);padding:5px 10px;border-radius:99px;
+  background:rgba(255,255,255,.06);border:1px solid var(--dark-line);white-space:nowrap;
 }
 .calc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
 .field label{display:block;font-size:10px;color:var(--dark-tx2);margin-bottom:5px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
@@ -937,4 +950,11 @@ body::before{
   .hermi{bottom:16px;left:16px}
   .hermi-bubble{max-width:min(260px,calc(100vw - 100px))}
   .prose-deco{width:32px;height:32px}
+}
+@media(max-width:640px){
+  .nav{flex-wrap:wrap;padding:12px 14px;gap:8px}
+  .nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%;min-width:0}
+  .nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}
+  .logo-text{font-size:14px}
+  .stats-grid{grid-template-columns:1fr}
 }
