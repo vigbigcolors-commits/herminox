@@ -184,13 +184,14 @@ body::before{
 /* ============ FEATURED CAROUSEL ============ */
 .promo{position:relative;max-width:var(--max);margin:26px auto 0;padding:0 48px}
 .promo-track{
-  display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:auto;
   border-radius:var(--r-lg);border:1px solid var(--line2);
   box-shadow:0 1px 0 #fff inset,0 14px 34px -22px rgba(27,33,56,.45);
   -ms-overflow-style:none;scrollbar-width:none;background:var(--paper2);
+  touch-action:pan-x pinch-zoom;-webkit-overflow-scrolling:touch;
 }
 .promo-track::-webkit-scrollbar{display:none}
-.promo-track{cursor:grab;touch-action:pan-y}
+.promo-track{cursor:grab}
 .promo-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
 .promo-slide{-webkit-user-drag:none}
 .promo-slide img{user-select:none;-webkit-user-drag:none;pointer-events:none}

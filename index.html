@@ -48,7 +48,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .nav-links a{color:var(--ink2);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
 .nav-badge{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:5px 12px;border-radius:4px}
 .promo{position:relative;max-width:var(--max);margin:26px auto 0;padding:0 48px}
-.promo-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:var(--r-lg);border:1px solid var(--line2);background:var(--paper2);scrollbar-width:none;-ms-overflow-style:none}
+.promo-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:auto;touch-action:pan-x pinch-zoom;border-radius:var(--r-lg);border:1px solid var(--line2);background:var(--paper2);scrollbar-width:none;-ms-overflow-style:none}
 .promo-track::-webkit-scrollbar{display:none}
 .promo-slide{flex:0 0 100%;scroll-snap-align:center;display:block;text-decoration:none;background:var(--paper3)}
 .promo-slide img{display:block;width:100%;height:auto;aspect-ratio:1600/600;object-fit:cover}
@@ -881,27 +881,32 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 
   var dots = dotsWrap.children;
   for(var d=0; d<n; d++){ (function(d){
-    if(dots[d]) dots[d].addEventListener('click', function(){ go(d); });
+    if(dots[d]) dots[d].addEventListener('click', function(){ go(d, true); });
   })(d); }
 
   function step(){ return n>1 ? slides[1].offsetLeft - slides[0].offsetLeft : slides[0].offsetWidth; }
   function mark(){ for(var k=0;k<n;k++) dotsWrap.children[k].classList.toggle('on', k===i); }
-  function go(idx){ i=(idx+n)%n; track.scrollTo({left:i*step(), behavior:'smooth'}); mark(); }
+  function go(idx, smooth){
+    i=(idx+n)%n;
+    track.scrollTo({left:i*step(), behavior:smooth && !reduce ? 'smooth' : 'auto'});
+    mark();
+  }
 
   var st;
   track.addEventListener('scroll', function(){
     clearTimeout(st);
     st = setTimeout(function(){ i = Math.max(0, Math.min(n-1, Math.round(track.scrollLeft/step()))); mark(); }, 90);
-  });
+  }, {passive:true});
 
-  document.querySelector('.promo-next').addEventListener('click', function(){ go(i+1); });
-  document.querySelector('.promo-prev').addEventListener('click', function(){ go(i-1); });
+  document.querySelector('.promo-next').addEventListener('click', function(){ go(i+1, true); });
+  document.querySelector('.promo-prev').addEventListener('click', function(){ go(i-1, true); });
 
-  // Drag to scroll (hold mouse / touch)
+  // Mouse drag only — touch uses native scroll-snap (custom drag caused lag on mobile)
   var down=false, startX=0, startScroll=0, moved=0;
-  track.addEventListener('dragstart', function(e){ e.preventDefault(); }); // kill native link drag
+  track.addEventListener('dragstart', function(e){ e.preventDefault(); });
   track.addEventListener('pointerdown', function(e){
-    if(e.button!==0 && e.pointerType==='mouse') return;
+    if(e.pointerType==='touch') return;
+    if(e.button!==0) return;
     down=true; moved=0; startX=e.clientX; startScroll=track.scrollLeft;
     track.classList.add('dragging'); track.setPointerCapture(e.pointerId);
   });
@@ -910,10 +915,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     var dx=e.clientX-startX; moved+=Math.abs(dx);
     track.scrollLeft=startScroll-dx;
   });
-  function endDrag(){ if(!down) return; down=false; track.classList.remove('dragging'); go(Math.round(track.scrollLeft/step())); }
+  function endDrag(){ if(!down) return; down=false; track.classList.remove('dragging'); go(Math.round(track.scrollLeft/step()), true); }
   track.addEventListener('pointerup', endDrag);
   track.addEventListener('pointercancel', endDrag);
-  // Suppress link click if it was a drag, not a tap
   track.addEventListener('click', function(e){ if(moved>18){ e.preventDefault(); } }, true);
 
   mark();
