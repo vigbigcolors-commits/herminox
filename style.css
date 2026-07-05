@@ -252,84 +252,116 @@ body::before{
   .promo-dots{margin-top:16px;padding:8px 14px}
 }
 @media(max-width:640px){
-  /* carousel hidden on mobile — replaced by .mcalc interactive hero */
+  /* carousel hidden on mobile — replaced by mind & justice emblem */
   .promo{display:none}
 }
 
-/* ============ MOBILE MINI CALC ANIMATION (≤640px only) ============ */
-.mcalc{display:none}
+/* ============ MOBILE EMBLEM — Mind & Justice (≤640px only) ============ */
+.mhero{display:none}
 @media(max-width:640px){
-.mcalc{display:block;padding:14px 16px 2px}
-.mcalc-scene{
-  position:relative;height:118px;max-width:300px;margin:0 auto;
-  display:flex;align-items:center;justify-content:center;
+.mhero{
+  display:block;padding:16px 16px 6px;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 30%,rgba(201,123,26,.07),transparent 65%),
+    radial-gradient(ellipse 60% 50% at 50% 100%,rgba(27,33,56,.04),transparent 60%);
 }
-.mcalc-mini{
-  position:relative;z-index:2;width:128px;
-  background:linear-gradient(165deg,#343d52,var(--dark) 50%,#141929);
-  border:2px solid var(--dark-line);border-radius:14px;
-  padding:8px 8px 7px;
-  box-shadow:0 2px 0 #0c101c,0 12px 28px -10px rgba(27,33,56,.55),inset 0 1px 0 rgba(255,255,255,.06);
-  animation:mcalcBob 4s ease-in-out infinite;
+.mhero-wrap{max-width:340px;margin:0 auto;text-align:center}
+.mhero-svg{display:block;width:100%;height:auto;max-height:168px;overflow:visible}
+
+/* orbit rings */
+.mhero-orbit{
+  transform-box:fill-box;transform-origin:center;
+  -webkit-animation:mheroSpin 28s linear infinite;
+  animation:mheroSpin 28s linear infinite;
 }
-.mcalc-mini-screen{
-  position:relative;height:26px;overflow:hidden;margin-bottom:7px;
-  background:linear-gradient(180deg,#071510,#0c2218);
-  border:1px solid #1e4a32;border-radius:6px;
-  box-shadow:inset 0 3px 10px rgba(0,0,0,.5);
+.mhero-orbit--2{
+  -webkit-animation-duration:20s;
+  animation-duration:20s;
+  -webkit-animation-direction:reverse;
+  animation-direction:reverse;
 }
-.mcalc-mini-screen::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.07) 2px,rgba(0,0,0,.07) 3px);
-  opacity:.35;
+
+/* wisdom rays pulse */
+.mhero-rays{
+  transform-box:fill-box;transform-origin:center;
+  -webkit-animation:mheroPulse 3.5s ease-in-out infinite;
+  animation:mheroPulse 3.5s ease-in-out infinite;
 }
-.mcalc-line{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;
-  padding:0 7px;font-family:var(--mono);font-size:10px;color:#5ecf96;
-  text-shadow:0 0 8px rgba(82,192,136,.35);
-  opacity:0;animation:mcalcLine 10s infinite;animation-delay:calc(var(--i) * 2s);
+
+/* mind orb breathe */
+.mhero-mind{
+  transform-box:fill-box;transform-origin:center;
+  -webkit-animation:mheroBreathe 4s ease-in-out infinite;
+  animation:mheroBreathe 4s ease-in-out infinite;
 }
-.mcalc-mini-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.mcalc-mini-pad i{
-  display:block;height:11px;border-radius:4px;
-  background:linear-gradient(180deg,#3d455c,#2a3148);
-  border:1px solid #424c68;
-  box-shadow:0 2px 0 #181e2c;
+.mhero-mind-glow{
+  transform-box:fill-box;transform-origin:center;
+  -webkit-animation:mheroGlow 4s ease-in-out infinite;
+  animation:mheroGlow 4s ease-in-out infinite;
 }
-.mcalc-mini-pad i:nth-child(1){animation:mcalcTap 3.2s ease infinite .4s}
-.mcalc-mini-pad i:nth-child(3){animation:mcalcTap 3.2s ease infinite 1.1s}
-.mcalc-mini-pad i:nth-child(5){animation:mcalcTap 3.2s ease infinite 1.8s}
-.mcalc-mini-pad i:nth-child(6){animation:mcalcTap 3.2s ease infinite 2.4s;background:linear-gradient(180deg,var(--accent-bright),var(--accent-deep));border-color:var(--accent-deep);box-shadow:0 2px 0 #7a4f0a}
-.mcalc-orb{
-  position:absolute;z-index:1;font-family:var(--mono);font-size:9px;font-weight:500;
-  color:var(--accent-deep);opacity:0;letter-spacing:.02em;
-  padding:3px 7px;border-radius:99px;border:1px solid var(--line);
-  background:rgba(245,240,232,.85);white-space:nowrap;
-  animation:mcalcOrb 8s ease-in-out infinite;
+
+/* scales balance */
+.mhero-beam{
+  transform-box:fill-box;transform-origin:center top;
+  -webkit-animation:mheroBalance 5s ease-in-out infinite;
+  animation:mheroBalance 5s ease-in-out infinite;
 }
-.mcalc-orb--1{top:8px;left:4px;animation-delay:0s}
-.mcalc-orb--2{top:4px;right:2px;animation-delay:1.6s;color:var(--ink2)}
-.mcalc-orb--3{bottom:18px;left:0;animation-delay:3.2s}
-.mcalc-orb--4{bottom:8px;right:0;animation-delay:4.8s;color:var(--ink2)}
-.mcalc-orb--5{top:42px;left:50%;margin-left:-52px;animation-delay:6.4s;color:#3F9B6D;border-color:rgba(63,155,109,.35)}
-@keyframes mcalcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-@keyframes mcalcLine{
-  0%,16%{opacity:0;transform:translateY(3px)}
-  5%,13%{opacity:1;transform:translateY(0)}
-  18%,100%{opacity:0;transform:translateY(-3px)}
+.mhero-pan{
+  transform-box:fill-box;transform-origin:center top;
+  -webkit-animation:mheroPan 5s ease-in-out infinite;
+  animation:mheroPan 5s ease-in-out infinite;
 }
-@keyframes mcalcTap{
-  0%,88%,100%{transform:translateY(0)}
-  92%,96%{transform:translateY(2px);box-shadow:0 0 0 #181e2c}
+.mhero-pan--r{
+  -webkit-animation-name:mheroPanR;
+  animation-name:mheroPanR;
 }
-@keyframes mcalcOrb{
-  0%,8%{opacity:0;transform:translateY(6px) scale(.92)}
-  12%,28%{opacity:.9;transform:translateY(0) scale(1)}
-  34%,100%{opacity:0;transform:translateY(-8px) scale(.95)}
+
+/* floating numbers */
+.mhero-float{
+  transform-box:fill-box;transform-origin:center;
+  -webkit-animation:mheroDrift 6s ease-in-out infinite;
+  animation:mheroDrift 6s ease-in-out infinite;
 }
+.mhero-float--1{-webkit-animation-delay:0s;animation-delay:0s}
+.mhero-float--2{-webkit-animation-delay:1.5s;animation-delay:1.5s}
+.mhero-float--3{-webkit-animation-delay:3s;animation-delay:3s}
+.mhero-float--4{-webkit-animation-delay:4.5s;animation-delay:4.5s}
+
+.mhero-caption{
+  display:flex;justify-content:center;gap:10px;margin-top:6px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
+}
+.mhero-caption span{
+  padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:rgba(245,240,232,.7);
+}
+.mhero-caption span:nth-child(1){color:var(--accent-deep);border-color:rgba(201,123,26,.35)}
+.mhero-caption span:nth-child(2){color:var(--ink)}
+.mhero-caption span:nth-child(3){color:#3F9B6D;border-color:rgba(63,155,109,.3)}
+
+@-webkit-keyframes mheroSpin{to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
+@keyframes mheroSpin{to{transform:rotate(360deg)}}
+@-webkit-keyframes mheroPulse{0%,100%{opacity:.45;-webkit-transform:scale(.92);transform:scale(.92)}50%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}
+@keyframes mheroPulse{0%,100%{opacity:.45;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
+@-webkit-keyframes mheroBreathe{0%,100%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.04);transform:scale(1.04)}}
+@keyframes mheroBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@-webkit-keyframes mheroGlow{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes mheroGlow{0%,100%{opacity:.5}50%{opacity:1}}
+@-webkit-keyframes mheroBalance{0%,100%{-webkit-transform:rotate(-6deg);transform:rotate(-6deg)}50%{-webkit-transform:rotate(6deg);transform:rotate(6deg)}}
+@keyframes mheroBalance{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@-webkit-keyframes mheroPan{0%,100%{-webkit-transform:rotate(6deg) translateY(4px);transform:rotate(6deg) translateY(4px)}50%{-webkit-transform:rotate(-6deg) translateY(-2px);transform:rotate(-6deg) translateY(-2px)}}
+@keyframes mheroPan{0%,100%{transform:rotate(6deg) translateY(4px)}50%{transform:rotate(-6deg) translateY(-2px)}}
+@-webkit-keyframes mheroPanR{0%,100%{-webkit-transform:rotate(6deg) translateY(-2px);transform:rotate(6deg) translateY(-2px)}50%{-webkit-transform:rotate(-6deg) translateY(4px);transform:rotate(-6deg) translateY(4px)}}
+@keyframes mheroPanR{0%,100%{transform:rotate(6deg) translateY(-2px)}50%{transform:rotate(-6deg) translateY(4px)}}
+@-webkit-keyframes mheroDrift{0%,100%{opacity:0;-webkit-transform:translateY(6px);transform:translateY(6px)}20%,70%{opacity:.75;-webkit-transform:translateY(0);transform:translateY(0)}85%{opacity:0;-webkit-transform:translateY(-6px);transform:translateY(-6px)}}
+@keyframes mheroDrift{0%,100%{opacity:0;transform:translateY(6px)}20%,70%{opacity:.75;transform:translateY(0)}85%{opacity:0;transform:translateY(-6px)}}
+
 @media(prefers-reduced-motion:reduce){
-  .mcalc-mini,.mcalc-line,.mcalc-orb,.mcalc-mini-pad i{animation:none}
-  .mcalc-line:first-child,.mcalc-orb--2{opacity:.85}
+  .mhero-orbit,.mhero-rays,.mhero-mind,.mhero-mind-glow,.mhero-beam,.mhero-pan,.mhero-float{
+    -webkit-animation:none;animation:none;
+  }
+  .mhero-beam{-webkit-transform:rotate(0);transform:rotate(0)}
+  .mhero-pan,.mhero-pan--r{-webkit-transform:none;transform:none}
+  .mhero-float{opacity:.6}
 }
 }
 
@@ -1020,7 +1052,7 @@ body::before{
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:40px 24px}
   .hero-watermark{font-size:180px;top:-20px}
-  .split{grid-template-columns:1fr;padding:24px 24px 40px}
+  .split{grid-template-columns:1fr;padding:20px 24px 40px}
   .nav{padding:14px 24px}
   .nav-links{gap:14px}
   .nav-badge{display:none}
