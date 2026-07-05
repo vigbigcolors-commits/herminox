@@ -252,8 +252,8 @@ body::before{
   .promo-dots{margin-top:16px;padding:8px 14px}
 }
 @media(max-width:640px){
-  /* on small mobile swipe is the primary interaction — hide arrows */
-  .promo-nav{display:none}
+  /* carousel hidden on mobile — swipe UX unreliable; split cards are the entry point */
+  .promo{display:none}
 }
 
 /* ============ HERO ============ */
