@@ -79,7 +79,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;z-index:1000;padding:12px 16px;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:4px;font-size:14px;font-weight:600}
 @media(max-width:900px){.promo{padding:0 20px;margin-top:18px}.nav{padding:14px 24px}.nav-links{gap:14px}.nav-badge{display:none}.stats-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.promo{display:none}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:40px 24px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}
+@media(max-width:640px){.promo{display:none}.mcalc{display:block}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:24px 24px 40px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}
 </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="/assets/nav-dropdown.css">
@@ -165,6 +165,29 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <button class="promo-dot" type="button" aria-label="Go to slide 5"></button>
     <button class="promo-dot" type="button" aria-label="Go to slide 6"></button>
     <button class="promo-dot" type="button" aria-label="Go to slide 7"></button>
+  </div>
+</section>
+
+<!-- ================= MOBILE MINI CALC ANIMATION (≤640px) ================= -->
+<section class="mcalc" aria-hidden="true">
+  <div class="mcalc-scene">
+    <span class="mcalc-orb mcalc-orb--1">15%</span>
+    <span class="mcalc-orb mcalc-orb--2">$24.99</span>
+    <span class="mcalc-orb mcalc-orb--3">ACoS</span>
+    <span class="mcalc-orb mcalc-orb--4">÷ oz</span>
+    <span class="mcalc-orb mcalc-orb--5">$8.42</span>
+    <div class="mcalc-mini">
+      <div class="mcalc-mini-screen">
+        <span class="mcalc-line" style="--i:0">24.99 × 0.15</span>
+        <span class="mcalc-line" style="--i:1">− 7.50 − 5.32</span>
+        <span class="mcalc-line" style="--i:2">= $8.42</span>
+        <span class="mcalc-line" style="--i:3">ACoS ≤ 33.7%</span>
+        <span class="mcalc-line" style="--i:4">$0.38 / oz</span>
+      </div>
+      <div class="mcalc-mini-pad">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+    </div>
   </div>
 </section>
 

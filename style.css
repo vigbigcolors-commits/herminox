@@ -252,8 +252,85 @@ body::before{
   .promo-dots{margin-top:16px;padding:8px 14px}
 }
 @media(max-width:640px){
-  /* carousel hidden on mobile — swipe UX unreliable; split cards are the entry point */
+  /* carousel hidden on mobile — replaced by .mcalc interactive hero */
   .promo{display:none}
+}
+
+/* ============ MOBILE MINI CALC ANIMATION (≤640px only) ============ */
+.mcalc{display:none}
+@media(max-width:640px){
+.mcalc{display:block;padding:14px 16px 2px}
+.mcalc-scene{
+  position:relative;height:118px;max-width:300px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+}
+.mcalc-mini{
+  position:relative;z-index:2;width:128px;
+  background:linear-gradient(165deg,#343d52,var(--dark) 50%,#141929);
+  border:2px solid var(--dark-line);border-radius:14px;
+  padding:8px 8px 7px;
+  box-shadow:0 2px 0 #0c101c,0 12px 28px -10px rgba(27,33,56,.55),inset 0 1px 0 rgba(255,255,255,.06);
+  animation:mcalcBob 4s ease-in-out infinite;
+}
+.mcalc-mini-screen{
+  position:relative;height:26px;overflow:hidden;margin-bottom:7px;
+  background:linear-gradient(180deg,#071510,#0c2218);
+  border:1px solid #1e4a32;border-radius:6px;
+  box-shadow:inset 0 3px 10px rgba(0,0,0,.5);
+}
+.mcalc-mini-screen::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.07) 2px,rgba(0,0,0,.07) 3px);
+  opacity:.35;
+}
+.mcalc-line{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;
+  padding:0 7px;font-family:var(--mono);font-size:10px;color:#5ecf96;
+  text-shadow:0 0 8px rgba(82,192,136,.35);
+  opacity:0;animation:mcalcLine 10s infinite;animation-delay:calc(var(--i) * 2s);
+}
+.mcalc-mini-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.mcalc-mini-pad i{
+  display:block;height:11px;border-radius:4px;
+  background:linear-gradient(180deg,#3d455c,#2a3148);
+  border:1px solid #424c68;
+  box-shadow:0 2px 0 #181e2c;
+}
+.mcalc-mini-pad i:nth-child(1){animation:mcalcTap 3.2s ease infinite .4s}
+.mcalc-mini-pad i:nth-child(3){animation:mcalcTap 3.2s ease infinite 1.1s}
+.mcalc-mini-pad i:nth-child(5){animation:mcalcTap 3.2s ease infinite 1.8s}
+.mcalc-mini-pad i:nth-child(6){animation:mcalcTap 3.2s ease infinite 2.4s;background:linear-gradient(180deg,var(--accent-bright),var(--accent-deep));border-color:var(--accent-deep);box-shadow:0 2px 0 #7a4f0a}
+.mcalc-orb{
+  position:absolute;z-index:1;font-family:var(--mono);font-size:9px;font-weight:500;
+  color:var(--accent-deep);opacity:0;letter-spacing:.02em;
+  padding:3px 7px;border-radius:99px;border:1px solid var(--line);
+  background:rgba(245,240,232,.85);white-space:nowrap;
+  animation:mcalcOrb 8s ease-in-out infinite;
+}
+.mcalc-orb--1{top:8px;left:4px;animation-delay:0s}
+.mcalc-orb--2{top:4px;right:2px;animation-delay:1.6s;color:var(--ink2)}
+.mcalc-orb--3{bottom:18px;left:0;animation-delay:3.2s}
+.mcalc-orb--4{bottom:8px;right:0;animation-delay:4.8s;color:var(--ink2)}
+.mcalc-orb--5{top:42px;left:50%;margin-left:-52px;animation-delay:6.4s;color:#3F9B6D;border-color:rgba(63,155,109,.35)}
+@keyframes mcalcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes mcalcLine{
+  0%,16%{opacity:0;transform:translateY(3px)}
+  5%,13%{opacity:1;transform:translateY(0)}
+  18%,100%{opacity:0;transform:translateY(-3px)}
+}
+@keyframes mcalcTap{
+  0%,88%,100%{transform:translateY(0)}
+  92%,96%{transform:translateY(2px);box-shadow:0 0 0 #181e2c}
+}
+@keyframes mcalcOrb{
+  0%,8%{opacity:0;transform:translateY(6px) scale(.92)}
+  12%,28%{opacity:.9;transform:translateY(0) scale(1)}
+  34%,100%{opacity:0;transform:translateY(-8px) scale(.95)}
+}
+@media(prefers-reduced-motion:reduce){
+  .mcalc-mini,.mcalc-line,.mcalc-orb,.mcalc-mini-pad i{animation:none}
+  .mcalc-line:first-child,.mcalc-orb--2{opacity:.85}
+}
 }
 
 /* ============ HERO ============ */
@@ -943,7 +1020,7 @@ body::before{
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:40px 24px}
   .hero-watermark{font-size:180px;top:-20px}
-  .split{grid-template-columns:1fr;padding:40px 24px}
+  .split{grid-template-columns:1fr;padding:24px 24px 40px}
   .nav{padding:14px 24px}
   .nav-links{gap:14px}
   .nav-badge{display:none}
