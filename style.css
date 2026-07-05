@@ -262,7 +262,7 @@ body::before{
 .mhero{
   display:block;padding:16px 16px 6px;
   background:
-    radial-gradient(ellipse 80% 70% at 50% 30%,rgba(201,123,26,.07),transparent 65%),
+    radial-gradient(ellipse 80% 70% at 50% 30%,rgba(91,174,232,.1),transparent 65%),
     radial-gradient(ellipse 60% 50% at 50% 100%,rgba(27,33,56,.04),transparent 60%);
 }
 .mhero-wrap{max-width:340px;margin:0 auto;text-align:center}
@@ -334,9 +334,9 @@ body::before{
 .mhero-caption span{
   padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:rgba(245,240,232,.7);
 }
-.mhero-caption span:nth-child(1){color:var(--accent-deep);border-color:rgba(201,123,26,.35)}
+.mhero-caption span:nth-child(1){color:#2B6CB0;border-color:rgba(91,174,232,.4)}
 .mhero-caption span:nth-child(2){color:var(--ink)}
-.mhero-caption span:nth-child(3){color:#3F9B6D;border-color:rgba(63,155,109,.3)}
+.mhero-caption span:nth-child(3){color:#3A8FC4;border-color:rgba(111,232,255,.35)}
 
 @-webkit-keyframes mheroSpin{to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 @keyframes mheroSpin{to{transform:rotate(360deg)}}
