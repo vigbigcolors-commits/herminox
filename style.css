@@ -252,83 +252,118 @@ body::before{
   .promo-dots{margin-top:16px;padding:8px 14px}
 }
 @media(max-width:640px){
-  /* carousel hidden on mobile — replaced by mind & justice emblem */
+  /* carousel hidden on mobile — replaced by brain & neurons emblem */
   .promo{display:none}
 }
 
-/* ============ MOBILE EMBLEM — Mind & Justice (≤640px only) ============ */
+/* ============ MOBILE EMBLEM — Brain & Neurons (≤640px, HTML/CSS for iOS) ============ */
 .mhero{display:none}
 @media(max-width:640px){
 .mhero{
-  display:block;padding:16px 16px 6px;
+  display:block;padding:14px 16px 4px;
   background:
-    radial-gradient(ellipse 80% 70% at 50% 30%,rgba(91,174,232,.1),transparent 65%),
+    radial-gradient(ellipse 75% 55% at 50% 38%,rgba(91,174,232,.14),transparent 72%),
     radial-gradient(ellipse 60% 50% at 50% 100%,rgba(27,33,56,.04),transparent 60%);
 }
-.mhero-wrap{max-width:340px;margin:0 auto;text-align:center}
-.mhero-svg{display:block;width:100%;height:auto;max-height:168px;overflow:visible}
-
-/* orbit rings */
+.mhero-wrap{max-width:320px;margin:0 auto;text-align:center}
+.mhero-scene{
+  position:relative;height:172px;
+  display:flex;align-items:center;justify-content:center;
+}
 .mhero-orbit{
-  transform-box:fill-box;transform-origin:center;
-  -webkit-animation:mheroSpin 28s linear infinite;
-  animation:mheroSpin 28s linear infinite;
+  position:absolute;top:50%;left:50%;
+  width:156px;height:156px;margin:-78px 0 0 -78px;
+  border:1px dashed rgba(126,200,240,.26);border-radius:50%;
+  pointer-events:none;
+  -webkit-animation:mheroSpin 24s linear infinite;
+  animation:mheroSpin 24s linear infinite;
 }
-.mhero-orbit--2{
-  -webkit-animation-duration:20s;
-  animation-duration:20s;
-  -webkit-animation-direction:reverse;
-  animation-direction:reverse;
+.mhero-brain{
+  position:relative;z-index:2;
+  width:min(200px,78vw);height:auto;
+  -webkit-transform:translateZ(0);transform:translateZ(0);
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  -webkit-animation:mheroBreathe 5s ease-in-out infinite;
+  animation:mheroBreathe 5s ease-in-out infinite;
+  will-change:transform;
 }
-
-/* wisdom rays pulse */
-.mhero-rays{
-  transform-box:fill-box;transform-origin:center;
-  -webkit-animation:mheroPulse 3.5s ease-in-out infinite;
-  animation:mheroPulse 3.5s ease-in-out infinite;
+.mhero-brain-aura{
+  position:absolute;inset:-12% -8%;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 45%,rgba(111,232,255,.22) 0%,rgba(91,174,232,.08) 42%,transparent 70%);
+  -webkit-animation:mheroAura 5s ease-in-out infinite;
+  animation:mheroAura 5s ease-in-out infinite;
+  will-change:opacity,transform;
 }
-
-/* mind orb breathe */
-.mhero-mind{
-  transform-box:fill-box;transform-origin:center;
-  -webkit-animation:mheroBreathe 4s ease-in-out infinite;
-  animation:mheroBreathe 4s ease-in-out infinite;
+.mhero-brain-svg{display:block;width:100%;height:auto;position:relative;z-index:1}
+.mhero-net{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
 }
-.mhero-mind-glow{
-  transform-box:fill-box;transform-origin:center;
-  -webkit-animation:mheroGlow 4s ease-in-out infinite;
-  animation:mheroGlow 4s ease-in-out infinite;
+.mhero-link{
+  position:absolute;left:var(--x);top:var(--y);
+  width:var(--w);height:2px;
+  -webkit-transform-origin:left center;transform-origin:left center;
+  -webkit-transform:rotate(var(--r)) translateZ(0);transform:rotate(var(--r)) translateZ(0);
+  border-radius:2px;
+  background:linear-gradient(90deg,rgba(91,174,232,.15),rgba(111,232,255,.55),rgba(91,174,232,.15));
+  -webkit-animation:mheroLink 3.6s ease-in-out infinite;
+  animation:mheroLink 3.6s ease-in-out infinite;
+  will-change:opacity;
 }
-
-/* scales balance */
-.mhero-beam{
-  transform-box:fill-box;transform-origin:center top;
-  -webkit-animation:mheroBalance 5s ease-in-out infinite;
-  animation:mheroBalance 5s ease-in-out infinite;
+.mhero-link--1{-webkit-animation-delay:0s;animation-delay:0s}
+.mhero-link--2{-webkit-animation-delay:.4s;animation-delay:.4s}
+.mhero-link--3{-webkit-animation-delay:.8s;animation-delay:.8s}
+.mhero-link--4{-webkit-animation-delay:1.2s;animation-delay:1.2s}
+.mhero-link--5{-webkit-animation-delay:1.6s;animation-delay:1.6s}
+.mhero-link--6{-webkit-animation-delay:2s;animation-delay:2s}
+.mhero-link--7{-webkit-animation-delay:2.4s;animation-delay:2.4s}
+.mhero-link--8{-webkit-animation-delay:2.8s;animation-delay:2.8s}
+.mhero-node{
+  position:absolute;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#E8FCFF,#7DF4FF 55%,#5BAEE8);
+  border:1px solid rgba(232,252,255,.85);
+  box-shadow:0 0 8px 2px rgba(111,232,255,.65);
+  -webkit-transform:translateZ(0);transform:translateZ(0);
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  -webkit-animation:mheroNode 3.2s ease-in-out infinite;
+  animation:mheroNode 3.2s ease-in-out infinite;
+  will-change:opacity,transform,box-shadow;
 }
-.mhero-pan{
-  transform-box:fill-box;transform-origin:center top;
-  -webkit-animation:mheroPan 5s ease-in-out infinite;
-  animation:mheroPan 5s ease-in-out infinite;
+.mhero-node--1{left:28%;top:42%;-webkit-animation-delay:0s;animation-delay:0s}
+.mhero-node--2{left:50%;top:34%;-webkit-animation-delay:.5s;animation-delay:.5s}
+.mhero-node--3{left:72%;top:44%;-webkit-animation-delay:1s;animation-delay:1s}
+.mhero-node--4{left:36%;top:62%;-webkit-animation-delay:1.5s;animation-delay:1.5s}
+.mhero-node--5{left:64%;top:64%;-webkit-animation-delay:2s;animation-delay:2s}
+.mhero-node--6{left:50%;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;-webkit-animation-delay:.25s;animation-delay:.25s}
+.mhero-node--7{left:44%;top:78%;-webkit-animation-delay:2.5s;animation-delay:2.5s}
+.mhero-signal{
+  position:absolute;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;
+  border-radius:50%;background:#B8F4FF;
+  box-shadow:0 0 10px 3px rgba(111,232,255,.9);
+  -webkit-transform:translateZ(0);transform:translateZ(0);
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  will-change:opacity,-webkit-transform,transform;
 }
-.mhero-pan--r{
-  -webkit-animation-name:mheroPanR;
-  animation-name:mheroPanR;
+.mhero-signal--1{left:28%;top:42%;-webkit-animation:mheroSig1 2.8s ease-in-out infinite;animation:mheroSig1 2.8s ease-in-out infinite;-webkit-animation-delay:0s;animation-delay:0s}
+.mhero-signal--2{left:50%;top:34%;-webkit-animation:mheroSig2 2.8s ease-in-out infinite;animation:mheroSig2 2.8s ease-in-out infinite;-webkit-animation-delay:.9s;animation-delay:.9s}
+.mhero-signal--3{left:36%;top:62%;-webkit-animation:mheroSig3 2.8s ease-in-out infinite;animation:mheroSig3 2.8s ease-in-out infinite;-webkit-animation-delay:1.8s;animation-delay:1.8s}
+.mhero-tag{
+  position:absolute;z-index:3;
+  font-family:var(--mono);font-size:9px;letter-spacing:.02em;
+  padding:3px 8px;border-radius:99px;
+  border:1px solid var(--line);background:rgba(245,240,232,.88);
+  pointer-events:none;
+  -webkit-animation:mheroTag 5s ease-in-out infinite;
+  animation:mheroTag 5s ease-in-out infinite;
+  will-change:opacity,transform;
 }
-
-/* floating numbers */
-.mhero-float{
-  transform-box:fill-box;transform-origin:center;
-  -webkit-animation:mheroDrift 6s ease-in-out infinite;
-  animation:mheroDrift 6s ease-in-out infinite;
-}
-.mhero-float--1{-webkit-animation-delay:0s;animation-delay:0s}
-.mhero-float--2{-webkit-animation-delay:1.5s;animation-delay:1.5s}
-.mhero-float--3{-webkit-animation-delay:3s;animation-delay:3s}
-.mhero-float--4{-webkit-animation-delay:4.5s;animation-delay:4.5s}
-
+.mhero-tag--1{top:14px;left:2px;color:#5BAEE8;-webkit-animation-delay:0s;animation-delay:0s}
+.mhero-tag--2{top:8px;right:-2px;color:var(--ink2);-webkit-animation-delay:1.2s;animation-delay:1.2s}
+.mhero-tag--3{bottom:18px;left:-2px;color:var(--ink2);-webkit-animation-delay:2.4s;animation-delay:2.4s}
+.mhero-tag--4{bottom:12px;right:-2px;color:#6FE8FF;border-color:rgba(111,232,255,.35);-webkit-animation-delay:3.6s;animation-delay:3.6s}
 .mhero-caption{
-  display:flex;justify-content:center;gap:10px;margin-top:6px;
+  display:flex;justify-content:center;gap:8px;margin-top:8px;
   font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
 }
 .mhero-caption span{
@@ -337,31 +372,88 @@ body::before{
 .mhero-caption span:nth-child(1){color:#2B6CB0;border-color:rgba(91,174,232,.4)}
 .mhero-caption span:nth-child(2){color:var(--ink)}
 .mhero-caption span:nth-child(3){color:#3A8FC4;border-color:rgba(111,232,255,.35)}
-
+@-webkit-keyframes mheroBreathe{
+  0%,100%{-webkit-transform:translateZ(0) scale(1);transform:translateZ(0) scale(1)}
+  50%{-webkit-transform:translateZ(0) scale(1.035);transform:translateZ(0) scale(1.035)}
+}
+@keyframes mheroBreathe{
+  0%,100%{transform:translateZ(0) scale(1)}
+  50%{transform:translateZ(0) scale(1.035)}
+}
+@-webkit-keyframes mheroAura{
+  0%,100%{opacity:.55;-webkit-transform:scale(.96);transform:scale(.96)}
+  50%{opacity:1;-webkit-transform:scale(1.04);transform:scale(1.04)}
+}
+@keyframes mheroAura{
+  0%,100%{opacity:.55;transform:scale(.96)}
+  50%{opacity:1;transform:scale(1.04)}
+}
+@-webkit-keyframes mheroNode{
+  0%,100%{opacity:.35;-webkit-transform:translateZ(0) scale(.82);transform:translateZ(0) scale(.82);box-shadow:0 0 4px 1px rgba(91,174,232,.3)}
+  50%{opacity:1;-webkit-transform:translateZ(0) scale(1.15);transform:translateZ(0) scale(1.15);box-shadow:0 0 14px 4px rgba(111,232,255,.85),0 0 28px 8px rgba(91,174,232,.4)}
+}
+@keyframes mheroNode{
+  0%,100%{opacity:.35;transform:translateZ(0) scale(.82);box-shadow:0 0 4px 1px rgba(91,174,232,.3)}
+  50%{opacity:1;transform:translateZ(0) scale(1.15);box-shadow:0 0 14px 4px rgba(111,232,255,.85),0 0 28px 8px rgba(91,174,232,.4)}
+}
+@-webkit-keyframes mheroLink{
+  0%,100%{opacity:.2}
+  40%,60%{opacity:.9}
+}
+@keyframes mheroLink{
+  0%,100%{opacity:.2}
+  40%,60%{opacity:.9}
+}
+@-webkit-keyframes mheroSig1{
+  0%,100%{opacity:0;-webkit-transform:translate3d(0,0,0) scale(.6);transform:translate3d(0,0,0) scale(.6)}
+  15%{opacity:1}85%{opacity:1}
+  100%{opacity:0;-webkit-transform:translate3d(44px,-14px,0) scale(1);transform:translate3d(44px,-14px,0) scale(1)}
+}
+@keyframes mheroSig1{
+  0%,100%{opacity:0;transform:translate3d(0,0,0) scale(.6)}
+  15%{opacity:1}85%{opacity:1}
+  100%{opacity:0;transform:translate3d(44px,-14px,0) scale(1)}
+}
+@-webkit-keyframes mheroSig2{
+  0%,100%{opacity:0;-webkit-transform:translate3d(0,0,0) scale(.6);transform:translate3d(0,0,0) scale(.6)}
+  15%{opacity:1}85%{opacity:1}
+  100%{opacity:0;-webkit-transform:translate3d(42px,18px,0) scale(1);transform:translate3d(42px,18px,0) scale(1)}
+}
+@keyframes mheroSig2{
+  0%,100%{opacity:0;transform:translate3d(0,0,0) scale(.6)}
+  15%{opacity:1}85%{opacity:1}
+  100%{opacity:0;transform:translate3d(42px,18px,0) scale(1)}
+}
+@-webkit-keyframes mheroSig3{
+  0%,100%{opacity:0;-webkit-transform:translate3d(0,0,0) scale(.6);transform:translate3d(0,0,0) scale(.6)}
+  15%{opacity:1}85%{opacity:1}
+  100%{opacity:0;-webkit-transform:translate3d(26px,-22px,0) scale(1);transform:translate3d(26px,-22px,0) scale(1)}
+}
+@keyframes mheroSig3{
+  0%,100%{opacity:0;transform:translate3d(0,0,0) scale(.6)}
+  15%{opacity:1}85%{opacity:1}
+  100%{opacity:0;transform:translate3d(26px,-22px,0) scale(1)}
+}
 @-webkit-keyframes mheroSpin{to{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 @keyframes mheroSpin{to{transform:rotate(360deg)}}
-@-webkit-keyframes mheroPulse{0%,100%{opacity:.45;-webkit-transform:scale(.92);transform:scale(.92)}50%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}
-@keyframes mheroPulse{0%,100%{opacity:.45;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
-@-webkit-keyframes mheroBreathe{0%,100%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.04);transform:scale(1.04)}}
-@keyframes mheroBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-@-webkit-keyframes mheroGlow{0%,100%{opacity:.5}50%{opacity:1}}
-@keyframes mheroGlow{0%,100%{opacity:.5}50%{opacity:1}}
-@-webkit-keyframes mheroBalance{0%,100%{-webkit-transform:rotate(-6deg);transform:rotate(-6deg)}50%{-webkit-transform:rotate(6deg);transform:rotate(6deg)}}
-@keyframes mheroBalance{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
-@-webkit-keyframes mheroPan{0%,100%{-webkit-transform:rotate(6deg) translateY(4px);transform:rotate(6deg) translateY(4px)}50%{-webkit-transform:rotate(-6deg) translateY(-2px);transform:rotate(-6deg) translateY(-2px)}}
-@keyframes mheroPan{0%,100%{transform:rotate(6deg) translateY(4px)}50%{transform:rotate(-6deg) translateY(-2px)}}
-@-webkit-keyframes mheroPanR{0%,100%{-webkit-transform:rotate(6deg) translateY(-2px);transform:rotate(6deg) translateY(-2px)}50%{-webkit-transform:rotate(-6deg) translateY(4px);transform:rotate(-6deg) translateY(4px)}}
-@keyframes mheroPanR{0%,100%{transform:rotate(6deg) translateY(-2px)}50%{transform:rotate(-6deg) translateY(4px)}}
-@-webkit-keyframes mheroDrift{0%,100%{opacity:0;-webkit-transform:translateY(6px);transform:translateY(6px)}20%,70%{opacity:.75;-webkit-transform:translateY(0);transform:translateY(0)}85%{opacity:0;-webkit-transform:translateY(-6px);transform:translateY(-6px)}}
-@keyframes mheroDrift{0%,100%{opacity:0;transform:translateY(6px)}20%,70%{opacity:.75;transform:translateY(0)}85%{opacity:0;transform:translateY(-6px)}}
-
+@-webkit-keyframes mheroTag{
+  0%,100%{opacity:0;-webkit-transform:translateY(5px);transform:translateY(5px)}
+  18%,62%{opacity:.85;-webkit-transform:translateY(0);transform:translateY(0)}
+  78%{opacity:0;-webkit-transform:translateY(-4px);transform:translateY(-4px)}
+}
+@keyframes mheroTag{
+  0%,100%{opacity:0;transform:translateY(5px)}
+  18%,62%{opacity:.85;transform:translateY(0)}
+  78%{opacity:0;transform:translateY(-4px)}
+}
 @media(prefers-reduced-motion:reduce){
-  .mhero-orbit,.mhero-rays,.mhero-mind,.mhero-mind-glow,.mhero-beam,.mhero-pan,.mhero-float{
+  .mhero-orbit,.mhero-brain,.mhero-brain-aura,.mhero-link,.mhero-node,.mhero-signal,.mhero-tag{
     -webkit-animation:none;animation:none;
   }
-  .mhero-beam{-webkit-transform:rotate(0);transform:rotate(0)}
-  .mhero-pan,.mhero-pan--r{-webkit-transform:none;transform:none}
-  .mhero-float{opacity:.6}
+  .mhero-node{opacity:.8;box-shadow:0 0 10px 2px rgba(111,232,255,.6)}
+  .mhero-link{opacity:.55}
+  .mhero-brain-aura{opacity:.7}
+  .mhero-tag{opacity:.7}
 }
 }
 

@@ -79,7 +79,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;z-index:1000;padding:12px 16px;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:4px;font-size:14px;font-weight:600}
 @media(max-width:900px){.promo{padding:0 20px;margin-top:18px}.nav{padding:14px 24px}.nav-links{gap:14px}.nav-badge{display:none}.stats-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.promo{display:none}.mhero{display:block}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:20px 24px 40px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}
+@media(max-width:640px){.promo{display:none}.mhero{display:block}.mhero-brain{-webkit-animation:mheroBreathe 5s ease-in-out infinite;animation:mheroBreathe 5s ease-in-out infinite}@-webkit-keyframes mheroBreathe{0%,100%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.03);transform:scale(1.03)}}@keyframes mheroBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:20px 24px 40px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}
 </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="/assets/nav-dropdown.css">
@@ -168,90 +168,65 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   </div>
 </section>
 
-<!-- ================= MOBILE EMBLEM — Mind & Justice (≤640px) ================= -->
+<!-- ================= MOBILE EMBLEM — Brain & Neurons (≤640px, HTML/CSS for iOS) ================= -->
 <section class="mhero" aria-hidden="true">
   <div class="mhero-wrap">
-    <svg class="mhero-svg" viewBox="0 0 320 168" xmlns="http://www.w3.org/2000/svg" focusable="false">
-      <defs>
-        <radialGradient id="mh-mind" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#6FE8FF"/>
-          <stop offset="45%" stop-color="#5BAEE8"/>
-          <stop offset="100%" stop-color="#1B2138"/>
-        </radialGradient>
-        <radialGradient id="mh-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#7DF4FF" stop-opacity=".55"/>
-          <stop offset="100%" stop-color="#5BAEE8" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="mh-beam" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#2B6CB0"/>
-          <stop offset="50%" stop-color="#7EC8F0"/>
-          <stop offset="100%" stop-color="#2B6CB0"/>
-        </linearGradient>
-      </defs>
+    <div class="mhero-scene">
+      <div class="mhero-orbit" aria-hidden="true"></div>
 
-      <!-- ambient orbit -->
-      <circle class="mhero-orbit" cx="160" cy="84" r="76" fill="none" stroke="#7EC8F0" stroke-width="1" stroke-dasharray="3 7" opacity=".32"/>
-      <circle class="mhero-orbit mhero-orbit--2" cx="160" cy="84" r="64" fill="none" stroke="#2E3550" stroke-width="1" stroke-dasharray="1 5" opacity=".5"/>
+      <span class="mhero-tag mhero-tag--1">15%</span>
+      <span class="mhero-tag mhero-tag--2">$24.99</span>
+      <span class="mhero-tag mhero-tag--3">ACoS</span>
+      <span class="mhero-tag mhero-tag--4">÷ oz</span>
 
-      <!-- wisdom rays -->
-      <g transform="translate(160 46)">
-      <g class="mhero-rays">
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(45)"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(90)"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(135)"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(180)"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(225)"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(270)"/>
-        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#7EC8F0" stroke-width="1.2" stroke-linecap="round" opacity=".8" transform="rotate(315)"/>
-      </g>
-      </g>
-
-      <!-- mind orb + geometric wisdom mark -->
-      <g transform="translate(160 46)">
-      <g class="mhero-mind">
-        <circle class="mhero-mind-glow" r="34" fill="url(#mh-glow)"/>
-        <circle r="20" fill="url(#mh-mind)" stroke="#8ED4FA" stroke-width="1.2"/>
-        <circle r="14" fill="none" stroke="#C8F4FF" stroke-width=".8" opacity=".35"/>
-        <path d="M-8-2c0-5 3.5-9 8-9s8 4 8 9c0 4-2 7-4 9-1.5 1.5-3 2-4 2s-2.5-.5-4-2c-2-2-4-5-4-9z" fill="none" stroke="#E8FAFF" stroke-width="1.3" stroke-linecap="round" opacity=".95"/>
-        <path d="M-5 4c1.5 2 3.5 3 5 3s3.5-1 5-3" fill="none" stroke="#B8EEFF" stroke-width="1" stroke-linecap="round" opacity=".6"/>
-        <circle cx="0" cy="-1" r="2.5" fill="#6FE8FF" opacity=".95"/>
-      </g>
-      </g>
-
-      <!-- pillar -->
-      <rect x="157" y="62" width="6" height="58" rx="2" fill="#141929" stroke="#2E3550" stroke-width="1"/>
-      <rect x="158" y="62" width="2" height="58" fill="#5BAEE8" opacity=".4"/>
-
-      <!-- scales beam + pans -->
-      <g transform="translate(160 78)">
-      <g class="mhero-beam">
-        <line x1="-62" y1="0" x2="62" y2="0" stroke="url(#mh-beam)" stroke-width="2.5" stroke-linecap="round"/>
-        <circle r="3.5" fill="#6FE8FF"/>
-        <g transform="translate(-62 0)"><g class="mhero-pan mhero-pan--l">
-          <line x1="0" y1="0" x2="0" y2="22" stroke="#4A5163" stroke-width="1.2"/>
-          <line x1="-18" y1="22" x2="18" y2="22" stroke="#4A5163" stroke-width="1.2"/>
-          <path d="M-20 24h40l-6 14H-14z" fill="#1B2138" stroke="#2E3550" stroke-width="1.2"/>
-          <rect x="-10" y="27" width="20" height="8" rx="1" fill="#2E3550"/>
-          <text x="0" y="33" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#A0A8BA">FEES</text>
-        </g></g>
-        <g transform="translate(62 0)"><g class="mhero-pan mhero-pan--r">
-          <line x1="0" y1="0" x2="0" y2="16" stroke="#4A5163" stroke-width="1.2"/>
-          <line x1="-18" y1="16" x2="18" y2="16" stroke="#4A5163" stroke-width="1.2"/>
-          <path d="M-20 18h40l-6 14H-14z" fill="#1B2138" stroke="#5BAEE8" stroke-width="1.4"/>
-          <circle cx="0" cy="28" r="5" fill="#6FE8FF" opacity=".95"/>
-          <text x="0" y="40" text-anchor="middle" font-family="ui-monospace,monospace" font-size="5.5" fill="#7DF4FF">TRUTH</text>
-        </g></g>
-      </g>
-      </g>
-
-      <!-- floating symbols -->
-      <g class="mhero-float mhero-float--1" transform="translate(42 52)"><text text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#5BAEE8">15%</text></g>
-      <g class="mhero-float mhero-float--2" transform="translate(268 44)"><text text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#4A5163">$24.99</text></g>
-      <g class="mhero-float mhero-float--3" transform="translate(48 128)"><text text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#4A5163">ACoS</text></g>
-      <g class="mhero-float mhero-float--4" transform="translate(272 120)"><text text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#6FE8FF">÷ oz</text></g>
-    </svg>
-    <p class="mhero-caption"><span>Mind</span><span>Fairness</span><span>Numbers</span></p>
+      <div class="mhero-brain">
+        <div class="mhero-brain-aura" aria-hidden="true"></div>
+        <svg class="mhero-brain-svg" viewBox="0 0 200 168" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+          <defs>
+            <linearGradient id="mh-brain-fill" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0%" stop-color="#243050"/>
+              <stop offset="55%" stop-color="#1B2138"/>
+              <stop offset="100%" stop-color="#141929"/>
+            </linearGradient>
+            <linearGradient id="mh-brain-rim" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#7EC8F0"/>
+              <stop offset="100%" stop-color="#5BAEE8"/>
+            </linearGradient>
+          </defs>
+          <path d="M100 10C70 10 48 26 40 48C32 70 34 94 46 114C56 130 72 140 90 144C92 150 96 156 100 158C104 156 108 150 110 144C128 140 144 130 154 114C166 94 168 70 160 48C152 26 130 10 100 10Z" fill="url(#mh-brain-fill)" stroke="url(#mh-brain-rim)" stroke-width="1.4"/>
+          <path d="M100 18V148" stroke="#3D4A6A" stroke-width=".8" opacity=".55"/>
+          <path d="M58 52C68 46 78 50 86 58" fill="none" stroke="#4A5F8A" stroke-width="1" stroke-linecap="round" opacity=".65"/>
+          <path d="M142 52C132 46 122 50 114 58" fill="none" stroke="#4A5F8A" stroke-width="1" stroke-linecap="round" opacity=".65"/>
+          <path d="M52 78C64 72 76 76 84 84" fill="none" stroke="#4A5F8A" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+          <path d="M148 78C136 72 124 76 116 84" fill="none" stroke="#4A5F8A" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+          <path d="M62 108C74 102 86 106 94 114" fill="none" stroke="#4A5F8A" stroke-width="1" stroke-linecap="round" opacity=".45"/>
+          <path d="M138 108C126 102 114 106 106 114" fill="none" stroke="#4A5F8A" stroke-width="1" stroke-linecap="round" opacity=".45"/>
+          <path d="M82 38C90 34 98 36 104 42" fill="none" stroke="#5BAEE8" stroke-width=".9" stroke-linecap="round" opacity=".4"/>
+          <path d="M118 38C110 34 102 36 96 42" fill="none" stroke="#5BAEE8" stroke-width=".9" stroke-linecap="round" opacity=".4"/>
+        </svg>
+        <div class="mhero-net" aria-hidden="true">
+          <span class="mhero-link mhero-link--1" style="--x:28%;--y:42%;--w:22%;--r:-28deg"></span>
+          <span class="mhero-link mhero-link--2" style="--x:50%;--y:34%;--w:20%;--r:28deg"></span>
+          <span class="mhero-link mhero-link--3" style="--x:28%;--y:42%;--w:18%;--r:52deg"></span>
+          <span class="mhero-link mhero-link--4" style="--x:72%;--y:44%;--w:17%;--r:118deg"></span>
+          <span class="mhero-link mhero-link--5" style="--x:36%;--y:62%;--w:16%;--r:-18deg"></span>
+          <span class="mhero-link mhero-link--6" style="--x:64%;--y:64%;--w:15%;--r:198deg"></span>
+          <span class="mhero-link mhero-link--7" style="--x:50%;--y:50%;--w:14%;--r:-62deg"></span>
+          <span class="mhero-link mhero-link--8" style="--x:50%;--y:50%;--w:13%;--r:58deg"></span>
+          <span class="mhero-node mhero-node--1"></span>
+          <span class="mhero-node mhero-node--2"></span>
+          <span class="mhero-node mhero-node--3"></span>
+          <span class="mhero-node mhero-node--4"></span>
+          <span class="mhero-node mhero-node--5"></span>
+          <span class="mhero-node mhero-node--6"></span>
+          <span class="mhero-node mhero-node--7"></span>
+          <span class="mhero-signal mhero-signal--1"></span>
+          <span class="mhero-signal mhero-signal--2"></span>
+          <span class="mhero-signal mhero-signal--3"></span>
+        </div>
+      </div>
+    </div>
+    <p class="mhero-caption"><span>Smart</span><span>Tools</span><span>Numbers</span></p>
   </div>
 </section>
 
