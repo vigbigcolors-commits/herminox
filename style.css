@@ -265,7 +265,7 @@ body::before{
 }
 .mhero-wrap{max-width:320px;margin:0 auto;text-align:center}
 .mhero-logo{
-  position:relative;width:min(220px,62vw);margin:0 auto;
+  position:relative;width:min(240px,68vw);margin:0 auto;
   -webkit-transform:translateZ(0);transform:translateZ(0);
 }
 .mhero-logo img{
