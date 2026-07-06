@@ -256,7 +256,7 @@ body::before{
   .promo{display:none}
 }
 
-/* ============ MOBILE EMBLEM — Smart logo + blink (≤640px) ============ */
+/* ============ MOBILE EMBLEM — Smart logo (≤640px) ============ */
 .mhero{display:none}
 @media(max-width:640px){
 .mhero{
@@ -273,45 +273,6 @@ body::before{
   -webkit-user-select:none;user-select:none;
   pointer-events:none;
 }
-.mhero-eye{
-  position:absolute;overflow:hidden;border-radius:50%;
-  pointer-events:none;
-}
-.mhero-eye--l{left:21%;top:37%;width:24%;height:19%}
-.mhero-eye--r{left:55%;top:37%;width:24%;height:19%}
-.mhero-lid{
-  position:absolute;left:-2%;right:-2%;
-  -webkit-transform:scaleY(0);transform:scaleY(0);
-  -webkit-backface-visibility:hidden;backface-visibility:hidden;
-}
-.mhero-lid--top{
-  top:-2%;height:56%;
-  -webkit-transform-origin:top center;transform-origin:top center;
-  background:linear-gradient(180deg,#164a96 0%,#2b6fc8 55%,#3d8de0 100%);
-  border-radius:50% 50% 0 0/100% 100% 0 0;
-}
-.mhero-eye--r .mhero-lid--top{
-  background:linear-gradient(180deg,#8a5508 0%,#c47e18 55%,#e8a832 100%);
-}
-.mhero-lid--bot{
-  bottom:-2%;height:38%;
-  -webkit-transform-origin:bottom center;transform-origin:bottom center;
-  background:linear-gradient(0deg,#164a96 0%,#2b6fc8 70%);
-  border-radius:0 0 50% 50%/0 0 100% 100%;
-}
-.mhero-eye--r .mhero-lid--bot{
-  background:linear-gradient(0deg,#8a5508 0%,#c47e18 70%);
-}
-.mhero-lid--top{
-  -webkit-animation:mheroBlinkTop 4.1s cubic-bezier(.4,0,.6,1) infinite;
-  animation:mheroBlinkTop 4.1s cubic-bezier(.4,0,.6,1) infinite;
-}
-.mhero-lid--bot{
-  -webkit-animation:mheroBlinkBot 4.1s cubic-bezier(.4,0,.6,1) infinite;
-  animation:mheroBlinkBot 4.1s cubic-bezier(.4,0,.6,1) infinite;
-}
-.mhero-eye--r .mhero-lid--top{-webkit-animation-delay:.03s;animation-delay:.03s}
-.mhero-eye--r .mhero-lid--bot{-webkit-animation-delay:.03s;animation-delay:.03s}
 .mhero-caption{
   display:flex;justify-content:center;gap:10px;margin-top:12px;
   font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
@@ -322,30 +283,6 @@ body::before{
 .mhero-caption span:nth-child(1){color:#2B6CB0;border-color:rgba(91,174,232,.4)}
 .mhero-caption span:nth-child(2){color:var(--ink)}
 .mhero-caption span:nth-child(3){color:#3A8FC4;border-color:rgba(111,232,255,.35)}
-/* Human blink: ~3.7s open, ~80ms close, ~40ms closed, ~280ms open (4.1s cycle) */
-@-webkit-keyframes mheroBlinkTop{
-  0%,89%,100%{-webkit-transform:scaleY(0)}
-  91%{-webkit-transform:scaleY(1)}
-  92%{-webkit-transform:scaleY(1)}
-}
-@keyframes mheroBlinkTop{
-  0%,89%,100%{transform:scaleY(0)}
-  91%{transform:scaleY(1)}
-  92%{transform:scaleY(1)}
-}
-@-webkit-keyframes mheroBlinkBot{
-  0%,89%,100%{-webkit-transform:scaleY(0)}
-  91.5%{-webkit-transform:scaleY(.42)}
-  92%{-webkit-transform:scaleY(.42)}
-}
-@keyframes mheroBlinkBot{
-  0%,89%,100%{transform:scaleY(0)}
-  91.5%{transform:scaleY(.42)}
-  92%{transform:scaleY(.42)}
-}
-@media(prefers-reduced-motion:reduce){
-  .mhero-lid{-webkit-animation:none;animation:none}
-}
 }
 
 /* ============ HERO ============ */
