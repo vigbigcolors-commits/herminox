@@ -79,7 +79,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;z-index:1000;padding:12px 16px;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:4px;font-size:14px;font-weight:600}
 @media(max-width:900px){.promo{padding:0 20px;margin-top:18px}.nav{padding:14px 24px}.nav-links{gap:14px}.nav-badge{display:none}.stats-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:640px){.promo{display:none}.mhero{display:block}.mhero-field{position:relative;width:min(280px,88vw);height:140px;margin:0 auto}.mhero-fly{display:block;border-radius:50%;-webkit-animation:mheroPulse 3.2s ease-in-out infinite;animation:mheroPulse 3.2s ease-in-out infinite}.mhero-fly--c1{width:7px;height:7px;background:#6FE8FF;box-shadow:0 0 12px 3px rgba(111,232,255,.8)}@-webkit-keyframes mheroPulse{0%,100%{opacity:.25;-webkit-transform:scale(.7)}50%{opacity:1;-webkit-transform:scale(1.2)}}@keyframes mheroPulse{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:20px 24px 40px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}
+@media(max-width:640px){.promo{display:none}.mhero{display:block}.mhero-logo{position:relative;width:min(220px,62vw);margin:0 auto}.mhero-logo img{display:block;width:100%;height:auto}.mhero-eye{position:absolute;overflow:hidden;border-radius:50%}.mhero-eye--l{left:21%;top:37%;width:24%;height:19%}.mhero-eye--r{left:55%;top:37%;width:24%;height:19%}.mhero-lid{position:absolute;left:0;right:0;height:52%;-webkit-transform:scaleY(0);transform:scaleY(0)}.mhero-lid--top{top:0;-webkit-transform-origin:top center;transform-origin:top center;background:linear-gradient(180deg,#1a4f9c,#2d72c4)}.mhero-eye--r .mhero-lid--top{background:linear-gradient(180deg,#9a6010,#d49228)}.mhero-lid--top{-webkit-animation:mheroBlinkTop 4.1s ease-in-out infinite;animation:mheroBlinkTop 4.1s ease-in-out infinite}.mhero-eye--r .mhero-lid--top{-webkit-animation-delay:.03s;animation-delay:.03s}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:20px 24px 40px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}@-webkit-keyframes mheroBlinkTop{0%,91%,100%{-webkit-transform:scaleY(0)}93%{-webkit-transform:scaleY(1)}94%{-webkit-transform:scaleY(1)}}@keyframes mheroBlinkTop{0%,91%,100%{transform:scaleY(0)}93%{transform:scaleY(1)}94%{transform:scaleY(1)}}
 </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="/assets/nav-dropdown.css">
@@ -168,37 +168,22 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   </div>
 </section>
 
-<!-- ================= MOBILE EMBLEM — Fireflies (≤640px, HTML/CSS for iOS) ================= -->
+<!-- ================= MOBILE EMBLEM — Smart logo (≤640px) ================= -->
 <section class="mhero" aria-hidden="true">
   <div class="mhero-wrap">
-    <div class="mhero-scene">
-      <span class="mhero-tag mhero-tag--1">15%</span>
-      <span class="mhero-tag mhero-tag--2">$24.99</span>
-      <span class="mhero-tag mhero-tag--3">ACoS</span>
-      <span class="mhero-tag mhero-tag--4">÷ oz</span>
-
-      <div class="mhero-field" aria-hidden="true">
-        <span class="mhero-fly-wrap mhero-fly-wrap--1"><i class="mhero-fly mhero-fly--c1"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--2"><i class="mhero-fly mhero-fly--c2"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--3"><i class="mhero-fly mhero-fly--c3"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--4"><i class="mhero-fly mhero-fly--c4"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--5"><i class="mhero-fly mhero-fly--c5"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--6"><i class="mhero-fly mhero-fly--c6"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--7"><i class="mhero-fly mhero-fly--c7"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--8"><i class="mhero-fly mhero-fly--c8"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--9"><i class="mhero-fly mhero-fly--c9"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--10"><i class="mhero-fly mhero-fly--c10"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--11"><i class="mhero-fly mhero-fly--c11"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--12"><i class="mhero-fly mhero-fly--c12"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--13"><i class="mhero-fly mhero-fly--c13"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--14"><i class="mhero-fly mhero-fly--c14"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--15"><i class="mhero-fly mhero-fly--c15"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--16"><i class="mhero-fly mhero-fly--c16"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--17"><i class="mhero-fly mhero-fly--c17"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--18"><i class="mhero-fly mhero-fly--c18"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--19"><i class="mhero-fly mhero-fly--c19"></i></span>
-        <span class="mhero-fly-wrap mhero-fly-wrap--20"><i class="mhero-fly mhero-fly--c20"></i></span>
-      </div>
+    <div class="mhero-logo" role="img" aria-label="Herminox — Smart tools">
+      <picture>
+        <source srcset="/assets/smart-logo.webp" type="image/webp">
+        <img src="/assets/smart-logo.png" alt="" width="280" height="280" decoding="async" draggable="false">
+      </picture>
+      <span class="mhero-eye mhero-eye--l" aria-hidden="true">
+        <span class="mhero-lid mhero-lid--top"></span>
+        <span class="mhero-lid mhero-lid--bot"></span>
+      </span>
+      <span class="mhero-eye mhero-eye--r" aria-hidden="true">
+        <span class="mhero-lid mhero-lid--top"></span>
+        <span class="mhero-lid mhero-lid--bot"></span>
+      </span>
     </div>
     <p class="mhero-caption"><span>Smart</span><span>Tools</span><span>Numbers</span></p>
   </div>

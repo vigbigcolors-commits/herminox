@@ -256,112 +256,64 @@ body::before{
   .promo{display:none}
 }
 
-/* ============ MOBILE EMBLEM — Fireflies (≤640px, HTML/CSS for iOS) ============ */
+/* ============ MOBILE EMBLEM — Smart logo + blink (≤640px) ============ */
 .mhero{display:none}
 @media(max-width:640px){
 .mhero{
-  display:block;padding:14px 16px 4px;
-  background:
-    radial-gradient(ellipse 80% 55% at 50% 38%,rgba(111,232,255,.14),transparent 68%),
-    radial-gradient(ellipse 65% 50% at 30% 60%,rgba(245,166,35,.1),transparent 62%),
-    radial-gradient(ellipse 60% 50% at 50% 100%,rgba(27,33,56,.04),transparent 60%);
+  display:block;padding:18px 16px 6px;
+  background:radial-gradient(ellipse 70% 55% at 50% 42%,rgba(91,174,232,.07),transparent 68%);
 }
-.mhero-wrap{max-width:340px;margin:0 auto;text-align:center}
-.mhero-scene{
-  position:relative;height:178px;
-  display:flex;align-items:center;justify-content:center;
-}
-.mhero-field{
-  position:relative;width:min(300px,92vw);height:162px;margin:0 auto;
-}
-.mhero-fly-wrap{
-  position:absolute;display:block;
+.mhero-wrap{max-width:320px;margin:0 auto;text-align:center}
+.mhero-logo{
+  position:relative;width:min(220px,62vw);margin:0 auto;
   -webkit-transform:translateZ(0);transform:translateZ(0);
-  -webkit-backface-visibility:hidden;backface-visibility:hidden;
 }
-.mhero-fly{
-  display:block;border-radius:50%;font-style:normal;
-  -webkit-transform:translateZ(0);transform:translateZ(0);
-  -webkit-backface-visibility:hidden;backface-visibility:hidden;
-  -webkit-animation:mheroPulse 2s ease-in-out infinite;
-  animation:mheroPulse 2s ease-in-out infinite;
-}
-.mhero-fly--c1{width:9px;height:9px;background:#6FE8FF;box-shadow:0 0 18px 5px rgba(111,232,255,.95),0 0 32px 8px rgba(111,232,255,.45)}
-.mhero-fly--c2{width:8px;height:8px;background:#5BAEE8;box-shadow:0 0 16px 5px rgba(91,174,232,.9),0 0 28px 7px rgba(91,174,232,.4)}
-.mhero-fly--c3{width:10px;height:10px;background:#F5A623;box-shadow:0 0 20px 6px rgba(245,166,35,.9),0 0 36px 9px rgba(245,166,35,.45)}
-.mhero-fly--c4{width:8px;height:8px;background:#C4B5FD;box-shadow:0 0 16px 5px rgba(167,139,250,.9),0 0 30px 7px rgba(167,139,250,.42)}
-.mhero-fly--c5{width:9px;height:9px;background:#5EEAD4;box-shadow:0 0 18px 5px rgba(94,234,212,.9),0 0 32px 8px rgba(94,234,212,.42)}
-.mhero-fly--c6{width:7px;height:7px;background:#FDA4AF;box-shadow:0 0 14px 4px rgba(251,113,133,.88),0 0 26px 6px rgba(251,113,133,.4)}
-.mhero-fly--c7{width:9px;height:9px;background:#FDE68A;box-shadow:0 0 18px 5px rgba(253,230,138,.92),0 0 32px 8px rgba(253,230,138,.44)}
-.mhero-fly--c8{width:8px;height:8px;background:#38BDF8;box-shadow:0 0 16px 5px rgba(56,189,248,.9),0 0 28px 7px rgba(56,189,248,.42)}
-.mhero-fly--c9{width:7px;height:7px;background:#F472B6;box-shadow:0 0 14px 4px rgba(244,114,182,.88),0 0 26px 6px rgba(244,114,182,.4)}
-.mhero-fly--c10{width:9px;height:9px;background:#A7F3D0;box-shadow:0 0 17px 5px rgba(52,211,153,.85),0 0 30px 7px rgba(52,211,153,.38)}
-.mhero-fly--c11{width:8px;height:8px;background:#FB923C;box-shadow:0 0 16px 5px rgba(251,146,60,.88),0 0 28px 7px rgba(251,146,60,.4)}
-.mhero-fly--c12{width:10px;height:10px;background:#E8FCFF;box-shadow:0 0 22px 6px rgba(125,244,255,.95),0 0 40px 10px rgba(125,244,255,.5)}
-.mhero-fly--c13{width:8px;height:8px;background:#7DD3FC;box-shadow:0 0 16px 5px rgba(125,211,252,.92),0 0 30px 7px rgba(125,211,252,.44)}
-.mhero-fly--c14{width:9px;height:9px;background:#FBBF24;box-shadow:0 0 18px 5px rgba(251,191,36,.92),0 0 34px 8px rgba(251,191,36,.46)}
-.mhero-fly--c15{width:7px;height:7px;background:#A78BFA;box-shadow:0 0 14px 4px rgba(167,139,250,.9),0 0 26px 6px rgba(167,139,250,.42)}
-.mhero-fly--c16{width:8px;height:8px;background:#34D399;box-shadow:0 0 16px 5px rgba(52,211,153,.88),0 0 28px 7px rgba(52,211,153,.4)}
-.mhero-fly--c17{width:9px;height:9px;background:#F9A8D4;box-shadow:0 0 18px 5px rgba(249,168,212,.9),0 0 32px 8px rgba(249,168,212,.42)}
-.mhero-fly--c18{width:7px;height:7px;background:#67E8F9;box-shadow:0 0 14px 4px rgba(103,232,249,.9),0 0 26px 6px rgba(103,232,249,.42)}
-.mhero-fly--c19{width:8px;height:8px;background:#FCD34D;box-shadow:0 0 16px 5px rgba(252,211,77,.92),0 0 30px 7px rgba(252,211,77,.44)}
-.mhero-fly--c20{width:10px;height:10px;background:#FFFFFF;box-shadow:0 0 20px 6px rgba(255,255,255,.95),0 0 38px 9px rgba(111,232,255,.55)}
-.mhero-fly-wrap--1{left:18%;top:28%;-webkit-animation:mheroDrift1 4.8s ease-in-out infinite;animation:mheroDrift1 4.8s ease-in-out infinite}
-.mhero-fly-wrap--2{left:42%;top:18%;-webkit-animation:mheroDrift2 4.2s ease-in-out infinite;animation:mheroDrift2 4.2s ease-in-out infinite;-webkit-animation-delay:.3s;animation-delay:.3s}
-.mhero-fly-wrap--3{left:68%;top:24%;-webkit-animation:mheroDrift3 5s ease-in-out infinite;animation:mheroDrift3 5s ease-in-out infinite;-webkit-animation-delay:.6s;animation-delay:.6s}
-.mhero-fly-wrap--4{left:82%;top:48%;-webkit-animation:mheroDrift4 4.6s ease-in-out infinite;animation:mheroDrift4 4.6s ease-in-out infinite;-webkit-animation-delay:.9s;animation-delay:.9s}
-.mhero-fly-wrap--5{left:58%;top:58%;-webkit-animation:mheroDrift5 5.2s ease-in-out infinite;animation:mheroDrift5 5.2s ease-in-out infinite;-webkit-animation-delay:1.2s;animation-delay:1.2s}
-.mhero-fly-wrap--6{left:32%;top:62%;-webkit-animation:mheroDrift6 4.4s ease-in-out infinite;animation:mheroDrift6 4.4s ease-in-out infinite;-webkit-animation-delay:1.5s;animation-delay:1.5s}
-.mhero-fly-wrap--7{left:10%;top:52%;-webkit-animation:mheroDrift7 4.9s ease-in-out infinite;animation:mheroDrift7 4.9s ease-in-out infinite;-webkit-animation-delay:1.8s;animation-delay:1.8s}
-.mhero-fly-wrap--8{left:48%;top:42%;-webkit-animation:mheroDrift8 4.5s ease-in-out infinite;animation:mheroDrift8 4.5s ease-in-out infinite;-webkit-animation-delay:.45s;animation-delay:.45s}
-.mhero-fly-wrap--9{left:74%;top:68%;-webkit-animation:mheroDrift9 5.3s ease-in-out infinite;animation:mheroDrift9 5.3s ease-in-out infinite;-webkit-animation-delay:1.35s;animation-delay:1.35s}
-.mhero-fly-wrap--10{left:24%;top:78%;-webkit-animation:mheroDrift10 4.7s ease-in-out infinite;animation:mheroDrift10 4.7s ease-in-out infinite;-webkit-animation-delay:1.65s;animation-delay:1.65s}
-.mhero-fly-wrap--11{left:52%;top:8%;-webkit-animation:mheroDrift11 4.8s ease-in-out infinite;animation:mheroDrift11 4.8s ease-in-out infinite;-webkit-animation-delay:.75s;animation-delay:.75s}
-.mhero-fly-wrap--12{left:38%;top:36%;-webkit-animation:mheroDrift12 4.3s ease-in-out infinite;animation:mheroDrift12 4.3s ease-in-out infinite;-webkit-animation-delay:1.05s;animation-delay:1.05s}
-.mhero-fly-wrap--13{left:6%;top:22%;-webkit-animation:mheroDrift3 4.1s ease-in-out infinite;animation:mheroDrift3 4.1s ease-in-out infinite;-webkit-animation-delay:.2s;animation-delay:.2s}
-.mhero-fly-wrap--14{left:88%;top:32%;-webkit-animation:mheroDrift5 4.5s ease-in-out infinite;animation:mheroDrift5 4.5s ease-in-out infinite;-webkit-animation-delay:.55s;animation-delay:.55s}
-.mhero-fly-wrap--15{left:62%;top:12%;-webkit-animation:mheroDrift8 4.2s ease-in-out infinite;animation:mheroDrift8 4.2s ease-in-out infinite;-webkit-animation-delay:.85s;animation-delay:.85s}
-.mhero-fly-wrap--16{left:14%;top:72%;-webkit-animation:mheroDrift2 4.6s ease-in-out infinite;animation:mheroDrift2 4.6s ease-in-out infinite;-webkit-animation-delay:1.15s;animation-delay:1.15s}
-.mhero-fly-wrap--17{left:78%;top:82%;-webkit-animation:mheroDrift7 4.4s ease-in-out infinite;animation:mheroDrift7 4.4s ease-in-out infinite;-webkit-animation-delay:1.45s;animation-delay:1.45s}
-.mhero-fly-wrap--18{left:28%;top:10%;-webkit-animation:mheroDrift10 4.3s ease-in-out infinite;animation:mheroDrift10 4.3s ease-in-out infinite;-webkit-animation-delay:1.75s;animation-delay:1.75s}
-.mhero-fly-wrap--19{left:92%;top:58%;-webkit-animation:mheroDrift1 4.7s ease-in-out infinite;animation:mheroDrift1 4.7s ease-in-out infinite;-webkit-animation-delay:2s;animation-delay:2s}
-.mhero-fly-wrap--20{left:50%;top:72%;-webkit-animation:mheroDrift11 4.5s ease-in-out infinite;animation:mheroDrift11 4.5s ease-in-out infinite;-webkit-animation-delay:2.25s;animation-delay:2.25s}
-.mhero-fly-wrap--1 .mhero-fly{-webkit-animation-delay:0s;animation-delay:0s}
-.mhero-fly-wrap--2 .mhero-fly{-webkit-animation-delay:.5s;animation-delay:.5s}
-.mhero-fly-wrap--3 .mhero-fly{-webkit-animation-delay:1s;animation-delay:1s}
-.mhero-fly-wrap--4 .mhero-fly{-webkit-animation-delay:1.5s;animation-delay:1.5s}
-.mhero-fly-wrap--5 .mhero-fly{-webkit-animation-delay:2s;animation-delay:2s}
-.mhero-fly-wrap--6 .mhero-fly{-webkit-animation-delay:2.5s;animation-delay:2.5s}
-.mhero-fly-wrap--7 .mhero-fly{-webkit-animation-delay:.3s;animation-delay:.3s}
-.mhero-fly-wrap--8 .mhero-fly{-webkit-animation-delay:.8s;animation-delay:.8s}
-.mhero-fly-wrap--9 .mhero-fly{-webkit-animation-delay:1.3s;animation-delay:1.3s}
-.mhero-fly-wrap--10 .mhero-fly{-webkit-animation-delay:1.8s;animation-delay:1.8s}
-.mhero-fly-wrap--11 .mhero-fly{-webkit-animation-delay:2.3s;animation-delay:2.3s}
-.mhero-fly-wrap--12 .mhero-fly{-webkit-animation-delay:.6s;animation-delay:.6s}
-.mhero-fly-wrap--13 .mhero-fly{-webkit-animation-delay:.15s;animation-delay:.15s}
-.mhero-fly-wrap--14 .mhero-fly{-webkit-animation-delay:.9s;animation-delay:.9s}
-.mhero-fly-wrap--15 .mhero-fly{-webkit-animation-delay:1.25s;animation-delay:1.25s}
-.mhero-fly-wrap--16 .mhero-fly{-webkit-animation-delay:1.55s;animation-delay:1.55s}
-.mhero-fly-wrap--17 .mhero-fly{-webkit-animation-delay:1.85s;animation-delay:1.85s}
-.mhero-fly-wrap--18 .mhero-fly{-webkit-animation-delay:2.1s;animation-delay:2.1s}
-.mhero-fly-wrap--19 .mhero-fly{-webkit-animation-delay:.35s;animation-delay:.35s}
-.mhero-fly-wrap--20 .mhero-fly{-webkit-animation-delay:1.1s;animation-delay:1.1s}
-.mhero-tag{
-  position:absolute;z-index:3;
-  font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.02em;
-  padding:5px 12px;border-radius:99px;
-  border:1px solid var(--line);background:rgba(245,240,232,.92);
-  box-shadow:0 2px 12px -4px rgba(27,33,56,.15);
+.mhero-logo img{
+  display:block;width:100%;height:auto;
+  -webkit-user-select:none;user-select:none;
   pointer-events:none;
-  -webkit-animation:mheroTag 3.2s ease-in-out infinite;
-  animation:mheroTag 3.2s ease-in-out infinite;
 }
-.mhero-tag--1{top:10px;left:-4px;color:#2B7FD4;-webkit-animation-delay:0s;animation-delay:0s}
-.mhero-tag--2{top:4px;right:-6px;color:var(--ink);font-size:14px;-webkit-animation-delay:.8s;animation-delay:.8s}
-.mhero-tag--3{bottom:14px;left:-6px;color:var(--ink);font-size:14px;-webkit-animation-delay:1.6s;animation-delay:1.6s}
-.mhero-tag--4{bottom:8px;right:-6px;color:#0EA5E9;border-color:rgba(111,232,255,.5);font-size:13px;-webkit-animation-delay:2.4s;animation-delay:2.4s}
+.mhero-eye{
+  position:absolute;overflow:hidden;border-radius:50%;
+  pointer-events:none;
+}
+.mhero-eye--l{left:21%;top:37%;width:24%;height:19%}
+.mhero-eye--r{left:55%;top:37%;width:24%;height:19%}
+.mhero-lid{
+  position:absolute;left:-2%;right:-2%;
+  -webkit-transform:scaleY(0);transform:scaleY(0);
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+}
+.mhero-lid--top{
+  top:-2%;height:56%;
+  -webkit-transform-origin:top center;transform-origin:top center;
+  background:linear-gradient(180deg,#164a96 0%,#2b6fc8 55%,#3d8de0 100%);
+  border-radius:50% 50% 0 0/100% 100% 0 0;
+}
+.mhero-eye--r .mhero-lid--top{
+  background:linear-gradient(180deg,#8a5508 0%,#c47e18 55%,#e8a832 100%);
+}
+.mhero-lid--bot{
+  bottom:-2%;height:38%;
+  -webkit-transform-origin:bottom center;transform-origin:bottom center;
+  background:linear-gradient(0deg,#164a96 0%,#2b6fc8 70%);
+  border-radius:0 0 50% 50%/0 0 100% 100%;
+}
+.mhero-eye--r .mhero-lid--bot{
+  background:linear-gradient(0deg,#8a5508 0%,#c47e18 70%);
+}
+.mhero-lid--top{
+  -webkit-animation:mheroBlinkTop 4.1s cubic-bezier(.4,0,.6,1) infinite;
+  animation:mheroBlinkTop 4.1s cubic-bezier(.4,0,.6,1) infinite;
+}
+.mhero-lid--bot{
+  -webkit-animation:mheroBlinkBot 4.1s cubic-bezier(.4,0,.6,1) infinite;
+  animation:mheroBlinkBot 4.1s cubic-bezier(.4,0,.6,1) infinite;
+}
+.mhero-eye--r .mhero-lid--top{-webkit-animation-delay:.03s;animation-delay:.03s}
+.mhero-eye--r .mhero-lid--bot{-webkit-animation-delay:.03s;animation-delay:.03s}
 .mhero-caption{
-  display:flex;justify-content:center;gap:10px;margin-top:10px;
+  display:flex;justify-content:center;gap:10px;margin-top:12px;
   font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);
 }
 .mhero-caption span{
@@ -370,54 +322,29 @@ body::before{
 .mhero-caption span:nth-child(1){color:#2B6CB0;border-color:rgba(91,174,232,.4)}
 .mhero-caption span:nth-child(2){color:var(--ink)}
 .mhero-caption span:nth-child(3){color:#3A8FC4;border-color:rgba(111,232,255,.35)}
-@-webkit-keyframes mheroPulse{
-  0%,100%{opacity:.45;-webkit-transform:translateZ(0) scale(.75);transform:translateZ(0) scale(.75)}
-  50%{opacity:1;-webkit-transform:translateZ(0) scale(1.55);transform:translateZ(0) scale(1.55)}
+/* Human blink: ~3.7s open, ~80ms close, ~40ms closed, ~280ms open (4.1s cycle) */
+@-webkit-keyframes mheroBlinkTop{
+  0%,89%,100%{-webkit-transform:scaleY(0)}
+  91%{-webkit-transform:scaleY(1)}
+  92%{-webkit-transform:scaleY(1)}
 }
-@keyframes mheroPulse{
-  0%,100%{opacity:.45;transform:translateZ(0) scale(.75)}
-  50%{opacity:1;transform:translateZ(0) scale(1.55)}
+@keyframes mheroBlinkTop{
+  0%,89%,100%{transform:scaleY(0)}
+  91%{transform:scaleY(1)}
+  92%{transform:scaleY(1)}
 }
-@-webkit-keyframes mheroDrift1{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(22px,-26px,0);transform:translate3d(22px,-26px,0)}}
-@keyframes mheroDrift1{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(22px,-26px,0)}}
-@-webkit-keyframes mheroDrift2{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(-20px,22px,0);transform:translate3d(-20px,22px,0)}}
-@keyframes mheroDrift2{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-20px,22px,0)}}
-@-webkit-keyframes mheroDrift3{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(-24px,-16px,0);transform:translate3d(-24px,-16px,0)}}
-@keyframes mheroDrift3{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-24px,-16px,0)}}
-@-webkit-keyframes mheroDrift4{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(-16px,20px,0);transform:translate3d(-16px,20px,0)}}
-@keyframes mheroDrift4{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-16px,20px,0)}}
-@-webkit-keyframes mheroDrift5{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(18px,18px,0);transform:translate3d(18px,18px,0)}}
-@keyframes mheroDrift5{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(18px,18px,0)}}
-@-webkit-keyframes mheroDrift6{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(24px,-14px,0);transform:translate3d(24px,-14px,0)}}
-@keyframes mheroDrift6{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(24px,-14px,0)}}
-@-webkit-keyframes mheroDrift7{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(16px,22px,0);transform:translate3d(16px,22px,0)}}
-@keyframes mheroDrift7{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(16px,22px,0)}}
-@-webkit-keyframes mheroDrift8{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(-22px,-18px,0);transform:translate3d(-22px,-18px,0)}}
-@keyframes mheroDrift8{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-22px,-18px,0)}}
-@-webkit-keyframes mheroDrift9{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(-18px,-22px,0);transform:translate3d(-18px,-22px,0)}}
-@keyframes mheroDrift9{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-18px,-22px,0)}}
-@-webkit-keyframes mheroDrift10{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(20px,16px,0);transform:translate3d(20px,16px,0)}}
-@keyframes mheroDrift10{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(20px,16px,0)}}
-@-webkit-keyframes mheroDrift11{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(12px,24px,0);transform:translate3d(12px,24px,0)}}
-@keyframes mheroDrift11{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(12px,24px,0)}}
-@-webkit-keyframes mheroDrift12{0%,100%{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}50%{-webkit-transform:translate3d(-16px,-20px,0);transform:translate3d(-16px,-20px,0)}}
-@keyframes mheroDrift12{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-16px,-20px,0)}}
-@-webkit-keyframes mheroTag{
-  0%,100%{opacity:0;-webkit-transform:translate3d(0,8px,0) scale(.92);transform:translate3d(0,8px,0) scale(.92)}
-  12%,58%{opacity:1;-webkit-transform:translate3d(0,0,0) scale(1.04);transform:translate3d(0,0,0) scale(1.04)}
-  72%{opacity:0;-webkit-transform:translate3d(0,-6px,0) scale(1);transform:translate3d(0,-6px,0) scale(1)}
+@-webkit-keyframes mheroBlinkBot{
+  0%,89%,100%{-webkit-transform:scaleY(0)}
+  91.5%{-webkit-transform:scaleY(.42)}
+  92%{-webkit-transform:scaleY(.42)}
 }
-@keyframes mheroTag{
-  0%,100%{opacity:0;transform:translate3d(0,8px,0) scale(.92)}
-  12%,58%{opacity:1;transform:translate3d(0,0,0) scale(1.04)}
-  72%{opacity:0;transform:translate3d(0,-6px,0) scale(1)}
+@keyframes mheroBlinkBot{
+  0%,89%,100%{transform:scaleY(0)}
+  91.5%{transform:scaleY(.42)}
+  92%{transform:scaleY(.42)}
 }
 @media(prefers-reduced-motion:reduce){
-  .mhero-fly-wrap,.mhero-fly,.mhero-tag{
-    -webkit-animation:none;animation:none;
-  }
-  .mhero-fly{opacity:.85}
-  .mhero-tag{opacity:.7}
+  .mhero-lid{-webkit-animation:none;animation:none}
 }
 }
 
