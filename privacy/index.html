@@ -1,17 +1,26 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J84LSPK45L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J84LSPK45L');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Herminox</title>
-<meta name="description" content="Herminox Privacy Policy — how we handle data on herminox.com. No accounts, no analytics trackers, client-side calculators. Learn what is stored locally on your device.">
+<meta name="description" content="Herminox Privacy Policy — how we handle data on herminox.com. No accounts, client-side calculators, aggregate Google Analytics for traffic. Learn what is stored locally on your device.">
 <link rel="canonical" href="https://herminox.com/privacy/">
 <meta name="robots" content="index, follow">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Herminox">
 <meta property="og:title" content="Privacy Policy — Herminox">
-<meta property="og:description" content="Herminox Privacy Policy — how we handle data on herminox.com. No accounts, no analytics trackers, client-side calculators. Learn what is stored locally on your device.">
+<meta property="og:description" content="Herminox Privacy Policy — how we handle data on herminox.com. No accounts, client-side calculators, aggregate Google Analytics for traffic. Learn what is stored locally on your device.">
 <meta property="og:url" content="https://herminox.com/privacy/">
 <meta property="og:locale" content="en_US">
 
@@ -34,7 +43,7 @@
   <p class="lead">Herminox is built on a simple privacy principle: your financial inputs are yours. This policy explains what data we collect — and, more importantly, what we deliberately do not collect.</p>
   <div class="legal-meta">
     <span>Effective: June 25, 2026</span>
-    <span>Last updated: June 25, 2026</span>
+    <span>Last updated: July 10, 2026</span>
   </div>
 </section>
 
@@ -42,7 +51,7 @@
   <article class="legal-card legal-body">
 
     <div class="legal-callout">
-      <p><strong>Short version:</strong> We do not require accounts, we do not run third-party analytics or advertising trackers, and calculator inputs are processed in your browser — not sent to our servers. The Return &amp; Capital Dashboard stores purchase entries in your device's local storage only.</p>
+      <p><strong>Short version:</strong> We do not require accounts. Calculator inputs are processed in your browser — not sent to our servers. We use Google Analytics (GA4) for aggregate page-traffic measurement only. The Return &amp; Capital Dashboard stores purchase entries in your device's local storage only.</p>
     </div>
 
     <nav class="legal-toc" aria-label="Table of contents">
@@ -93,6 +102,9 @@
     </ul>
     <p>We do not use these logs to build user profiles, retarget visitors, or sell data. Logs are retained by our host for operational and security purposes (typically days to weeks) and are not linked to calculator inputs.</p>
 
+    <h3>3.3 Google Analytics (GA4)</h3>
+    <p>We use <strong>Google Analytics 4</strong> (measurement ID <code>G-J84LSPK45L</code>) to understand aggregate site usage — which pages are visited, approximate geography, device/browser type, and referral sources. Google may set cookies or use similar identifiers and receive your IP address and technical request metadata when the Analytics script loads. We do not send calculator inputs, Return Dashboard entries, or form field values to Google Analytics. Google's handling of Analytics data is governed by <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's Privacy Policy</a>. You can limit Analytics via browser settings, extensions, or Google's <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer">opt-out tools</a>.</p>
+
     <h2 id="what-we-dont">4. Information We Do Not Collect</h2>
     <p>We deliberately do <strong>not</strong> collect or transmit:</p>
     <ul>
@@ -100,9 +112,9 @@
       <li>Amazon account credentials, ASINs tied to your identity, or Seller Central session data.</li>
       <li>Payment information — the Service is free and has no checkout.</li>
       <li>Precise geolocation from your device.</li>
-      <li>Advertising identifiers or cross-site tracking profiles.</li>
+      <li>Advertising identifiers for ad retargeting, Meta Pixel, Hotjar, or similar advertising/session-replay scripts.</li>
     </ul>
-    <p>We do not deploy Google Analytics, Meta Pixel, Hotjar, or similar third-party analytics or advertising scripts.</p>
+    <p>We do use Google Analytics for aggregate traffic measurement (see Section 3.3). We do not deploy Meta Pixel, Hotjar, or advertising pixels.</p>
 
     <h2 id="local-storage">5. Local Storage (Return &amp; Capital Dashboard)</h2>
     <p>The <a href="/buyers/return-tracker/">Return &amp; Capital Dashboard</a> is the one tool that persists data beyond a single page session. It stores your purchase entries (item name, retailer, purchase date, price, and related fields you enter) in your browser's <strong>localStorage</strong> under a Herminox-specific key.</p>
@@ -119,6 +131,7 @@
     <p>Network requests triggered by normal use are limited to:</p>
     <ul>
       <li>Loading HTML, CSS, JavaScript, images, and fonts from our domain (and Google Fonts — see below).</li>
+      <li>Google Analytics page-view beacons (aggregate traffic only — not calculator field values).</li>
       <li>Standard hosting/CDN delivery of static assets.</li>
     </ul>
     <p>Our Content Security Policy restricts scripts and connections to approved origins. See our <a href="/_headers">security headers</a> configuration for deployed environments.</p>
@@ -129,17 +142,20 @@
     <p>We load typography from <strong>fonts.googleapis.com</strong> and <strong>fonts.gstatic.com</strong>. When your browser fetches font files, Google may receive your IP address and technical request metadata. We use <code>display=optional</code> to minimize performance impact. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
     <p>If you prefer to block Google Fonts, browser extensions or network filters can do so; the site remains functional with system font fallbacks.</p>
 
-    <h3>7.2 Hosting and CDN</h3>
+    <h3>7.2 Google Analytics</h3>
+    <p>We load the Google tag (<code>gtag.js</code>) from <strong>www.googletagmanager.com</strong> and send measurement events to Google Analytics endpoints. This is used solely for aggregate traffic analytics, not for advertising or selling data. See Section 3.3.</p>
+
+    <h3>7.3 Hosting and CDN</h3>
     <p>The Site is served from static hosting infrastructure (e.g., Netlify, Cloudflare Pages, or similar). These providers process request metadata to deliver files and protect against abuse. Their privacy policies apply to infrastructure-level processing.</p>
 
-    <h3>7.3 External links</h3>
+    <h3>7.4 External links</h3>
     <p>Our editorial content links to Amazon fee documentation, retailer policy pages, and other third-party sites. Those sites have their own privacy practices. We are not responsible for their data handling.</p>
 
     <h2 id="hosting">8. Hosting and Server Logs</h2>
     <p>Server logs may be used to diagnose outages, detect abuse (e.g., DDoS patterns), and measure aggregate traffic volume. We do not combine server logs with calculator inputs because we do not possess the latter.</p>
 
     <h2 id="cookies">9. Cookies</h2>
-    <p>Herminox does not set first-party cookies for tracking, authentication, or advertising. Our hosting provider or CDN may set strictly necessary technical cookies for load balancing or security (e.g., bot mitigation). The Return Dashboard uses localStorage, which is not a cookie but serves a similar local persistence function — see Section 5.</p>
+    <p>Herminox does not set first-party cookies for authentication or advertising. Google Analytics may set cookies or use local storage/identifiers to distinguish sessions and measure traffic (see Section 3.3). Our hosting provider or CDN may set strictly necessary technical cookies for load balancing or security (e.g., bot mitigation). The Return Dashboard uses localStorage, which is not a cookie but serves a similar local persistence function — see Section 5.</p>
     <p>You can manage cookies and site storage through your browser settings.</p>
 
     <h2 id="children">10. Children's Privacy</h2>
@@ -149,6 +165,7 @@
     <ul>
       <li><strong>Email correspondence</strong> — retained as long as needed to resolve your inquiry, then deleted or archived in ordinary course.</li>
       <li><strong>Server logs</strong> — retained per our host's default rotation schedule.</li>
+      <li><strong>Google Analytics</strong> — retained per our Google Analytics property settings and Google's data retention controls.</li>
       <li><strong>localStorage (Return Dashboard)</strong> — retained on your device until you delete it.</li>
       <li><strong>Calculator session data</strong> — not retained by us; cleared when you close the tab (except Return Dashboard entries you saved locally).</li>
     </ul>
@@ -168,7 +185,7 @@
     <p>Herminox is operated from the United States. If you access the Service from outside the US, your information may be processed in the US and other countries where our hosting providers operate. By using the Service, you consent to such transfer to the extent permitted by law.</p>
 
     <h2 id="security">14. Security</h2>
-    <p>We protect the static Site with HTTPS, security headers (Content Security Policy, HSTS, frame denial, etc.), and a minimal attack surface — no user database, no server-side form handlers, no third-party script tags. Report vulnerabilities to <a href="mailto:security@herminox.com">security@herminox.com</a> or via our <a href="/.well-known/security.txt">security.txt</a>.</p>
+    <p>We protect the static Site with HTTPS, security headers (Content Security Policy, HSTS, frame denial, etc.), and a minimal attack surface — no user database and no server-side form handlers. The only intentional third-party scripts are Google Fonts (optional stylesheet) and Google Analytics. Report vulnerabilities to <a href="mailto:security@herminox.com">security@herminox.com</a> or via our <a href="/.well-known/security.txt">security.txt</a>.</p>
     <p>No method of transmission over the Internet is 100% secure. We cannot guarantee absolute security of hosting logs or email correspondence.</p>
 
     <h2 id="changes">15. Changes to This Policy</h2>
