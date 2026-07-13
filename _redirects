@@ -1,3 +1,8 @@
-# Netlify redirects
+# Netlify / Cloudflare Pages redirects
 # favicon.ico at root — browsers look here by default
 /favicon.ico  /assets/favicon.ico  200
+
+# Google Search Console HTML-file verification.
+# Cloudflare "pretty URLs" otherwise 308-redirects *.html → extensionless and can break ownership checks.
+# 200! = forced rewrite: Google hits *.html and receives the verification body with HTTP 200 (no client redirect).
+/google4bcee3eb037f4dd1.html  /google4bcee3eb037f4dd1  200!

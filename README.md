@@ -1,8 +1,9 @@
 # Herminox.com — free, private Amazon calculators
 
 Static, **client-side** calculators for Amazon sellers and buyers. No backend, no
-accounts, no tracking — every number is computed in the browser and nothing is
-ever uploaded.
+accounts — calculator inputs stay in the browser and are never uploaded. Aggregate
+page-traffic analytics (Google Analytics + Cloudflare Web Analytics) may run; they
+do not receive calculator field values. See `/privacy/`.
 
 ## Structure
 
@@ -12,6 +13,7 @@ style.css               Single shared stylesheet (design tokens in :root)
 404.html                Branded not-found page
 robots.txt / sitemap.xml  Crawl + indexing
 _headers                Security & cache headers (Netlify / Cloudflare Pages)
+_redirects              Favicon + GSC verification rewrite
 .well-known/security.txt  Responsible-disclosure contact
 
 sellers/
@@ -21,6 +23,7 @@ sellers/
 buyers/
   unit-price/            True price per unit
   cost-per-use/          Cost per use
+  return-tracker/        Return deadlines & locked capital
 assets/                  Images (.webp), icons, carousel slides
 ```
 
@@ -44,5 +47,7 @@ python -m http.server 8000
 
 ## Security
 
-See [`_headers`](./_headers) for the deployed CSP and related policies. The site
-loads only its own assets plus Google Fonts; no third-party scripts.
+See [`_headers`](./_headers) for the deployed CSP and related policies. Allowed
+third-party origins: Google Fonts, Google Analytics (`gtag.js`), and Cloudflare
+Web Analytics (`static.cloudflareinsights.com`). Calculator inputs are not sent
+to those services.
