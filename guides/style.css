@@ -1,4 +1,28 @@
 /* Guides hub + article extras (loads after /legal/style.css) */
+
+/* Wide layout — min 1200px content plane (overrides legal --max:820px) */
+body{
+  --guide-max:1200px;
+}
+.crumb{
+  max-width:var(--guide-max);
+}
+.legal-hero{
+  max-width:var(--guide-max);
+  padding-left:48px;
+  padding-right:48px;
+}
+.legal-hero .lead{
+  max-width:72ch;
+}
+.legal-wrap{
+  max-width:var(--guide-max);
+  width:100%;
+}
+.legal-card{
+  max-width:none;
+}
+
 .guide-cta{
   display:flex;flex-wrap:wrap;gap:12px;align-items:center;
   margin:22px 0 8px;padding:18px 20px;
@@ -16,7 +40,7 @@
 .guide-cta-btn--ghost:hover{border-color:var(--accent-bright);color:var(--accent-bright);background:transparent}
 
 .guide-related{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0 8px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 8px;
 }
 .guide-related a{
   display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--line);
@@ -28,13 +52,13 @@
 
 .guide-cluster{margin:28px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
 .guide-cluster h2{font-size:18px;margin-bottom:12px}
-.guide-cluster ul{list-style:none;padding:0;margin:0}
-.guide-cluster li{margin:0 0 8px}
+.guide-cluster ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px}
+.guide-cluster li{margin:0}
 .guide-cluster a{color:var(--accent-deep);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(201,123,26,.25)}
 .guide-cluster a:hover{border-color:var(--accent)}
 
 .guides-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:8px 0 24px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 24px;
 }
 .guides-card{
   display:block;text-decoration:none;padding:18px 20px;border:1px solid var(--line);
@@ -65,6 +89,12 @@
   background:var(--paper2);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;
 }
 
+/* Desktop: keep full 1200 plane; only collapse grids below that */
+@media(max-width:1199px){
+  .guides-grid{grid-template-columns:repeat(2,1fr)}
+  .guide-related{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:800px){
-  .guides-grid,.guide-related,.guides-weight{grid-template-columns:1fr}
+  .legal-hero,.legal-wrap{padding-left:24px;padding-right:24px}
+  .guides-grid,.guide-related,.guides-weight,.guide-cluster ul{grid-template-columns:1fr}
 }
