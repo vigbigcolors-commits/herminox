@@ -24,7 +24,15 @@ buyers/
   unit-price/            True price per unit
   cost-per-use/          Cost per use
   return-tracker/        Return deadlines & locked capital
+guides/                  20 SEO operator guides (hub + weighted CTAs to tools)
 assets/                  Images (.webp), icons, carousel slides
+```
+
+Rebuild guides after editing `guides/_data.mjs`:
+
+```bash
+node guides/_build.mjs
+node _write-sitemap.mjs
 ```
 
 ## Local preview

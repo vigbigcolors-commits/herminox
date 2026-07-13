@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGBRGT796F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WGBRGT796F');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory Breakeven Units — How Many Sales Recover a PO</title>
+<meta name="description" content="Calculate how many Amazon units you must sell to recover a purchase order — capital tied up, contribution per unit, and why margin % alone is not enough.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://herminox.com/guides/inventory-breakeven-units-amazon/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Herminox">
+<meta property="og:title" content="Inventory Breakeven Units — How Many Sales Recover a PO">
+<meta property="og:description" content="Calculate how many Amazon units you must sell to recover a purchase order — capital tied up, contribution per unit, and why margin % alone is not enough.">
+<meta property="og:url" content="https://herminox.com/guides/inventory-breakeven-units-amazon/">
+<meta property="og:image" content="https://herminox.com/assets/og-image.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inventory Breakeven Units — How Many Sales Recover a PO">
+<meta name="twitter:description" content="Calculate how many Amazon units you must sell to recover a purchase order — capital tied up, contribution per unit, and why margin % alone is not enough.">
+<meta name="twitter:image" content="https://herminox.com/assets/og-image.jpg">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional"></noscript>
+<link rel="stylesheet" href="/legal/style.css">
+<link rel="stylesheet" href="/guides/style.css">
+<link rel="stylesheet" href="/assets/nav-dropdown.css">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Inventory breakeven units: when does this PO pay you back?","description":"Calculate how many Amazon units you must sell to recover a purchase order — capital tied up, contribution per unit, and why margin % alone is not enough.","datePublished":"2026-07-13","dateModified":"2026-07-13","mainEntityOfPage":"https://herminox.com/guides/inventory-breakeven-units-amazon/","author":{"@type":"Organization","name":"Herminox","url":"https://herminox.com/"},"publisher":{"@type":"Organization","name":"Herminox","url":"https://herminox.com/","logo":"https://herminox.com/assets/logo.svg"},"about":{"@type":"Thing","name":"inventory breakeven units amazon"},"isPartOf":{"@type":"WebSite","name":"Herminox","url":"https://herminox.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://herminox.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://herminox.com/guides/"},{"@type":"ListItem","position":3,"name":"Inventory breakeven units: when does this PO pay you back?","item":"https://herminox.com/guides/inventory-breakeven-units-amazon/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is breakeven units the same as MOQ?","acceptedAnswer":{"@type":"Answer","text":"No. MOQ is what the supplier forces; breakeven units is what economics require. Sometimes MOQ &gt; sane breakeven — that is a pass signal."}},{"@type":"Question","name":"Do returns change the number?","acceptedAnswer":{"@type":"Answer","text":"Yes. Effective contribution falls when return rates rise. Haircut contribution for high-return categories."}},{"@type":"Question","name":"Should I include ad spend in contribution?","acceptedAnswer":{"@type":"Answer","text":"For cash recovery of inventory, start with fee-adjusted product contribution, then layer ads as a separate cash drain with its own budget."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"Inventory breakeven units: when does this PO pay you back?","description":"Calculate how many Amazon units you must sell to recover a purchase order — capital tied up, contribution per unit, and why margin % alone is not enough.","step":[{"@type":"HowToStep","position":1,"text":"Full PO cash listed"},{"@type":"HowToStep","position":2,"text":"Contribution/unit after fees"},{"@type":"HowToStep","position":3,"text":"Units-to-recover computed"},{"@type":"HowToStep","position":4,"text":"Sell-through timeline estimated"},{"@type":"HowToStep","position":5,"text":"Storage risk considered for slow SKUs"}]}
+</script>
+</head>
+<body>
+<div data-site-nav></div>
+<p class="crumb"><a href="/">Home</a><span class="sep">/</span><a href="/guides/">Guides</a><span class="sep">/</span><span class="here">inventory-breakeven-units-amazon</span></p>
+
+<section class="legal-hero">
+  <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Seller guide · 8 min</p>
+  <h1>Inventory breakeven units: when does this PO <em>pay you back</em>?</h1>
+  <p class="lead">Percentage margin can look great while cash stays trapped. Units-to-recover is the question factories understand.</p>
+  <div class="legal-meta">
+    <span>Primary tool: Inventory Breakeven Calculator</span>
+    <span>Updated July 2026</span>
+    <span>Query focus: inventory breakeven units amazon</span>
+  </div>
+</section>
+
+<main class="legal-wrap">
+  <article class="legal-card legal-body">
+    <div class="guide-cta">
+      <p><strong>Run this in the Inventory Breakeven Calculator</strong> — free, no signup. Calculator inputs stay in your browser.</p>
+      <a class="guide-cta-btn" href="/sellers/inventory-breakeven/">Open Units to payback →</a>
+    </div>
+
+    <p class="formula">Units to recover ≈ PO cash outlay / Contribution per unit after fees</p>
+    <table class="guide-table"><thead><tr><th>Contribution / unit</th><th>PO cash</th><th>Units to recover</th></tr></thead><tbody><tr><td>$3</td><td>$6,000</td><td>2,000</td></tr><tr><td>$5</td><td>$6,000</td><td>1,200</td></tr><tr><td>$8</td><td>$10,000</td><td>1,250</td></tr></tbody></table>
+
+    <h2>Worked example</h2>
+    <p><strong>PO sketch.</strong> PO cash $8,000. Contribution after Amazon fees $4/unit. You need ~2,000 units sold to recover cash — before counting profit beyond breakeven.</p>
+
+    <h2 id="define-cash-outlay-honestly">Define “cash outlay” honestly</h2>
+<p>Include product, inbound freight, prep, and other cash that leaves before sell-through. Excluding inbound is a classic way to fake a fast payback.</p>
+<h2 id="fee-truth-required">Fee truth required</h2>
+<p>Contribution per unit must use real referral + FBA + fuel. Inflated contribution understates units-to-recover and overstates how safe the PO is.</p>
+
+    <h2>Checklist</h2>
+    <ul><li>Full PO cash listed</li><li>Contribution/unit after fees</li><li>Units-to-recover computed</li><li>Sell-through timeline estimated</li><li>Storage risk considered for slow SKUs</li></ul>
+
+    <div class="guide-cta">
+      <p><strong>Primary next step:</strong> Inventory Breakeven Calculator. Then sanity-check with the related tools below.</p>
+      <a class="guide-cta-btn" href="/sellers/inventory-breakeven/">Open calculator →</a>
+    </div>
+
+    <h2>Related calculators</h2>
+    <div class="guide-related">
+      <a href="/sellers/inventory-breakeven/"><strong>Inventory Breakeven Calculator</strong><span>Primary — the numbers this guide is built around.</span></a>
+      <a href="/sellers/fba-calculator/"><strong>FBA Profit Calculator</strong><span>Fees, margin &amp; ROI — secondary check after the primary tool.</span></a>
+    </div>
+
+    <h2>FAQ</h2>
+    <div class="faq-item"><h3>Is breakeven units the same as MOQ?</h3><p>No. MOQ is what the supplier forces; breakeven units is what economics require. Sometimes MOQ &amp;gt; sane breakeven — that is a pass signal.</p></div>
+<div class="faq-item"><h3>Do returns change the number?</h3><p>Yes. Effective contribution falls when return rates rise. Haircut contribution for high-return categories.</p></div>
+<div class="faq-item"><h3>Should I include ad spend in contribution?</h3><p>For cash recovery of inventory, start with fee-adjusted product contribution, then layer ads as a separate cash drain with its own budget.</p></div>
+
+    <div class="guide-cluster">
+      <h2>More in this cluster</h2>
+      <ul>
+        <li><a href="/guides/amazon-inventory-payback-period/">Amazon Inventory Payback Period</a></li>
+<li><a href="/guides/fba-capital-tied-up-explained/">FBA Capital Tied Up</a></li>
+        <li><a href="/guides/">All Herminox guides →</a></li>
+      </ul>
+    </div>
+
+    <p style="margin-top:28px;font-size:13px;color:var(--ink2)">Educational only — not tax, legal, or investment advice. Confirm live Amazon fees and return policies for your account and order. <a href="/disclaimer/">Disclaimer</a> · <a href="/privacy/">Privacy</a></p>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="foot-col">
+    <a href="/" class="logo">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="currentColor" stroke-width="1.6"/><line x1="10" y1="23" x2="10" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="22" y1="23" x2="22" y2="8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="10" y1="16.5" x2="22" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="22" cy="8" r="2" fill="#E8991F"/></svg>
+      <span class="logo-text">Hermi<span class="logo-accent">nox</span></span>
+    </a>
+    <p class="foot-tag">Free calculators for Amazon sellers and buyers — plus operator guides.</p>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">For sellers</p>
+    <a href="/sellers/fba-calculator/">FBA Profit Calculator</a>
+    <a href="/sellers/acos-breakeven/">ACoS Breakeven</a>
+    <a href="/sellers/inventory-breakeven/">Inventory Breakeven</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">For buyers</p>
+    <a href="/buyers/unit-price/">Unit Price Comparator</a>
+    <a href="/buyers/cost-per-use/">Cost Per Use</a>
+    <a href="/buyers/return-tracker/">Return Dashboard</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Learn</p>
+    <a href="/guides/">All guides</a>
+    <a href="/about/">About Us</a>
+    <a href="/disclaimer/">Disclaimer</a>
+    <a href="/privacy/">Privacy Policy</a>
+  </div>
+</footer>
+<div class="foot-copy">&copy; 2026 herminox.com — independent calculators &amp; guides.</div>
+<p class="foot-disclaimer">Herminox is an independent tool and is not affiliated with, authorized, endorsed by, or in any way associated with Amazon.com, Inc. or its subsidiaries. Amazon, FBA, ACoS, TACoS and all related marks are trademarks of Amazon.com, Inc. or its affiliates. All calculations are based on publicly available fee schedules and are provided for informational purposes only. &middot; <a href="/disclaimer/">Full Disclaimer</a></p>
+<script src="/assets/site-nav.js"></script>
+<script defer src="/assets/back-to-top.js"></script>
+</body>
+</html>

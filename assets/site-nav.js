@@ -31,12 +31,14 @@
     + '        <div class="nav-drop-footer"><a href="/buyers/">All buyer tools →</a></div>'
     + '      </div>'
     + '    </div>'
+    + '    <a href="/guides/">Guides</a>'
     + '    <a href="/about/">About</a>'
     + '    <span class="nav-badge">6 free tools</span>'
     + '  </nav>'
     + '</header>';
 
   var COMPANY_LINKS = [
+    { href: '/guides/', label: 'Guides', key: 'guides' },
     { href: '/about/', label: 'About Us', key: 'about' },
     { href: '/our-goal/', label: 'Our Goal', key: 'our-goal' },
     { href: '/terms/', label: 'Terms', key: 'terms' },
