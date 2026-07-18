@@ -1,8 +1,64 @@
 # Netlify / Cloudflare Pages redirects
+# Canonical form: https://herminox.com/.../ (trailing slash, no index.html, no www)
+# www → apex is handled in functions/_middleware.js (host rules are not reliable in this file).
+
 # favicon.ico at root — browsers look here by default
 /favicon.ico  /assets/favicon.ico  200
 
-# Google Search Console HTML-file verification.
-# Cloudflare "pretty URLs" otherwise 308-redirects *.html → extensionless and can break ownership checks.
-# 200! = forced rewrite: Google hits *.html and receives the verification body with HTTP 200 (no client redirect).
+# Google Search Console HTML-file verification (also handled in middleware)
 /google4bcee3eb037f4dd1.html  /google4bcee3eb037f4dd1  200!
+
+# --- Trailing-slash canonicals (301) — reduce GSC "Page with redirect" on slashless variants ---
+/sellers  /sellers/  301
+/buyers  /buyers/  301
+/guides  /guides/  301
+/about  /about/  301
+/our-goal  /our-goal/  301
+/disclaimer  /disclaimer/  301
+/terms  /terms/  301
+/privacy  /privacy/  301
+
+/sellers/fba-calculator  /sellers/fba-calculator/  301
+/sellers/acos-breakeven  /sellers/acos-breakeven/  301
+/sellers/inventory-breakeven  /sellers/inventory-breakeven/  301
+/buyers/unit-price  /buyers/unit-price/  301
+/buyers/cost-per-use  /buyers/cost-per-use/  301
+/buyers/return-tracker  /buyers/return-tracker/  301
+
+/guides/amazon-fba-fees-2026  /guides/amazon-fba-fees-2026/  301
+/guides/amazon-referral-fee-by-category  /guides/amazon-referral-fee-by-category/  301
+/guides/fba-fuel-surcharge-explained  /guides/fba-fuel-surcharge-explained/  301
+/guides/amazon-fba-profit-margin-benchmarks  /guides/amazon-fba-profit-margin-benchmarks/  301
+/guides/tiered-referral-fees-apparel-jewelry  /guides/tiered-referral-fees-apparel-jewelry/  301
+/guides/amazon-acos-breakeven-formula  /guides/amazon-acos-breakeven-formula/  301
+/guides/acos-vs-tacos-explained  /guides/acos-vs-tacos-explained/  301
+/guides/amazon-max-cpc-from-margin  /guides/amazon-max-cpc-from-margin/  301
+/guides/launch-vs-profit-acos-strategy  /guides/launch-vs-profit-acos-strategy/  301
+/guides/inventory-breakeven-units-amazon  /guides/inventory-breakeven-units-amazon/  301
+/guides/amazon-inventory-payback-period  /guides/amazon-inventory-payback-period/  301
+/guides/fba-capital-tied-up-explained  /guides/fba-capital-tied-up-explained/  301
+/guides/amazon-unit-price-comparison-guide  /guides/amazon-unit-price-comparison-guide/  301
+/guides/shrinkflation-unit-price-math  /guides/shrinkflation-unit-price-math/  301
+/guides/multipack-vs-single-unit-price  /guides/multipack-vs-single-unit-price/  301
+/guides/cost-per-use-vs-sticker-price  /guides/cost-per-use-vs-sticker-price/  301
+/guides/when-expensive-beats-cheap  /guides/when-expensive-beats-cheap/  301
+/guides/amazon-holiday-return-deadline  /guides/amazon-holiday-return-deadline/  301
+/guides/locked-capital-in-unreturned-items  /guides/locked-capital-in-unreturned-items/  301
+/guides/amazon-return-window-mistakes  /guides/amazon-return-window-mistakes/  301
+
+# index.html → clean URLs
+/index.html  /  301
+/sellers/index.html  /sellers/  301
+/buyers/index.html  /buyers/  301
+/guides/index.html  /guides/  301
+/about/index.html  /about/  301
+/our-goal/index.html  /our-goal/  301
+/disclaimer/index.html  /disclaimer/  301
+/terms/index.html  /terms/  301
+/privacy/index.html  /privacy/  301
+/sellers/fba-calculator/index.html  /sellers/fba-calculator/  301
+/sellers/acos-breakeven/index.html  /sellers/acos-breakeven/  301
+/sellers/inventory-breakeven/index.html  /sellers/inventory-breakeven/  301
+/buyers/unit-price/index.html  /buyers/unit-price/  301
+/buyers/cost-per-use/index.html  /buyers/cost-per-use/  301
+/buyers/return-tracker/index.html  /buyers/return-tracker/  301
