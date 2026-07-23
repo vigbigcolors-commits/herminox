@@ -41,6 +41,7 @@
 
   var COMPANY_LINKS = [
     { href: '/guides/', label: 'Guides', key: 'guides' },
+    { href: '/partners/', label: 'Partners', key: 'partners' },
     { href: '/about/', label: 'About Us', key: 'about' },
     { href: '/our-goal/', label: 'Our Goal', key: 'our-goal' },
     { href: '/terms/', label: 'Terms', key: 'terms' },

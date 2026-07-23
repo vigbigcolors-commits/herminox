@@ -26,5 +26,7 @@
 4. Read-only API (позже)
 
 ## Завтра продолжаем с
-- Prefill остальных tools **или** новые guides (3–5) + outreach (5–10 писем на `/embed/`)
+- Prefill остальных tools **или** новые guides (3–5) + outreach (5–10 писем на `/partners/`)
+- **Product Hunt launch — пятница** (черновик листинга, GIF/скрин 6 tools, maker line, first comment)
 - Повторный `node scripts/audit-calculators.mjs` после любых правок math
+- Contact live: **hello@herminox.com** (Cloudflare Email Routing)
