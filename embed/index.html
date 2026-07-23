@@ -78,10 +78,10 @@
   data-utm-campaign="acos-widget"&gt;&lt;/script&gt;</code></pre>
 
     <h2>3) Deep-link prefill (no widget needed)</h2>
-    <p>Share a URL that opens the full calculator with numbers already filled:</p>
+    <p>Share a URL that opens the full calculator with numbers already filled. <strong>Strict uniqueness rule:</strong> Google should index only the clean tool URL (no query string). Prefill links like <code>?price=35&amp;cogs=10</code> work for people, but are sent with <code>noindex</code> so they never become duplicate pages in search.</p>
     <ul>
-      <li><a href="/sellers/fba-calculator/?price=35&amp;cogs=10&amp;weight=1&amp;unit=lb&amp;category=home_kitchen&amp;fuel=1#calc">FBA example prefill</a></li>
-      <li><a href="/sellers/acos-breakeven/?price=29.99&amp;cogs=8&amp;referral=15&amp;fba=5.39&amp;target=25&amp;conv=10&amp;organic=50#calc">ACoS example prefill</a></li>
+      <li><a href="/sellers/fba-calculator/?price=35&amp;cogs=10&amp;weight=1&amp;unit=lb&amp;category=home_kitchen&amp;fuel=1#calc">FBA example prefill</a> → indexes as <code>/sellers/fba-calculator/</code> only</li>
+      <li><a href="/sellers/acos-breakeven/?price=29.99&amp;cogs=8&amp;referral=15&amp;fba=5.39&amp;target=25&amp;conv=10&amp;organic=50#calc">ACoS example prefill</a> → indexes as <code>/sellers/acos-breakeven/</code> only</li>
     </ul>
     <p><strong>FBA params:</strong> <code>price</code>, <code>cogs</code>, <code>weight</code>, <code>unit</code> (oz|lb|g|kg), <code>category</code>, <code>tier</code>, <code>fuel</code> (0|1)</p>
     <p><strong>ACoS params:</strong> <code>price</code>, <code>cogs</code>, <code>referral</code>, <code>fba</code>, <code>target</code>, <code>conv</code>, <code>organic</code></p>

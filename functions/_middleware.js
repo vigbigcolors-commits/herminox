@@ -1,11 +1,13 @@
 /**
  * Cloudflare Pages middleware — canonicalize hosts & URLs for Google indexing.
- * Fixes GSC "Page with redirect" noise from www duplicates and path variants.
+ * Strict uniqueness rule: only clean trailing-slash URLs are indexable.
+ * Prefill/UTM query variants stay usable for humans but must not create
+ * duplicate indexed "pages".
  */
 export async function onRequest(context) {
   const { request, next, env } = context;
   const url = new URL(request.url);
-  const { pathname, hostname } = url;
+  const { pathname, hostname, searchParams } = url;
 
   // 1) www → apex (both currently return 200 = duplicate host risk)
   if (hostname === 'www.herminox.com') {
@@ -31,7 +33,6 @@ export async function onRequest(context) {
   }
 
   // 4) Extensionless paths without trailing slash → add slash
-  //    Skip root, assets, and real files (sitemap.xml, robots.txt, etc.)
   if (
     pathname !== '/' &&
     !pathname.endsWith('/') &&
@@ -41,5 +42,29 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
-  return next();
+  const response = await next();
+
+  // 5) Strict uniqueness: any URL with a query string on tool/guide/embed
+  //    surfaces is noindex (prefill + UTM must not enter Google as extra pages).
+  //    Canonical HTML already points at the clean path; this reinforces it.
+  const indexedRoots = ['/sellers/', '/buyers/', '/guides/', '/embed/'];
+  const isSensitivePath = indexedRoots.some(
+    (root) => pathname === root || pathname.startsWith(root)
+  );
+  if (isSensitivePath && [...searchParams.keys()].length > 0) {
+    const headers = new Headers(response.headers);
+    headers.set('X-Robots-Tag', 'noindex, follow');
+    // Help crawlers converge on the clean URL
+    const clean = new URL(url.toString());
+    clean.search = '';
+    clean.hash = '';
+    headers.set('Link', '<' + clean.toString() + '>; rel="canonical"');
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+
+  return response;
 }

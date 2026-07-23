@@ -1,6 +1,11 @@
 /**
  * Builds /guides/index.html and /guides/<slug>/index.html from _data.mjs
  * Run: node guides/_build.mjs
+ *
+ * STRICT UNIQUENESS RULE:
+ * - Every guide slug is one indexable URL with unique substance (formula, table, example).
+ * - No near-duplicate templates. Prefill/query variants are never guide pages.
+ * - Sitemap lists only clean trailing-slash URLs.
  */
 import fs from 'fs';
 import path from 'path';

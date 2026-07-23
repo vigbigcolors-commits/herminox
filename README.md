@@ -28,7 +28,11 @@ guides/                  20 SEO operator guides (hub + weighted CTAs to tools)
 assets/                  Images (.webp), icons, carousel slides
 ```
 
-Rebuild guides after editing `guides/_data.mjs`:
+## Uniqueness rule (SEO + product)
+
+- **One clean URL = one unique page.** Example indexable page: `/sellers/fba-calculator/`.
+- Prefill links (`?price=35&cogs=10…`) are for humans/partners only — middleware sends `noindex` so they do not become duplicate Google results.
+- Guides and landings must not reuse the same body with a swapped keyword. Unique formula, table, or worked example required per URL.
 
 ```bash
 node guides/_build.mjs
