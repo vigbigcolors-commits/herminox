@@ -286,10 +286,10 @@ export const GUIDES = [
     description: 'Calculate how many Amazon units you must sell to recover a purchase order — capital tied up, contribution per unit, and why margin % alone is not enough.',
     h1: 'Inventory breakeven units: when does this PO <em>pay you back</em>?',
     lead: 'Percentage margin can look great while cash stays trapped. Units-to-recover is the question factories understand.',
-    formula: 'Units to recover ≈ PO cash outlay / Contribution per unit after fees',
-    example: { title: 'PO sketch', body: 'PO cash $8,000. Contribution after Amazon fees $4/unit. You need ~2,000 units sold to recover cash — before counting profit beyond breakeven.' },
+    formula: 'Units to recover ≈ PO cash outlay / (Sell price − Amazon fees per unit)',
+    example: { title: 'PO sketch', body: 'PO cash $1,600 (200 units × $8 cost). Cash back per sale after fees ≈ $21 on a $30 item with $9 fees. Units to recover ≈ ceil(1600/21) = 77 — not capital÷profit ($13), which would overstate the count.' },
     table: {
-      headers: ['Contribution / unit', 'PO cash', 'Units to recover'],
+      headers: ['Cash back / unit', 'PO cash', 'Units to recover'],
       rows: [
         ['$3', '$6,000', '2,000'],
         ['$5', '$6,000', '1,200'],
@@ -298,7 +298,7 @@ export const GUIDES = [
     },
     sections: [
       { h2: 'Define “cash outlay” honestly', html: '<p>Include product, inbound freight, prep, and other cash that leaves before sell-through. Excluding inbound is a classic way to fake a fast payback.</p>' },
-      { h2: 'Fee truth required', html: '<p>Contribution per unit must use real referral + FBA + fuel. Inflated contribution understates units-to-recover and overstates how safe the PO is.</p>' },
+      { h2: 'Fee truth required', html: '<p>Cash back per unit must use real referral + FBA + fuel (sell − fees). Inflating that number understates units-to-recover and overstates how safe the PO is. Do not divide capital by profit — that overstates how many units you need.</p>' },
     ],
     checklist: ['Full PO cash listed', 'Contribution/unit after fees', 'Units-to-recover computed', 'Sell-through timeline estimated', 'Storage risk considered for slow SKUs'],
     faqs: [

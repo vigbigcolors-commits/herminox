@@ -33,6 +33,7 @@
     + '    </div>'
     + '    <a href="/guides/">Guides</a>'
     + '    <a href="/embed/">Embed</a>'
+    + '    <a href="/partners/">Partners</a>'
     + '    <a href="/about/">About</a>'
     + '    <span class="nav-badge">6 free tools</span>'
     + '  </nav>'

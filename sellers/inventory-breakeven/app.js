@@ -75,12 +75,12 @@ function render(){
   const r = calc(inp);
 
   // Hero number
-  if(r.unitsToRecover == null || r.profitPerUnit < 0 && !r.recoverable){
+  if(r.unitsToRecover == null){
     $('be-num').textContent = '∞';
     $('be-num').className = 'be-num neg';
   } else {
     $('be-num').textContent = r.unitsToRecover.toLocaleString();
-    $('be-num').className = 'be-num' + (r.recoverable ? '' : ' neg');
+    $('be-num').className = 'be-num' + (r.recoverable && r.profitPerUnit >= 0 ? '' : ' neg');
   }
   $('be-sub').innerHTML = `units sold to recover your <b>${moneyShort(r.capitalTiedUp)}</b> order`;
 
@@ -107,8 +107,11 @@ function render(){
 
   // Verdict
   let v, cls;
-  if(r.profitPerUnit < 0){
-    v = `This product loses ${money(Math.abs(r.profitPerUnit))} per unit. The order can never break even — fix price, cost or fees before ordering.`;
+  if(r.unitsToRecover == null){
+    v = `Fees are ≥ sell price — you get <b>no cash back</b> per sale. Capital cannot be recovered at this price. Raise price or cut fees before ordering.`;
+    cls = 'v-bad';
+  } else if(r.profitPerUnit < 0){
+    v = `This product loses ${money(Math.abs(r.profitPerUnit))} per unit. Selling the whole order still returns less cash than the PO cost — fix price, cost or fees before ordering.`;
     cls = 'v-bad';
   } else if(!r.recoverable){
     v = `You'd need to sell <b>${r.unitsToRecover}</b> units to recover capital, but the order is only ${inp.orderQty}. This order can't fully recover its cost.`;

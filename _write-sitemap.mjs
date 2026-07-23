@@ -13,6 +13,7 @@ const staticUrls = [
   ['https://herminox.com/buyers/return-tracker/', 'monthly', '0.9'],
   ['https://herminox.com/guides/', 'weekly', '0.85'],
   ['https://herminox.com/embed/', 'monthly', '0.7'],
+  ['https://herminox.com/partners/', 'monthly', '0.7'],
 ];
 
 const tail = [

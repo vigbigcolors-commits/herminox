@@ -1,0 +1,41 @@
+---
+description: Herminox daily growth plan + security 10/10 constraints
+alwaysApply: true
+---
+
+# Herminox — daily plan & hard rules
+
+## Security 10/10 (never violate)
+- No Telegram/Discord scraping, cold DMs, NLP from private chats
+- No Reddit/forum spam bots
+- No thin 10k PSEO; no Seller Central phishing; no storing calculator inputs on servers
+- Prefill query URLs are for humans only (`noindex`); index only clean unique URLs
+
+## Safe growth stack (do these)
+1. Prefill deep-links (done for FBA + ACoS; extend others)
+2. Embed widgets + manual coach/blogger outreach
+3. Quality long-tail `/guides/` — **3–5 unique pages/day** (formula + table + example each)
+4. GSC: sitemap, indexing, Core Web Vitals
+5. Public read-only Calc API — later
+6. Manual helpful Reddit/forum answers — no bots
+
+## Daily checklist (continue tomorrow)
+- [ ] 3–5 unique guide pages OR deepen existing ones (no keyword-swap clones)
+- [ ] 5–10 partner outreach emails (templates: https://herminox.com/partners/)
+- [ ] Spot-check GA4 Realtime + Cloudflare analytics after deploy
+- [ ] GSC: inspect any new URLs; watch “Page with redirect” / coverage
+- [ ] One calculator smoke-test (FBA → ACoS → Inventory rotation)
+- [x] Full calculator logic audit (`scripts/audit-calculators.mjs`) — 2026-07-23
+
+## Calculator audit notes
+- Recovery inventory uses **sell − fees** (cash back), not profit
+- Cost Per Use demo: Quality $220+$40 / 5y vs Cheap $60 / 1y (old $300/$60 was a tie)
+- Re-run audit after any math change: `node scripts/audit-calculators.mjs`
+
+## Weekly
+- [ ] Review embed UTM sources for partner clicks
+- [ ] Fix any calculator logic bugs found in audit
+- [ ] 1 manual high-quality community answer (human, not bot)
+
+## Uniqueness rule
+One clean URL = one unique page. Every guide needs distinct substance.

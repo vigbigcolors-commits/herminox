@@ -213,9 +213,9 @@ function init(){
     if(state.variants.length<4){ state.variants.push({name:'',price:'',uses:'',perWeek:'',years:'',upkeep:''}); renderVariants(); compute(); }
   });
 
-  // Demo — the viral case: expensive boots vs cheap boots
+  // Demo — quality lasts longer so cost-per-use clearly wins (not a tie)
   state.mode = 'freq';
-  state.variants[0] = { name:'Quality boots', price:'300', uses:'', perWeek:'3', years:'5', upkeep:'' };
+  state.variants[0] = { name:'Quality boots', price:'220', uses:'', perWeek:'3', years:'5', upkeep:'40' };
   state.variants[1] = { name:'Cheap boots', price:'60', uses:'', perWeek:'3', years:'1', upkeep:'' };
   buildModeSwitch();
   renderVariants();
