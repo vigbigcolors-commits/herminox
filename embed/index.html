@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGBRGT796F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WGBRGT796F');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Embed Herminox Calculators — Partner Widgets</title>
+<meta name="description" content="Embed free Herminox FBA and ACoS calculator widgets on your site. Vanilla JS, Shadow DOM isolated, UTM tracking, deep-link prefill. No signup required for your readers.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://herminox.com/embed/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Embed Herminox Calculators — Partner Widgets">
+<meta property="og:url" content="https://herminox.com/embed/">
+<meta property="og:image" content="https://herminox.com/assets/og-image.jpg">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional"></noscript>
+<link rel="stylesheet" href="/legal/style.css">
+<link rel="stylesheet" href="/guides/style.css">
+<link rel="stylesheet" href="/assets/nav-dropdown.css">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Embed Herminox Calculators","url":"https://herminox.com/embed/","description":"Partner documentation for embedding Herminox FBA and ACoS calculator widgets."}
+</script>
+</head>
+<body>
+<div data-site-nav></div>
+<p class="crumb"><a href="/">Home</a><span class="sep">/</span><span class="here">Embed</span></p>
+
+<section class="legal-hero">
+  <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Partners · safe distribution</p>
+  <h1>Embed the math. <em>Keep the trust.</em></h1>
+  <p class="lead">Two lightweight Vanilla JS widgets — FBA profit and ACoS breakeven — for coaches, newsletters, and seller blogs. Shadow DOM isolated. No cookies on your domain. Readers click through to a prefilled Herminox calculator with your UTM tags.</p>
+  <div class="legal-meta">
+    <span>Security-first</span>
+    <span>No React bundle</span>
+    <span>UTM + deep-link</span>
+    <span>Free to embed</span>
+  </div>
+</section>
+
+<main class="legal-wrap">
+  <article class="legal-card legal-body">
+
+    <div class="guide-cta">
+      <p><strong>Security promise:</strong> widgets never scrape your page, never read emails/chats, never store calculator inputs on our servers. Prefill uses allowlisted query numbers only.</p>
+      <a class="guide-cta-btn" href="/sellers/fba-calculator/">Try FBA tool →</a>
+    </div>
+
+    <h2>1) FBA Profit widget</h2>
+    <p>Live preview on this page:</p>
+    <div id="herminox-fba"></div>
+    <script async src="/embed/fba.js" data-target="herminox-fba" data-utm-source="herminox" data-utm-medium="embed-docs" data-utm-campaign="partner-page"></script>
+
+    <p class="formula">Copy-paste for your site</p>
+<pre style="overflow:auto;padding:14px;background:var(--paper2);border-radius:8px;font-size:12px;line-height:1.5"><code>&lt;div id="herminox-fba"&gt;&lt;/div&gt;
+&lt;script async src="https://herminox.com/embed/fba.js"
+  data-target="herminox-fba"
+  data-utm-source="YOUR-SITE"
+  data-utm-medium="embed"
+  data-utm-campaign="fba-widget"&gt;&lt;/script&gt;</code></pre>
+
+    <h2>2) ACoS Breakeven widget</h2>
+    <div id="herminox-acos"></div>
+    <script async src="/embed/acos.js" data-target="herminox-acos" data-utm-source="herminox" data-utm-medium="embed-docs" data-utm-campaign="partner-page"></script>
+
+<pre style="overflow:auto;padding:14px;background:var(--paper2);border-radius:8px;font-size:12px;line-height:1.5"><code>&lt;div id="herminox-acos"&gt;&lt;/div&gt;
+&lt;script async src="https://herminox.com/embed/acos.js"
+  data-target="herminox-acos"
+  data-utm-source="YOUR-SITE"
+  data-utm-medium="embed"
+  data-utm-campaign="acos-widget"&gt;&lt;/script&gt;</code></pre>
+
+    <h2>3) Deep-link prefill (no widget needed)</h2>
+    <p>Share a URL that opens the full calculator with numbers already filled:</p>
+    <ul>
+      <li><a href="/sellers/fba-calculator/?price=35&amp;cogs=10&amp;weight=1&amp;unit=lb&amp;category=home_kitchen&amp;fuel=1#calc">FBA example prefill</a></li>
+      <li><a href="/sellers/acos-breakeven/?price=29.99&amp;cogs=8&amp;referral=15&amp;fba=5.39&amp;target=25&amp;conv=10&amp;organic=50#calc">ACoS example prefill</a></li>
+    </ul>
+    <p><strong>FBA params:</strong> <code>price</code>, <code>cogs</code>, <code>weight</code>, <code>unit</code> (oz|lb|g|kg), <code>category</code>, <code>tier</code>, <code>fuel</code> (0|1)</p>
+    <p><strong>ACoS params:</strong> <code>price</code>, <code>cogs</code>, <code>referral</code>, <code>fba</code>, <code>target</code>, <code>conv</code>, <code>organic</code></p>
+    <p>Unknown or out-of-range values are ignored. No script injection via query strings.</p>
+
+    <h2>4) Partner rules (keep everyone safe)</h2>
+    <ul>
+      <li>Do not wrap the widget in pages that phish Seller Central logins.</li>
+      <li>Do not claim Herminox affiliation with Amazon.</li>
+      <li>Keep UTM tags honest (<code>utm_source</code> = your brand).</li>
+      <li>Widget estimates are educational — always tell readers to confirm fees in Seller Central.</li>
+    </ul>
+
+    <h2>5) Questions</h2>
+    <p>Partnership / revenue-share ideas: <a href="mailto:hello@herminox.com">hello@herminox.com</a></p>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="foot-col">
+    <a href="/" class="logo"><span class="logo-text">Hermi<span class="logo-accent">nox</span></span></a>
+    <p class="foot-tag">Free calculators for Amazon sellers and buyers.</p>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Tools</p>
+    <a href="/sellers/fba-calculator/">FBA Profit</a>
+    <a href="/sellers/acos-breakeven/">ACoS Breakeven</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Learn</p>
+    <a href="/guides/">Guides</a>
+    <a href="/embed/">Embed widgets</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Company</p>
+    <a href="/about/">About</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<div class="foot-copy">&copy; 2026 herminox.com</div>
+<script src="/assets/site-nav.js"></script>
+</body>
+</html>

@@ -85,5 +85,16 @@
 /guides/
   Cache-Control: public, max-age=0, must-revalidate
 
-/guides/*/
+/embed/
   Cache-Control: public, max-age=0, must-revalidate
+
+# Partner embeds must be readable cross-origin (override sitewide same-origin CORP)
+/embed/fba.js
+  Cache-Control: public, max-age=3600, must-revalidate
+  Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *
+
+/embed/acos.js
+  Cache-Control: public, max-age=3600, must-revalidate
+  Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *

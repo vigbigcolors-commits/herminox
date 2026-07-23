@@ -128,6 +128,43 @@ function render(){
   $('verdict').className = 'verdict v-' + r.zone;
 }
 
+/* URL prefill — allowlisted query params only.
+   Example: ?price=29.99&cogs=8&referral=15&fba=5.39&target=25&conv=10&organic=50 */
+function clampNum(raw, min, max){
+  const n = parseFloat(raw);
+  if(!isFinite(n)) return null;
+  if(n < min || n > max) return null;
+  return n;
+}
+
+function applyPrefillFromQuery(){
+  const q = new URLSearchParams(window.location.search);
+  let used = false;
+
+  const price = clampNum(q.get('price'), 0, 100000);
+  if(price != null){ $('price').value = price; used = true; }
+
+  const cogs = clampNum(q.get('cogs'), 0, 100000);
+  if(cogs != null){ $('cogs').value = cogs; used = true; }
+
+  const referral = clampNum(q.get('referral'), 0, 50);
+  if(referral != null){ $('referral').value = referral; used = true; }
+
+  const fba = clampNum(q.get('fba'), 0, 100000);
+  if(fba != null){ $('fba').value = fba; used = true; }
+
+  const target = clampNum(q.get('target'), 1, 80);
+  if(target != null){ $('target').value = target; used = true; }
+
+  const conv = clampNum(q.get('conv'), 0.1, 100);
+  if(conv != null){ $('conv').value = conv; used = true; }
+
+  const organic = clampNum(q.get('organic'), 0, 95);
+  if(organic != null){ $('organic').value = organic; used = true; }
+
+  return used;
+}
+
 function init(){
   ['price','cogs','referral','fba','conv'].forEach(id =>
     $(id).addEventListener('input', render));
@@ -135,14 +172,15 @@ function init(){
     $(id).addEventListener('input', render);
   });
 
-  // Demo
-  $('price').value = 29.99;
-  $('cogs').value = 8;
-  $('referral').value = 15;
-  $('fba').value = 5.39;
-  $('target').value = 25;
-  $('conv').value = 10;
-  $('organic').value = 50;
+  if(!applyPrefillFromQuery()){
+    $('price').value = 29.99;
+    $('cogs').value = 8;
+    $('referral').value = 15;
+    $('fba').value = 5.39;
+    $('target').value = 25;
+    $('conv').value = 10;
+    $('organic').value = 50;
+  }
   render();
 }
 

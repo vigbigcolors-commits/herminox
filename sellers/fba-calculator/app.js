@@ -214,17 +214,62 @@ function render(){
   pulse.classList.add('beat');
 }
 
+/* URL prefill — allowlisted query params only (security: no arbitrary DOM/JS).
+   Example: ?price=35&cogs=10&weight=1&unit=lb&category=home_kitchen&tier=auto&fuel=1
+   Optional UTM params are ignored by the calculator (analytics may still read them). */
+function clampNum(raw, min, max){
+  const n = parseFloat(raw);
+  if(!isFinite(n)) return null;
+  if(n < min || n > max) return null;
+  return n;
+}
+
+function applyPrefillFromQuery(){
+  const q = new URLSearchParams(window.location.search);
+  let used = false;
+
+  const price = clampNum(q.get('price'), 0, 100000);
+  if(price != null){ $('price').value = price; used = true; }
+
+  const cogs = clampNum(q.get('cogs'), 0, 100000);
+  if(cogs != null){ $('cogs').value = cogs; used = true; }
+
+  const weight = clampNum(q.get('weight'), 0, 100000);
+  if(weight != null){ $('weight').value = weight; used = true; }
+
+  const unit = (q.get('unit') || '').toLowerCase();
+  if(['oz','lb','g','kg'].indexOf(unit) !== -1){ $('weightUnit').value = unit; used = true; }
+
+  const cat = q.get('category');
+  if(cat && REFERRAL[cat]){ $('category').value = cat; used = true; }
+
+  const tier = q.get('tier');
+  if(tier && ['auto','small_std','large_std','small_bulky','large_bulky'].indexOf(tier) !== -1){
+    $('tier').value = tier; used = true;
+  }
+
+  if(q.has('fuel')){
+    const f = (q.get('fuel') || '').toLowerCase();
+    $('surcharge').checked = !(f === '0' || f === 'false' || f === 'off' || f === 'no');
+    used = true;
+  }
+
+  return used;
+}
+
 function init(){
   buildCategoryOptions();
   ['price','cogs','weight'].forEach(id => $(id).addEventListener('input', render));
   ['weightUnit','category','tier'].forEach(id => $(id).addEventListener('change', render));
   $('surcharge').addEventListener('change', render);
 
-  // Demo prefill
-  $('price').value = 35;
-  $('cogs').value = 10;
-  $('weight').value = 1;
-  $('weightUnit').value = 'lb';
+  if(!applyPrefillFromQuery()){
+    // Demo defaults only when no safe prefill is present
+    $('price').value = 35;
+    $('cogs').value = 10;
+    $('weight').value = 1;
+    $('weightUnit').value = 'lb';
+  }
   render();
 }
 
