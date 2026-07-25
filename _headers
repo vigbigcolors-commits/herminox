@@ -1,6 +1,9 @@
 # Security + caching headers.
 # Supported as-is by Netlify and Cloudflare Pages. For Vercel use vercel.json,
 # for Apache use .htaccess, for Nginx use add_header — same directives.
+#
+# iOS Safari: do NOT set Cross-Origin-Opener-Policy: same-origin — it causes
+# blank / failed first navigations. CORP is cross-origin for a public site.
 
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com https://*.cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests
@@ -9,8 +12,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-origin
+  Cross-Origin-Resource-Policy: cross-origin
 
 # Long-lived, content-addressable-ish static assets
 /assets/*
