@@ -1,6 +1,6 @@
 /**
  * Cloudflare Pages middleware — canonicalize hosts & URLs for Google indexing.
- * Strict uniqueness rule: only clean trailing-slash URLs are indexable.
+ * Strict uniqueness rule: only clean trailing-slash apex URLs are indexable.
  * Prefill/UTM query variants stay usable for humans but must not create
  * duplicate indexed "pages".
  */
@@ -9,8 +9,10 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const { pathname, hostname, searchParams } = url;
 
-  // 1) www → apex (both currently return 200 = duplicate host risk)
-  if (hostname === 'www.herminox.com') {
+  // 1) Non-production hosts → apex (www + Cloudflare Pages project host).
+  //    pages.dev returning 200 with apex canonical = GSC
+  //    "Alternate page with proper canonical tag".
+  if (hostname === 'www.herminox.com' || hostname === 'herminox.pages.dev') {
     url.hostname = 'herminox.com';
     return Response.redirect(url.toString(), 301);
   }
@@ -32,7 +34,17 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
-  // 4) Extensionless paths without trailing slash → add slash
+  // 4) /…/index and /…/index/ → clean directory (avoid /path/index/ soft-dupes)
+  if (pathname === '/index' || pathname === '/index/') {
+    url.pathname = '/';
+    return Response.redirect(url.toString(), 301);
+  }
+  if (pathname.endsWith('/index') || pathname.endsWith('/index/')) {
+    url.pathname = pathname.replace(/\/index\/?$/, '/');
+    return Response.redirect(url.toString(), 301);
+  }
+
+  // 5) Extensionless paths without trailing slash → add slash
   if (
     pathname !== '/' &&
     !pathname.endsWith('/') &&
@@ -43,28 +55,39 @@ export async function onRequest(context) {
   }
 
   const response = await next();
+  const headers = new Headers(response.headers);
+  let mutated = false;
 
-  // 5) Strict uniqueness: any URL with a query string on tool/guide/embed
-  //    surfaces is noindex (prefill + UTM must not enter Google as extra pages).
-  //    Canonical HTML already points at the clean path; this reinforces it.
-  const indexedRoots = ['/sellers/', '/buyers/', '/guides/', '/embed/'];
-  const isSensitivePath = indexedRoots.some(
-    (root) => pathname === root || pathname.startsWith(root)
-  );
-  if (isSensitivePath && [...searchParams.keys()].length > 0) {
-    const headers = new Headers(response.headers);
+  // Preview deploy hosts (hash.herminox.pages.dev): never index.
+  if (hostname.endsWith('.pages.dev')) {
     headers.set('X-Robots-Tag', 'noindex, follow');
-    // Help crawlers converge on the clean URL
+    mutated = true;
+  }
+
+  // 6) Any URL with a query string on HTML surfaces is noindex
+  //    (prefill + UTM must not enter Google as extra pages).
+  //    Canonical HTML already points at the clean path; reinforce via Link.
+  const contentType = headers.get('content-type') || '';
+  const looksHtml =
+    contentType.includes('text/html') ||
+    pathname === '/' ||
+    pathname.endsWith('/');
+  if (looksHtml && [...searchParams.keys()].length > 0) {
+    headers.set('X-Robots-Tag', 'noindex, follow');
     const clean = new URL(url.toString());
+    clean.hostname = 'herminox.com';
+    clean.protocol = 'https:';
     clean.search = '';
     clean.hash = '';
     headers.set('Link', '<' + clean.toString() + '>; rel="canonical"');
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
+    mutated = true;
   }
 
-  return response;
+  if (!mutated) return response;
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
 }
