@@ -27,7 +27,7 @@ const tail = [
 function entry(loc, freq, pri) {
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>${freq}</changefreq>
     <priority>${pri}</priority>
   </url>`;

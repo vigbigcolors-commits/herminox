@@ -292,7 +292,7 @@ function renderHub() {
 ${GTAG}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amazon Seller &amp; Buyer Guides — Herminox</title>
-<meta name="description" content="20 practical Herminox guides for Amazon FBA fees, ACoS, inventory payback, unit price, cost per use, and returns — each linked to a free calculator.">
+<meta name="description" content="${GUIDES.length} practical Herminox guides for Amazon FBA fees, ACoS, inventory payback, unit price, cost per use, and returns — each linked to a free calculator.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="https://herminox.com/guides/">
 <meta property="og:type" content="website">
@@ -339,12 +339,12 @@ ${JSON.stringify({
 <section class="legal-hero">
   <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Learn · then calculate</p>
   <h1>Guides that end in a <em>calculator</em> — not a dead-end blog.</h1>
-  <p class="lead">Twenty operator guides for Amazon sellers and buyers. Each page owns one long-tail question, teaches the math, then sends you to the matching free Herminox tool. Linking is weighted by demand — not sprinkled evenly across six tools.</p>
+  <p class="lead">${GUIDES.length} operator guides for Amazon sellers and buyers. Each page owns one long-tail question, teaches the math, then sends you to the matching free Herminox tool. Linking is weighted by demand — not sprinkled evenly across six tools.</p>
   <div class="legal-meta">
-    <span>20 guides</span>
+    <span>${GUIDES.length} guides</span>
     <span>6 calculators</span>
     <span>Weighted primary CTAs</span>
-    <span>Updated July 2026</span>
+    <span>Updated August 2026</span>
   </div>
 </section>
 

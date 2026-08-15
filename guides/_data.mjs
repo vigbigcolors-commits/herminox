@@ -13,7 +13,7 @@ export function toolById(id) {
 }
 
 /**
- * Primary weights: FBA×5, ACoS×4, Inv×3, Unit×3, CPU×2, Return×3 = 20
+ * Primary weights (target mix): FBA heavy, then ACoS, Inv, Returns, Unit, CPU.
  * Each page: 1 primary CTA + related secondaries + sibling cluster links (added at build).
  */
 export const GUIDES = [
@@ -598,13 +598,162 @@ export const GUIDES = [
       { q: 'Are holiday rules the only exception?', a: 'No. Electronics, hazmat, personal care, and seller terms create many exceptions. Always check the item.' },
     ],
   },
+  {
+    slug: 'fba-landed-cost-vs-factory-price',
+    primary: 'fba', related: ['inv', 'acos'], audience: 'sellers', readMin: 8,
+    query: 'fba landed cost vs factory price',
+    title: 'FBA Landed Cost vs Factory Price — Why Quotes Lie',
+    description: 'Why Amazon FBA margin dies when you use factory price instead of landed cost: freight, duty, prep, and a worked example before you approve a PO.',
+    h1: 'Factory price is not your cost: <em>landed cash</em> decides FBA margin',
+    lead: 'A beautiful factory quote is not a sourcing decision. Until freight, duty, prep, and extras are in the unit cost, every “healthy margin” in your sheet is a draft.',
+    formula: 'Landed unit cost ≈ Factory + inbound freight + duty/tariffs + prep/labeling + other cash-per-unit before FBA',
+    example: { title: 'Quote vs reality', body: 'Factory $6.00 looks fine under a $24 sell price. Add $1.40 freight, $0.55 duty, $0.35 prep → landed $8.30. With 15% referral ($3.60) and ~$5.20 FBA+fuel, contribution ≈ $24 − $8.30 − $3.60 − $5.20 = $6.90 (~29%). Using $6 factory instead invented ~$2.30/unit of fake profit — enough to green-light a bad PO.' },
+    table: {
+      headers: ['Cost input', 'Often forgotten?', 'Effect on margin'],
+      rows: [
+        ['Factory / EXW', 'No — people start here', 'Baseline only'],
+        ['Ocean/air + last mile to prep', 'Yes', 'Raises unit cost permanently'],
+        ['Duty / tariffs', 'Yes', 'Category- and HS-code dependent'],
+        ['Prep, polybag, labeling', 'Yes', 'Small per unit, loud at MOQ'],
+        ['Samples / QC failures', 'Often', 'Spread across the sellable units'],
+      ],
+    },
+    sections: [
+      { h2: 'Margin math must use cash that already left', html: '<p>FBA profit calculators answer “what do I keep after Amazon fees?” They cannot fix a lie in the cost field. If you paste factory price into “product cost,” you are stress-testing a fantasy SKU. Landed cost is the number that already left your bank (or will leave before the first sale).</p><p>Operators who win sourcing debates bring one total: cash per sellable unit delivered to Amazon-ready condition. Everything else is negotiation theater.</p>' },
+      { h2: 'How landed cost changes inventory payback', html: '<p>Higher landed cost raises capital tied up on the same MOQ and can push units-to-recover higher even when sell price and fees are unchanged. Fix cost honesty before you argue about ad spend. Ads cannot rescue a PO built on EXW cosplay.</p>' },
+    ],
+    checklist: ['Factory quote captured', 'Freight per unit estimated', 'Duty/tariff checked for HS code', 'Prep/label fees added', 'One landed cost entered in FBA calculator', 'Margin re-checked after ACoS ceiling'],
+    faqs: [
+      { q: 'Is landed cost the same as COGS on my P&L?', a: 'Related, but timing differs. Landed cost is the cash view before sell-through; P&L recognizes COGS when units sell. For go/no-go sourcing, use landed cash.' },
+      { q: 'What if freight is shared across mixed SKUs?', a: 'Allocate by volume, weight, or agreed % — pick one method and use it consistently. Random allocation recreates the factory-price lie.' },
+      { q: 'Should I include Amazon storage in landed cost?', a: 'Usually not for the first go/no-go pass. Storage depends on velocity. Model referral + FBA + fuel + landed product cost first; add storage when aged inventory risk is real.' },
+    ],
+  },
+  {
+    slug: 'amazon-fba-packaged-weight-vs-product-weight',
+    primary: 'fba', related: ['inv'], audience: 'sellers', readMin: 8,
+    query: 'fba packaged weight vs product weight',
+    title: 'FBA Packaged Weight vs Product Weight — Size Tier Traps',
+    description: 'Amazon FBA fulfillment fees use packaged shipping weight and dimensions — not bare product weight. How insert cards, polybags, and retail boxes move size tiers and kill margin.',
+    h1: 'Weigh what FBA receives — not the <em>naked product</em>',
+    lead: 'Size tier and weight band drive fulfillment dollars. If you model the item without the bag, card, and box Amazon ships, your fee preview will not match your spreadsheet.',
+    formula: 'Fulfillment fee = f(size tier from packaged dims + packaged weight, sell-price band) ; then fuel ≈ fulfillment × 0.035',
+    example: { title: 'Two ounces that matter', body: 'A gadget is 10 oz bare. With polybag, insert, and retail box it ships at 14 oz and crosses a weight band. Fulfillment jumps from ~$3.40 to ~$3.90. Fuel adds a few cents more. On 3,000 units that ~$0.50 gap is ~$1,500 — paid for packaging you “forgot” to weigh.' },
+    table: {
+      headers: ['What you weighed', 'Typical miss', 'Fee risk'],
+      rows: [
+        ['Product only', 'Ignores bag/box/insert', 'Understates fulfillment'],
+        ['Product + polybag', 'Still misses retail box', 'Often still low'],
+        ['Amazon-ready parcel', 'Correct packaged weight/dims', 'Matches fee preview logic'],
+      ],
+    },
+    sections: [
+      { h2: 'Dimensions move tiers; weight moves bands', html: '<p>FBA logic cares about the packaged unit: longest side, median, shortest, and weight. A rigid gift box can push length into a larger tier even when weight barely changes. Soft polymailers sometimes help — until inserts and hangtags put you back over a band.</p><p>Always measure the unit as it will sit in the fulfillment center, not the product photo on Alibaba.</p>' },
+      { h2: 'Tie weight honesty to PO risk', html: '<p>Understated fulfillment lowers apparent margin and understates cash needed per unit sold. Inventory breakeven then looks easier than reality. Fix packaged weight before you approve MOQ.</p>' },
+    ],
+    checklist: ['Pack a production-intent sample', 'Weigh on a calibrated scale', 'Measure L×W×H of packaged unit', 'Enter packaged weight in FBA calculator', 'Compare against Seller Central fee preview', 'Re-run after any packaging change'],
+    faqs: [
+      { q: 'Does Amazon use dimensional weight?', a: 'FBA size tiers and weight rules are defined in Amazon’s fulfillment fee schedule. Use packaged shipping weight and dimensions as Amazon defines for your program — then confirm in fee preview.' },
+      { q: 'Can I change packaging after launch?', a: 'Yes, but re-model fees. A “premium unboxing” redesign can silently move tiers and erase the margin you launched on.' },
+      { q: 'What about multipacks?', a: 'Model the ASIN customers buy. A 2-pack’s packaged weight is not two singles if Amazon receives one combined parcel.' },
+    ],
+  },
+  {
+    slug: 'set-tacos-from-breakeven-acos',
+    primary: 'acos', related: ['fba'], audience: 'sellers', readMin: 8,
+    query: 'set tacos from breakeven acos',
+    title: 'Set TACoS from Breakeven ACoS — Organic Share Math',
+    description: 'How to turn breakeven ACoS into a TACoS ceiling using organic share: formula, worked example, and why launch listings tolerate higher ACoS than mature ones.',
+    h1: 'From breakeven ACoS to a <em>TACoS ceiling</em> you can defend',
+    lead: 'ACoS alone lies when organic share rises. TACoS is ad spend over total sales — so the same campaign ACoS becomes cheaper for the business as organic grows. You need both numbers.',
+    formula: 'TACoS at breakeven ACoS ≈ Breakeven ACoS × (1 − organic share)',
+    example: { title: '50% organic', body: 'Pre-ad margin implies 40% breakeven ACoS. At 50% organic share, TACoS at that ceiling ≈ 40% × 0.50 = 20%. Running 25% ACoS on ad sales with 50% organic → TACoS ≈ 12.5% — room under the 20% ceiling. Same 25% ACoS at 10% organic → TACoS ≈ 22.5%, which can sit above a thin total-margin plan.' },
+    table: {
+      headers: ['Organic share', 'BE ACoS 40%', 'TACoS at BE'],
+      rows: [
+        ['10%', '40%', '36%'],
+        ['40%', '40%', '24%'],
+        ['60%', '40%', '16%'],
+        ['80%', '40%', '8%'],
+      ],
+    },
+    sections: [
+      { h2: 'Launch vs harvest is a TACoS story', html: '<p>New listings often have low organic share. A “high” ACoS can still be rational if you are buying rank with a time box — but TACoS will look painful because almost every sale is ad-attributed. Mature listings should pull ACoS down so TACoS stays well under the breakeven-derived ceiling.</p><p>Never copy a competitor’s ACoS target without knowing their organic mix and pre-ad margin.</p>' },
+      { h2: 'Build the ceiling in order', html: '<ol><li>Get pre-ad profit from real fees (FBA calculator).</li><li>Breakeven ACoS = pre-ad margin %.</li><li>Estimate organic share honestly (not aspirational).</li><li>TACoS ceiling ≈ BE ACoS × (1 − organic).</li><li>Set campaign targets below that ceiling — often 50–75% of BE ACoS on ad sales for profit mode.</li></ol>' },
+    ],
+    checklist: ['Pre-ad margin known', 'Breakeven ACoS written down', 'Organic share estimated from reports', 'TACoS ceiling computed', 'Campaign target set below ceiling', 'Revisit when organic share changes'],
+    faqs: [
+      { q: 'Can TACoS be higher than ACoS?', a: 'Not under standard definitions — total sales ≥ ad sales, so TACoS ≤ ACoS when both use the same spend.' },
+      { q: 'What organic share should I assume at launch?', a: 'Low — often under 20% early. Using 60% “someday” organic to justify today’s spend is how launches bleed.' },
+      { q: 'Is breakeven ACoS a target?', a: 'No. It is a ceiling. Targets usually sit meaningfully below it so returns and bid noise do not erase profit.' },
+    ],
+  },
+  {
+    slug: 'amazon-moq-vs-inventory-breakeven',
+    primary: 'inv', related: ['fba'], audience: 'sellers', readMin: 8,
+    query: 'amazon moq vs inventory breakeven',
+    title: 'Amazon MOQ vs Inventory Breakeven — Cash Risk Math',
+    description: 'Supplier MOQ vs Amazon inventory breakeven: why a “good unit margin” can still trap cash, and how units-to-recover (sell − fees) should gate purchase orders.',
+    h1: 'MOQ is not a deal until <em>cash recovery</em> clears',
+    lead: 'Factories sell cartons. You buy time-locked cash. Inventory breakeven asks how many units must sell to return PO capital after Amazon fees — before you celebrate MOQ discounts.',
+    formula: 'Units to recover ≈ ceil(PO cash ÷ (Sell price − Amazon fees per unit)) ; compare to MOQ and weeks-at-velocity',
+    example: { title: 'MOQ discount trap', body: 'Unit economics look fine at $8 landed. Supplier MOQ is 2,000 units → $16,000 cash out. Cash back per sale after fees ≈ $18. Units to recover ≈ ceil(16000/18) = 889. That is survivable — unless velocity is 40/week (≈22 weeks to recover). A smaller 500-unit buy at a slightly higher unit cost can free capital for ads and a second SKU.' },
+    table: {
+      headers: ['PO size', 'Capital tied', 'Recover units @ $18 cash-back', 'Weeks @ 50/wk'],
+      rows: [
+        ['500', '$4,000', '223', '4.5'],
+        ['1,000', '$8,000', '445', '8.9'],
+        ['2,000', '$16,000', '889', '17.8'],
+      ],
+    },
+    sections: [
+      { h2: 'Discount per unit vs cost of locked months', html: '<p>MOQ breaks are real. So is opportunity cost: cash stuck in slow cartons cannot fund PPC tests or the next winner. Compare (a) unit-cost savings from larger MOQ against (b) extra weeks of capital lock using honest velocity — not launch-week fantasy.</p>' },
+      { h2: 'Recover with sell − fees, not profit', html: '<p>Units-to-recover divides PO cash by cash returned per sale (sell − Amazon fees), not by profit after product cost. Using profit overstates how many units you need and makes MOQ look safer than it is. If fees wipe the sell price, recovery is impossible — fix price or fees before signing MOQ.</p>' },
+    ],
+    checklist: ['Landed cost × MOQ = PO cash', 'Fees per unit from FBA model', 'Units to recover computed', 'Weeks to recover at conservative velocity', 'Compare to storage/aging risk', 'Negotiate lower MOQ or phased shipments if weeks are ugly'],
+    faqs: [
+      { q: 'Should I always take the lowest unit cost MOQ?', a: 'No. Take the MOQ that clears cash recovery in a risk window you can fund. Cheapest unit with 9 months of lock can bankrupt a small account.' },
+      { q: 'What velocity should I use?', a: 'Conservative: recent organic-ish run-rate or comps, not the peak day of a lightning deal. Stress-test at −30%.' },
+      { q: 'Does MOQ include safety stock?', a: 'Model safety stock as extra capital. If MOQ already overshoots payback comfort, adding “just in case” units makes the trap deeper.' },
+    ],
+  },
+  {
+    slug: 'amazon-final-sale-vs-return-window',
+    primary: 'ret', related: ['unit'], audience: 'buyers', readMin: 8,
+    query: 'amazon final sale vs return window',
+    title: 'Amazon Final Sale vs Return Window — When You Cannot Undo',
+    description: 'Amazon final sale and non-returnable items vs standard and holiday return windows: how to spot locked purchases, avoid false deadline confidence, and protect cash.',
+    h1: 'Final sale means the window is <em>already closed</em>',
+    lead: 'Return trackers help when a deadline exists. Final-sale, hazmat, intimate, and some digital lines never give you a refund path — treating them like a 30-day Amazon return is how “deals” become donations.',
+    formula: 'If item is final-sale / non-returnable → locked capital = full price immediately ; else deadline = max(policy end, holiday extension when eligible)',
+    example: { title: 'False confidence', body: 'You buy a clearance apparel piece marked final sale for $90 and a normal hardgood for $90 on Dec 10. The hardgood may ride Amazon’s holiday extension toward Jan 31. The final-sale piece has $90 locked the moment you click buy — no tracker reminder can reopen a window that never existed.' },
+    table: {
+      headers: ['Purchase type', 'Typical undo path', 'Tracker behavior'],
+      rows: [
+        ['Standard Amazon item', 'Return within policy days', 'Log deadline; remind'],
+        ['Holiday-eligible Nov–Dec', 'Often later of +days or Jan 31', 'Use later date'],
+        ['Final sale / non-returnable', 'Usually none', 'Do not invent a deadline'],
+        ['Third-party seller quirks', 'Seller terms vary', 'Read line-item policy'],
+      ],
+    },
+    sections: [
+      { h2: 'Read the line item, not the homepage policy', html: '<p>Amazon’s general return help page is not a promise for every ASIN. Clearance badges, personal-care seals, hazardous materials, and some electronics accessories carve outs. The honest habit: at purchase, note whether a return is offered. If not, the “deal” must win on keep-value alone — unit price or cost-per-use — not on optionality.</p>' },
+      { h2: 'Holiday extensions do not revive final sale', html: '<p>Nov–Dec holiday rules extend eligible purchases; they do not convert final-sale inventory into returnable inventory. Mixing the two in one mental model creates fake locked-capital timelines and missed expectations when customer service says no.</p>' },
+    ],
+    checklist: ['Check return eligibility on the order line', 'If final sale, skip deadline fantasy', 'If returnable, log real deadline', 'Apply holiday extension only when eligible', 'Decide keep-value with unit price / cost-per-use before buying non-returnables'],
+    faqs: [
+      { q: 'Can I ever return a final-sale item?', a: 'Sometimes for defective/wrong item under separate policies — not as a change-of-mind return. Do not plan on it.' },
+      { q: 'Should I track final-sale items anyway?', a: 'Track them as kept spend, not as returnable locked capital. Different bucket, different decision.' },
+      { q: 'Do marketplace seller items follow Amazon’s holiday rule?', a: 'Not always. Seller-fulfilled and seller-specific terms can differ. Read the return summary on that order.' },
+    ],
+  },
 ];
 
 export const PRIMARY_WEIGHTS = {
-  fba: 5,
-  acos: 4,
-  inv: 3,
+  fba: 7,
+  acos: 5,
+  inv: 4,
   unit: 3,
   cpu: 2,
-  ret: 3,
+  ret: 4,
 };
