@@ -1,8 +1,8 @@
 /**
  * Cloudflare Pages middleware — canonicalize hosts & URLs for Google indexing.
  * Strict uniqueness rule: only clean trailing-slash apex URLs are indexable.
- * Prefill/UTM query variants stay usable for humans but must not create
- * duplicate indexed "pages".
+ * Prefill query variants stay usable for humans but must not create
+ * duplicate indexed "pages". Pure tracking params (?ref=, utm_*) 301 → clean URL.
  */
 export async function onRequest(context) {
   const { request, next, env } = context;
@@ -54,6 +54,18 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
+  // 5b) Tracking-only query strings → clean URL (fixes GSC alternate for ?ref=producthunt)
+  //     Prefill calculator params are kept; only pure campaign/ref noise is stripped.
+  const paramKeys = [...searchParams.keys()];
+  if (paramKeys.length > 0 && paramKeys.every(isTrackingParam)) {
+    const clean = new URL(url.toString());
+    clean.hostname = 'herminox.com';
+    clean.protocol = 'https:';
+    clean.search = '';
+    clean.hash = '';
+    return Response.redirect(clean.toString(), 301);
+  }
+
   const response = await next();
   const headers = new Headers(response.headers);
   let mutated = false;
@@ -64,15 +76,14 @@ export async function onRequest(context) {
     mutated = true;
   }
 
-  // 6) Any URL with a query string on HTML surfaces is noindex
-  //    (prefill + UTM must not enter Google as extra pages).
+  // 6) Any remaining HTML query URL (e.g. calculator prefill) is noindex.
   //    Canonical HTML already points at the clean path; reinforce via Link.
   const contentType = headers.get('content-type') || '';
   const looksHtml =
     contentType.includes('text/html') ||
     pathname === '/' ||
     pathname.endsWith('/');
-  if (looksHtml && [...searchParams.keys()].length > 0) {
+  if (looksHtml && paramKeys.length > 0) {
     headers.set('X-Robots-Tag', 'noindex, follow');
     const clean = new URL(url.toString());
     clean.hostname = 'herminox.com';
@@ -90,4 +101,12 @@ export async function onRequest(context) {
     statusText: response.statusText,
     headers,
   });
+}
+
+function isTrackingParam(key) {
+  const k = String(key).toLowerCase();
+  if (k === 'ref' || k === 'source' || k === 'fbclid' || k === 'gclid' || k === 'msclkid') return true;
+  if (k === '_ga' || k === '_gl' || k === 'mc_cid' || k === 'mc_eid') return true;
+  if (k.startsWith('utm_')) return true;
+  return false;
 }
