@@ -1,6 +1,7 @@
 /**
- * Writes sitemap index + child sitemaps (core / guides / notes).
- * Only allowlisted guides & notes enter indexable sitemaps.
+ * Writes flat sitemap.xml (all allowlisted URLs) + optional child urlsets.
+ * Flat root file so GSC shows discovered count on the submitted sitemap row
+ * (sitemap-index parent rows often show "0" even when children are fine).
  * Run: node _write-sitemap.mjs
  */
 import fs from 'fs';
@@ -8,7 +9,7 @@ import { GUIDES, VERTICALS } from './guides/_data.mjs';
 import { NOTES } from './notes/_data.mjs';
 import { GUIDE_ALLOWLIST, NOTE_ALLOWLIST } from './pseo/allowlist.mjs';
 
-const LASTMOD = '2026-08-16';
+const LASTMOD = '2026-08-17';
 
 function urlEntry(loc, freq, pri) {
   return `  <url>
@@ -63,31 +64,19 @@ const noteEntries = NOTE_ALLOWLIST.filter((slug) => NOTES.some((n) => n.slug ===
   (slug) => urlEntry(`https://herminox.com/notes/${slug}/`, 'monthly', '0.7')
 );
 
+const all = [...core, ...guideEntries, ...noteEntries];
+
+// Primary discovery file for GSC — flat urlset (not sitemapindex).
+writeUrlset('sitemap.xml', all);
+
+// Keep split files for ops / future scale; not required in robots.
 writeUrlset('sitemap-core.xml', core);
 writeUrlset('sitemap-guides.xml', guideEntries);
 writeUrlset('sitemap-notes.xml', noteEntries);
 
-const index = `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://herminox.com/sitemap-core.xml</loc>
-    <lastmod>${LASTMOD}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://herminox.com/sitemap-guides.xml</loc>
-    <lastmod>${LASTMOD}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://herminox.com/sitemap-notes.xml</loc>
-    <lastmod>${LASTMOD}</lastmod>
-  </sitemap>
-</sitemapindex>
-`;
-fs.writeFileSync('sitemap.xml', index);
-
 console.log({
+  sitemap: all.length,
   core: core.length,
   guides: guideEntries.length,
   notes: noteEntries.length,
-  total: core.length + guideEntries.length + noteEntries.length,
 });
