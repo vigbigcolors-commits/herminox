@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGBRGT796F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WGBRGT796F');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory recovery is cash back — not “profit” — Herminox Lab Notes</title>
+<meta name="description" content="Why Herminox inventory breakeven uses sell price minus fees (cash recovered per unit), not net profit — and how that changes units-to-payback.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://herminox.com/notes/inventory-recovery-is-cash-not-profit/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Herminox">
+<meta property="og:title" content="Inventory recovery is cash back — not “profit”">
+<meta property="og:description" content="Why Herminox inventory breakeven uses sell price minus fees (cash recovered per unit), not net profit — and how that changes units-to-payback.">
+<meta property="og:url" content="https://herminox.com/notes/inventory-recovery-is-cash-not-profit/">
+<meta property="og:image" content="https://herminox.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional"></noscript>
+<link rel="stylesheet" href="/legal/style.css">
+<link rel="stylesheet" href="/guides/style.css">
+<link rel="stylesheet" href="/assets/nav-dropdown.css">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Breakeven inventory: cash recovered, not profit mythology","description":"Why Herminox inventory breakeven uses sell price minus fees (cash recovered per unit), not net profit — and how that changes units-to-payback.","datePublished":"2026-08-16","dateModified":"2026-08-16","mainEntityOfPage":"https://herminox.com/notes/inventory-recovery-is-cash-not-profit/","author":{"@type":"Person","name":"Independent developer","jobTitle":"Independent developer","description":"Builds free, client-side Amazon calculators so sellers and buyers can run the numbers before they commit money — without accounts or uploaded inputs.","url":"https://herminox.com/about/","worksFor":{"@type":"Organization","name":"Herminox","url":"https://herminox.com/"}},"publisher":{"@type":"Organization","name":"Herminox","url":"https://herminox.com/","logo":"https://herminox.com/assets/logo.svg"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://herminox.com/"},{"@type":"ListItem","position":2,"name":"Lab Notes","item":"https://herminox.com/notes/"},{"@type":"ListItem","position":3,"name":"Breakeven inventory: cash recovered, not profit mythology","item":"https://herminox.com/notes/inventory-recovery-is-cash-not-profit/"}]}
+</script>
+</head>
+<body>
+<div data-site-nav></div>
+<p class="crumb"><a href="/">Home</a><span class="sep">/</span><a href="/notes/">Lab Notes</a><span class="sep">/</span><span class="here">inventory-recovery-is-cash-not-profit</span></p>
+
+<section class="legal-hero">
+  <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Lab Note · Independent developer · 5 min</p>
+  <h1>Breakeven inventory: <em>cash recovered</em>, not profit mythology</h1>
+  <p class="lead">Operators often ask “how many units until I am profitable?” The Inventory Breakeven tool answers a tighter question first: how many units until the purchase order’s cash is back. That is sell − fees per unit into a fixed PO cost — not contribution after every dream expense.</p>
+  <div class="legal-meta">
+    <span>2026-08-16</span>
+    <span>Method &amp; limits</span>
+    <span>Not a blog post</span>
+  </div>
+</section>
+
+<main class="legal-wrap">
+  <article class="legal-card legal-body">
+    <h2 id="why-we-chose-cash-back">Why we chose cash-back</h2>
+<p>Profit includes choices about ads, returns, and overhead that belong in other tools. Mixing them into “units to breakeven” hides which lever is broken. Cash per unit after Amazon fees answers: when does this inventory stop being frozen money?</p>
+<h2 id="what-to-run-next">What to run next</h2>
+<p>After payback units look sane, stress margin in the FBA calculator and set an ad ceiling with ACoS breakeven. Sequence matters: cash recovery → margin → ads — not one blended fantasy percentage.</p>
+<h2 id="audit-trail">Audit trail</h2>
+<p>We keep a local calculator audit script so wording and math stay aligned when fees change. If the UI ever said “profit” where it meant cash-back, that was a bug — the recovery definition is deliberate.</p>
+    <div class="guide-cta">
+      <p><strong>Next:</strong> put the method to work in a calculator.</p>
+      <a class="guide-cta-btn" href="/sellers/inventory-breakeven/">Open Inventory Breakeven →</a>
+    </div>
+    <div class="guide-cluster">
+      <h2>More notes</h2>
+      <ul>
+        <li><a href="/notes/why-client-side-math/">Why Herminox runs the math in your browser</a></li>
+<li><a href="/notes/how-we-model-fba-fees/">How we model Amazon FBA fees — sources and limits</a></li>
+<li><a href="/notes/indexing-discipline-quality-over-volume/">Indexing discipline: quality over volume</a></li>
+        <li><a href="/methodology/">Methodology →</a></li>
+        <li><a href="/guides/">Operator guides →</a></li>
+      </ul>
+    </div>
+    <p style="margin-top:28px;font-size:13px;color:var(--ink2)">Educational only. <a href="/disclaimer/">Disclaimer</a> · <a href="/about/">About</a></p>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="foot-col">
+    <a href="/" class="logo">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="currentColor" stroke-width="1.6"/><line x1="10" y1="23" x2="10" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="22" y1="23" x2="22" y2="8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="10" y1="16.5" x2="22" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="22" cy="8" r="2" fill="#E8991F"/></svg>
+      <span class="logo-text">Hermi<span class="logo-accent">nox</span></span>
+    </a>
+    <p class="foot-tag">Free calculators — lab notes from an independent developer, not a content farm.</p>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">For sellers</p>
+    <a href="/sellers/fba-calculator/">FBA Profit Calculator</a>
+    <a href="/sellers/acos-breakeven/">ACoS Breakeven</a>
+    <a href="/sellers/inventory-breakeven/">Inventory Breakeven</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">For buyers</p>
+    <a href="/buyers/unit-price/">Unit Price Comparator</a>
+    <a href="/buyers/cost-per-use/">Cost Per Use</a>
+    <a href="/buyers/return-tracker/">Return Dashboard</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Learn</p>
+    <a href="/guides/">Guides</a>
+    <a href="/notes/">Lab Notes</a>
+    <a href="/methodology/">Methodology</a>
+    <a href="/about/">About Us</a>
+    <a href="/disclaimer/">Disclaimer</a>
+    <a href="/privacy/">Privacy Policy</a>
+  </div>
+</footer>
+<div class="foot-copy">&copy; 2026 herminox.com — independent calculators &amp; lab notes.</div>
+<p class="foot-disclaimer">Herminox is an independent tool and is not affiliated with, authorized, endorsed by, or in any way associated with Amazon.com, Inc. or its subsidiaries. Educational only. &middot; <a href="/disclaimer/">Full Disclaimer</a></p>
+<script src="/assets/site-nav.js"></script>
+<script defer src="/assets/back-to-top.js"></script>
+</body>
+</html>

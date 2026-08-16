@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGBRGT796F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WGBRGT796F');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — How Herminox Calculators Work</title>
+<meta name="description" content="How Herminox models Amazon fees and buyer math: published US schedules, client-side execution, named limits (storage, placement), and uniqueness rules for guides.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="https://herminox.com/methodology/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Herminox">
+<meta property="og:title" content="Methodology — How Herminox Calculators Work">
+<meta property="og:description" content="Published fee sources, client-side privacy, named limits, and how we refuse thin duplicate pages.">
+<meta property="og:url" content="https://herminox.com/methodology/">
+<meta property="og:image" content="https://herminox.com/assets/og-image.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=optional"></noscript>
+<link rel="stylesheet" href="/legal/style.css">
+<link rel="stylesheet" href="/assets/nav-dropdown.css">
+<link rel="stylesheet" href="/assets/company-nav.css">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Methodology — How Herminox Calculators Work","url":"https://herminox.com/methodology/","description":"How Herminox models Amazon fees and buyer math from published sources, with named limits.","datePublished":"2026-08-16","dateModified":"2026-08-16","author":{"@type":"Person","name":"Independent developer","jobTitle":"Independent developer","url":"https://herminox.com/about/"},"publisher":{"@type":"Organization","name":"Herminox","url":"https://herminox.com/","logo":"https://herminox.com/assets/logo.svg"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://herminox.com/"},{"@type":"ListItem","position":2,"name":"Methodology","item":"https://herminox.com/methodology/"}]}
+</script>
+</head>
+<body>
+
+<div data-site-nav data-company-nav="methodology"></div>
+
+<p class="crumb"><a href="/">home</a><span class="sep">/</span><span class="here">methodology</span></p>
+
+<section class="legal-hero">
+  <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Methodology</p>
+  <h1>How the numbers are built — <em>sources, limits, discipline</em></h1>
+  <p class="lead">Herminox is arithmetic in your browser, coded from Amazon’s published US fee schedules and plain buyer math. This page states what we include, what we omit on purpose, and how we keep guide pages unique enough to deserve an index.</p>
+  <div class="legal-meta">
+    <span>Client-side</span>
+    <span>Published schedules</span>
+    <span>Named gaps</span>
+    <span>Updated August 2026</span>
+  </div>
+</section>
+
+<main class="legal-wrap">
+  <article class="legal-card legal-body">
+
+    <h2>Product principle</h2>
+    <p>The face of the site is the <strong>calculators</strong> — not an AI chat and not a blog farm. Guides teach one long-tail decision and end in a tool. <a href="/notes/">Lab Notes</a> explain method and limits in the founder’s voice.</p>
+
+    <h2>Seller fee model (US)</h2>
+    <ul>
+      <li><strong>Referral</strong> — flat categories and the seven tiered schedules (Apparel, Baby, Furniture, Grocery, Jewelry, Shoes, Watches), including common minimums.</li>
+      <li><strong>FBA fulfillment</strong> — size/weight bands from the US rate card effective January 15, 2026.</li>
+      <li><strong>Fuel &amp; logistics</strong> — 3.5% of fulfillment fee (toggle on by default; active since April 17, 2026).</li>
+    </ul>
+    <p>Inventory recovery uses <strong>sell − fees</strong> (cash back toward a PO), not “profit after every dream expense.” See the note on <a href="/notes/inventory-recovery-is-cash-not-profit/">cash vs profit</a>.</p>
+
+    <h2>What we do not model yet</h2>
+    <p>Monthly/long-term storage, inbound placement fees, return processing fees, and some apparel sub-tiers. Omitting an incomplete row is better than a false sense of precision. Confirm live fees in Seller Central before you commit inventory.</p>
+
+    <h2>Buyer math</h2>
+    <ul>
+      <li><strong>Unit price</strong> — price ÷ quantity (oz, count, etc.).</li>
+      <li><strong>Cost per use</strong> — (price + upkeep) ÷ honest use count.</li>
+      <li><strong>Returns</strong> — retailer windows including holiday extensions where documented; locked capital = sum of returnable item values still inside a window.</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <p>Calculator field values are not uploaded. Aggregate page analytics may run. Details: <a href="/privacy/">Privacy Policy</a> and <a href="/notes/why-client-side-math/">why client-side</a>.</p>
+
+    <h2>Indexing discipline</h2>
+    <p>One clean URL = one unique formula, table, and worked example. Prefill and tracking query strings are <code>noindex</code> or redirected. We maintain an allowlist and a uniqueness audit; weak pages are strengthened or removed — not multiplied. More: <a href="/notes/indexing-discipline-quality-over-volume/">indexing discipline</a>.</p>
+
+    <h2>Disclaimer</h2>
+    <p>Educational only — not tax, legal, or investment advice. Herminox is independent and not affiliated with Amazon.com, Inc. Full text: <a href="/disclaimer/">Disclaimer</a>.</p>
+
+    <p style="margin-top:28px"><a href="/sellers/fba-calculator/">Open FBA calculator →</a> · <a href="/about/">About →</a> · <a href="/guides/">Guides →</a></p>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="foot-col">
+    <a href="/" class="logo">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="6" stroke="currentColor" stroke-width="1.6"/><line x1="10" y1="23" x2="10" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="22" y1="23" x2="22" y2="8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="10" y1="16.5" x2="22" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="22" cy="8" r="2" fill="#E8991F"/></svg>
+      <span class="logo-text">Hermi<span class="logo-accent">nox</span></span>
+    </a>
+    <p class="foot-tag">Free, private calculators for Amazon sellers and buyers.</p>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Learn</p>
+    <a href="/guides/">Guides</a>
+    <a href="/notes/">Lab Notes</a>
+    <a href="/methodology/">Methodology</a>
+    <a href="/about/">About Us</a>
+    <a href="/disclaimer/">Disclaimer</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Tools</p>
+    <a href="/sellers/fba-calculator/">FBA Profit</a>
+    <a href="/sellers/acos-breakeven/">ACoS Breakeven</a>
+    <a href="/buyers/unit-price/">Unit Price</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-h">Company</p>
+    <a href="mailto:hello@herminox.com">hello@herminox.com</a>
+    <a href="/partners/">Partners</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<div class="foot-copy">&copy; 2026 herminox.com — independent, ad-free, private.</div>
+<p class="foot-disclaimer">Herminox is an independent tool and is not affiliated with Amazon.com, Inc. Educational only. &middot; <a href="/disclaimer/">Full Disclaimer</a></p>
+
+<script src="/assets/site-nav.js"></script>
+<script defer src="/assets/back-to-top.js"></script>
+</body>
+</html>

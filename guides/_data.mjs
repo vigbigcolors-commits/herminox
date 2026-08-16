@@ -1,4 +1,7 @@
 /** Herminox guides — weighted primary linking (not even). */
+import { GUIDE_ALLOWLIST } from '../pseo/allowlist.mjs';
+import { MATRIX } from '../pseo/matrix.mjs';
+
 export const TOOLS = {
   fba: { id: 'fba', url: '/sellers/fba-calculator/', name: 'FBA Profit Calculator', short: 'Fees, margin & ROI', audience: 'sellers' },
   acos: { id: 'acos', url: '/sellers/acos-breakeven/', name: 'ACoS Breakeven Calculator', short: 'PPC spend ceiling', audience: 'sellers' },
@@ -757,3 +760,91 @@ export const PRIMARY_WEIGHTS = {
   cpu: 2,
   ret: 4,
 };
+
+/** Vertical pillar hubs under /guides/{slug}/ */
+export const VERTICALS = {
+  fba: {
+    id: 'fba',
+    slug: 'fba',
+    name: 'FBA fees & margin',
+    title: 'Amazon FBA Fee & Margin Guides — Herminox',
+    description:
+      'Operator guides on Amazon FBA referral fees, fulfillment, fuel surcharge, and pre-ad margin — each ending in the free FBA Profit Calculator.',
+    h1: 'FBA fees & margin — <em>run the three layers</em> before you source',
+    lead: 'Referral, fulfillment, and fuel decide whether a SKU is viable before ads. These guides teach the math, then open the FBA Profit Calculator.',
+    neighbors: ['acos', 'inventory'],
+  },
+  acos: {
+    id: 'acos',
+    slug: 'acos',
+    name: 'ACoS & PPC ceilings',
+    title: 'Amazon ACoS Breakeven Guides — Herminox',
+    description:
+      'Guides on breakeven ACoS, TACoS, max CPC, and launch vs profit ad strategy — tied to the free ACoS Breakeven Calculator.',
+    h1: 'ACoS ceilings — <em>stop hope-based PPC</em>',
+    lead: 'Turn pre-ad margin into a hard ad-spend ceiling. These guides end in the ACoS Breakeven Calculator, not a vibe.',
+    neighbors: ['fba', 'inventory'],
+  },
+  inv: {
+    id: 'inv',
+    slug: 'inventory',
+    name: 'Inventory payback',
+    title: 'Amazon Inventory Breakeven Guides — Herminox',
+    description:
+      'Guides on units to breakeven, payback period, capital tied up, and MOQ traps — linked to the Inventory Breakeven Calculator.',
+    h1: 'Inventory payback — <em>when does this PO return cash?</em>',
+    lead: 'Margin % alone does not pay back a purchase order. These guides model units, time, and capital — then open the Inventory Breakeven Calculator.',
+    neighbors: ['fba', 'acos'],
+  },
+  unit: {
+    id: 'unit',
+    slug: 'unit-price',
+    name: 'Unit price',
+    title: 'Unit Price Comparison Guides — Herminox',
+    description:
+      'Guides on true price per unit, shrinkflation, and multipack traps — linked to the True Unit Price Comparator.',
+    h1: 'Unit price — <em>beat fake value packs</em>',
+    lead: 'Package size hides the real deal. Normalize to price per unit, then compare in the calculator.',
+    neighbors: ['cost-per-use', 'returns'],
+  },
+  cpu: {
+    id: 'cpu',
+    slug: 'cost-per-use',
+    name: 'Cost per use',
+    title: 'Cost Per Use Guides — Herminox',
+    description:
+      'Guides on lifetime cost, durability math, and when expensive beats cheap — linked to the Cost Per Use Calculator.',
+    h1: 'Cost per use — <em>sticker price is not the cost</em>',
+    lead: 'Divide price (and upkeep) by honest uses. These guides end in the Cost Per Use Calculator.',
+    neighbors: ['unit-price', 'returns'],
+  },
+  ret: {
+    id: 'ret',
+    slug: 'returns',
+    name: 'Returns & locked capital',
+    title: 'Amazon Return Window Guides — Herminox',
+    description:
+      'Guides on holiday return deadlines, locked capital, window mistakes, and final sale — linked to the Return & Capital Dashboard.',
+    h1: 'Returns — <em>deadlines and locked cash</em>',
+    lead: 'A missed window turns a deal into a donation. Track policies and capital, then use the Return Dashboard.',
+    neighbors: ['unit-price', 'cost-per-use'],
+  },
+};
+
+export function verticalForTool(toolId) {
+  return VERTICALS[toolId];
+}
+
+export function verticalByPathSlug(pathSlug) {
+  return Object.values(VERTICALS).find((v) => v.slug === pathSlug);
+}
+
+const matrixByGuide = Object.fromEntries(
+  MATRIX.filter((s) => s.guideSlug).map((s) => [s.guideSlug, s])
+);
+
+for (const g of GUIDES) {
+  const slot = matrixByGuide[g.slug];
+  g.indexable = GUIDE_ALLOWLIST.includes(g.slug);
+  g.uniquenessKey = slot?.uniquenessKey || `guide:${g.slug}`;
+}

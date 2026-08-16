@@ -8,58 +8,43 @@ do not receive calculator field values. See `/privacy/`.
 ## Structure
 
 ```
-index.html              Home page (hero, featured carousel, tool showcase, FAQ)
-style.css               Single shared stylesheet (design tokens in :root)
-404.html                Branded not-found page
-robots.txt / sitemap.xml  Crawl + indexing
-_headers                Security & cache headers (Netlify / Cloudflare Pages)
-_redirects              Favicon + GSC verification rewrite
-.well-known/security.txt  Responsible-disclosure contact
-
-sellers/
-  fba-calculator/        FBA profit, fees, margin, ROI
-  acos-breakeven/        Breakeven ACoS for PPC
-  inventory-breakeven/   Inventory breakeven
-buyers/
-  unit-price/            True price per unit
-  cost-per-use/          Cost per use
-  return-tracker/        Return deadlines & locked capital
-guides/                  20 SEO operator guides (hub + weighted CTAs to tools)
-assets/                  Images (.webp), icons, carousel slides
+index.html              Home (tools-first)
+sellers/ buyers/        Product calculators + hubs
+guides/                 Operator Docs (formula + table + example → CTA)
+notes/                  Lab Notes (founder E-E-A-T)
+methodology/            Fee sources + named limits
+pseo/                   author, matrix, allowlist
+sitemap.xml             Sitemap index → core + guides + notes
 ```
 
-## Uniqueness rule (SEO + product)
+## PSEO / uniqueness
 
-- **One clean URL = one unique page.** Example indexable page: `/sellers/fba-calculator/`.
-- Prefill links (`?price=35&cogs=10…`) are for humans/partners only — middleware sends `noindex` so they do not become duplicate Google results.
-- Guides and landings must not reuse the same body with a swapped keyword. Unique formula, table, or worked example required per URL.
+- **One clean URL = one unique page** (distinct formula, table, example).
+- Prefill/query URLs: humans only — middleware `noindex` / tracking 301.
+- Matrix candidates may exist offline; **allowlist** controls what enters sitemaps.
+- Law: `.cursor/rules/herminox-pseo-law.mdc`
 
 ```bash
+node scripts/audit-guide-uniqueness.mjs
+node scripts/audit-calculators.mjs
 node guides/_build.mjs
+node notes/_build.mjs
 node _write-sitemap.mjs
 ```
 
 ## Local preview
 
-Any static server works, e.g.:
-
 ```bash
 npx serve .
-# or
-python -m http.server 8000
 ```
 
 ## Conventions
 
-- One shared `style.css`; colors/spacing live as CSS custom properties in `:root`.
-- Vanilla JS only — no frameworks, no build step required.
-- Images: `.webp`, always with explicit `width`/`height` and `loading="lazy"`
-  (except above-the-fold hero/first slide) to avoid layout shift.
-- Respect `prefers-reduced-motion` for all animations.
+- Legal/guides share `/legal/style.css` + `/guides/style.css`.
+- Vanilla JS — no frameworks required for the public site.
+- Images: `.webp`, explicit width/height, `loading="lazy"` below the fold.
+- Respect `prefers-reduced-motion`.
 
 ## Security
 
-See [`_headers`](./_headers) for the deployed CSP and related policies. Allowed
-third-party origins: Google Fonts, Google Analytics (`gtag.js`), and Cloudflare
-Web Analytics (`static.cloudflareinsights.com`). Calculator inputs are not sent
-to those services.
+See `/.well-known/security.txt` and `/privacy/`. No Seller Central phishing, no scraping bots, no thin 10k PSEO.

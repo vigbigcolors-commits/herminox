@@ -14,18 +14,19 @@ alwaysApply: true
 ## Safe growth stack (do these)
 1. Prefill deep-links (done for FBA + ACoS; extend others)
 2. Embed widgets + manual coach/blogger outreach
-3. Quality long-tail `/guides/` — **3–5 unique pages/day** (formula + table + example each)
-4. GSC: sitemap, indexing, Core Web Vitals
-5. Public read-only Calc API — later
-6. Manual helpful Reddit/forum answers — no bots
+3. **While GSC pilot is not green:** deepen existing guides, ship Lab Notes, outreach — **do not** mass-add LF guides
+4. After green pilot: 3–5 unique guide pages/day max (formula + table + example), only if uniqueness audit passes + allowlist
+5. GSC: sitemap index (`/sitemap.xml`), indexing, Core Web Vitals
+6. Public read-only Calc API — later
+7. Manual helpful Reddit/forum answers — no bots
 
-## Daily checklist (continue tomorrow)
-- [ ] 3–5 unique guide pages OR deepen existing ones (no keyword-swap clones)
+## Daily checklist (pilot phase)
+- [ ] Strengthen OR Lab Note OR partner emails — not thin new URL volume
 - [ ] 5–10 partner outreach emails (templates: https://herminox.com/partners/)
 - [ ] Spot-check GA4 Realtime + Cloudflare analytics after deploy
-- [ ] GSC: inspect any new URLs; watch “Page with redirect” / coverage
+- [ ] GSC: inspect priority URLs; watch coverage / “Page with redirect”
 - [ ] One calculator smoke-test (FBA → ACoS → Inventory rotation)
-- [x] Full calculator logic audit (`scripts/audit-calculators.mjs`) — 2026-07-23
+- [ ] After guide/math changes: `node scripts/audit-guide-uniqueness.mjs` + `node scripts/audit-calculators.mjs`
 
 ## Calculator audit notes
 - Recovery inventory uses **sell − fees** (cash back), not profit
@@ -36,6 +37,7 @@ alwaysApply: true
 - [ ] Review embed UTM sources for partner clicks
 - [ ] Fix any calculator logic bugs found in audit
 - [ ] 1 manual high-quality community answer (human, not bot)
+- [ ] Review allowlist vs matrix candidates — promote only unique logic
 
 ## Uniqueness rule
-One clean URL = one unique page. Every guide needs distinct substance.
+One clean URL = one unique page. Every guide needs distinct substance. See `herminox-pseo-law.mdc`.

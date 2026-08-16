@@ -32,6 +32,7 @@
     + '      </div>'
     + '    </div>'
     + '    <a href="/guides/">Guides</a>'
+    + '    <a href="/notes/">Notes</a>'
     + '    <a href="/embed/">Embed</a>'
     + '    <a href="/partners/">Partners</a>'
     + '    <a href="/about/">About</a>'
@@ -41,6 +42,8 @@
 
   var COMPANY_LINKS = [
     { href: '/guides/', label: 'Guides', key: 'guides' },
+    { href: '/notes/', label: 'Lab Notes', key: 'notes' },
+    { href: '/methodology/', label: 'Methodology', key: 'methodology' },
     { href: '/partners/', label: 'Partners', key: 'partners' },
     { href: '/about/', label: 'About Us', key: 'about' },
     { href: '/our-goal/', label: 'Our Goal', key: 'our-goal' },

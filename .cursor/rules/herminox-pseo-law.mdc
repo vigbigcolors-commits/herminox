@@ -1,0 +1,40 @@
+---
+description: Universal Product & PSEO Law for Herminox (tools + Notes, no thin index)
+alwaysApply: true
+---
+
+# Herminox — Universal Product & PSEO Law
+
+## Главный закон
+Лучше 0 страниц, чем слабые. Каждая indexable URL: лучший ответ в выдаче? + звучит как наш флагманский инструмент? Нет → не публиковать / не индексировать.
+
+## Лицо сайта
+- Homepage / Lab = **калькуляторы** + короткий авторский слой + CTA в инструменты.
+- Trust = `/notes/` (Lab Notes основателя), `/about/`, `/methodology/`, `/disclaimer/`.
+- Traffic = `/guides/` (utility Docs: формула + таблица + пример + CTA). **Не Blog.**
+- AI-фичи не делай homepage hero. Blog как ядро — запрещён.
+
+## E-E-A-T
+- Person-автор из `pseo/author.mjs` на Notes / About / schema — не «AI-блог».
+- Notes = голос основателя, метод, ограничения. Без диагнозов, ложных гарантий, кликбейта.
+- Disclaimer / About / Methodology — живые страницы, не заглушки.
+
+## PSEO (жёстко)
+- Уникализация через **логику/данные** (формула, ставки, метрики, readout), не рерайт title.
+- Разный title без разной математики = thin. Не выпускать.
+- Matrix + allowlist: большая БД candidates ok; в индекс только `indexable` / allowlist.
+- Пилот → GSC → вентиль. Не вываливать сотни URL за сутки.
+- Sitemap = primary discovery (`sitemap.xml` index). Сомневаешься — не индексируй.
+- Prefill/query URL: humans only, `noindex`.
+
+## Перелинковка
+```
+Pillar: /sellers/, /buyers/, /guides/, /guides/{vertical}/, /notes/
+Traffic: allowlisted guides → вверх в pillar + в primary tool
+Product: 6 calculators
+Trust: Notes, About, Methodology, Disclaimer
+```
+Traffic → всегда pillar + tool. Не «все со всеми». Не orphan pages.
+
+## Команда агенту
+Соблюдай этот Law. Лицо = инструменты + Notes. PSEO только с разной логикой/данными, allowlist, pillar-перелинковка. Сначала пилот, потом вентиль.
