@@ -132,6 +132,7 @@ ${JSON.stringify({
 </script>
 </head>
 <body>
+<!--email_off-->
 <div data-site-nav></div>
 <p class="crumb"><a href="/">Home</a><span class="sep">/</span><a href="/notes/">Lab Notes</a><span class="sep">/</span><span class="here">${esc(note.slug)}</span></p>
 
@@ -168,6 +169,7 @@ ${JSON.stringify({
 ${footer()}
 <script src="/assets/site-nav.js"></script>
 <script defer src="/assets/back-to-top.js"></script>
+<!--email_on-->
 </body>
 </html>`;
 }
@@ -217,6 +219,7 @@ ${JSON.stringify({
 </script>
 </head>
 <body>
+<!--email_off-->
 <div data-site-nav></div>
 <p class="crumb"><a href="/">Home</a><span class="sep">/</span><span class="here">Lab Notes</span></p>
 
@@ -241,6 +244,7 @@ ${JSON.stringify({
 ${footer()}
 <script src="/assets/site-nav.js"></script>
 <script defer src="/assets/back-to-top.js"></script>
+<!--email_on-->
 </body>
 </html>`;
 }

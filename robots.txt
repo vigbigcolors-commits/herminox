@@ -1,4 +1,12 @@
+# As a condition of accessing this website, you agree to abide by the following
+# crawl rules.
+
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
+Disallow: /_headers
+Disallow: /_headers/
+Disallow: /_redirects
+Disallow: /_redirects/
 
 Sitemap: https://herminox.com/sitemap.xml

@@ -44,11 +44,30 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
+  // 4b) Platform config files are not pages. Do not slash-canonicalize;
+  //     410 so crawlers drop /_headers and /_redirects.
+  if (
+    pathname === '/_headers' ||
+    pathname === '/_headers/' ||
+    pathname === '/_redirects' ||
+    pathname === '/_redirects/'
+  ) {
+    return new Response('Gone', {
+      status: 410,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Robots-Tag': 'noindex, nofollow',
+        'Cache-Control': 'public, max-age=86400',
+      },
+    });
+  }
+
   // 5) Extensionless paths without trailing slash → add slash
   if (
     pathname !== '/' &&
     !pathname.endsWith('/') &&
-    !pathname.includes('.')
+    !pathname.includes('.') &&
+    !pathname.startsWith('/_')
   ) {
     url.pathname = pathname + '/';
     return Response.redirect(url.toString(), 301);

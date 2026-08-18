@@ -8,6 +8,12 @@
 # Google Search Console HTML-file verification (also handled in middleware)
 /google4bcee3eb037f4dd1.html  /google4bcee3eb037f4dd1  200!
 
+# Config files are not public pages (crawlers that already stored /_headers/)
+/_headers   /  410
+/_headers/  /  410
+/_redirects   /  410
+/_redirects/  /  410
+
 # --- Trailing-slash canonicals (301) — reduce GSC "Page with redirect" on slashless variants ---
 /sellers  /sellers/  301
 /buyers  /buyers/  301

@@ -212,6 +212,7 @@ ${JSON.stringify({
 </script>
 </head>
 <body>
+<!--email_off-->
 <div data-site-nav></div>
 <p class="crumb"><a href="/">Home</a><span class="sep">/</span><a href="/guides/">Guides</a><span class="sep">/</span><a href="/guides/${vertical.slug}/">${esc(vertical.name)}</a><span class="sep">/</span><span class="here">${esc(guide.slug)}</span></p>
 
@@ -275,6 +276,7 @@ ${JSON.stringify({
 ${footer()}
 <script src="/assets/site-nav.js"></script>
 <script defer src="/assets/back-to-top.js"></script>
+<!--email_on-->
 </body>
 </html>`;
 }
@@ -355,6 +357,7 @@ ${JSON.stringify({
 </script>
 </head>
 <body>
+<!--email_off-->
 <div data-site-nav></div>
 <p class="crumb"><a href="/">Home</a><span class="sep">/</span><a href="/guides/">Guides</a><span class="sep">/</span><span class="here">${esc(vertical.slug)}</span></p>
 
@@ -390,6 +393,7 @@ ${JSON.stringify({
 ${footer()}
 <script src="/assets/site-nav.js"></script>
 <script defer src="/assets/back-to-top.js"></script>
+<!--email_on-->
 </body>
 </html>`;
 }
@@ -470,6 +474,7 @@ ${JSON.stringify({
 </script>
 </head>
 <body>
+<!--email_off-->
 <div data-site-nav></div>
 <p class="crumb"><a href="/">Home</a><span class="sep">/</span><span class="here">Guides</span></p>
 
@@ -497,6 +502,7 @@ ${JSON.stringify({
 ${footer()}
 <script src="/assets/site-nav.js"></script>
 <script defer src="/assets/back-to-top.js"></script>
+<!--email_on-->
 </body>
 </html>`;
 }
