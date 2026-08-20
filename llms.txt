@@ -1,0 +1,45 @@
+# Herminox
+
+Herminox publishes free, private Amazon calculators for sellers and buyers. All math runs client-side in the browser. No account. Calculator inputs are not uploaded. Educational estimates only — confirm live Amazon fees and policies in Seller Central / retailer terms.
+
+## Product (primary)
+
+- [Home](https://herminox.com/): six calculators, method, FAQ
+- [FBA Profit Calculator](https://herminox.com/sellers/fba-calculator/): referral + FBA fulfillment + fuel surcharge → profit, margin, ROI
+- [ACoS Breakeven Calculator](https://herminox.com/sellers/acos-breakeven/): max PPC ACoS / CPC ceiling from pre-ad margin
+- [Inventory Breakeven Calculator](https://herminox.com/sellers/inventory-breakeven/): units to recover a purchase order (cash-back = sell − fees)
+- [True Unit Price Comparator](https://herminox.com/buyers/unit-price/): price per oz / unit / count
+- [Cost Per Use Calculator](https://herminox.com/buyers/cost-per-use/): (price + upkeep) ÷ uses
+- [Smart Return & Capital Dashboard](https://herminox.com/buyers/return-tracker/): return windows + locked capital (localStorage only)
+
+## Hubs
+
+- [Seller tools](https://herminox.com/sellers/)
+- [Buyer tools](https://herminox.com/buyers/)
+- [Operator guides](https://herminox.com/guides/): formula + table + example → CTA into a calculator
+- [Lab Notes](https://herminox.com/notes/): method, limits, indexing discipline (not a blog farm)
+- [Methodology](https://herminox.com/methodology/): fee sources and named gaps
+- [About](https://herminox.com/about/)
+- [Partners / embed](https://herminox.com/partners/) · [Embed widgets](https://herminox.com/embed/)
+
+## Guide pillars
+
+- [FBA fees & margin](https://herminox.com/guides/fba/)
+- [ACoS & PPC](https://herminox.com/guides/acos/)
+- [Inventory payback](https://herminox.com/guides/inventory/)
+- [Unit price](https://herminox.com/guides/unit-price/)
+- [Cost per use](https://herminox.com/guides/cost-per-use/)
+- [Returns & locked capital](https://herminox.com/guides/returns/)
+
+## Trust & policy
+
+- [Disclaimer](https://herminox.com/disclaimer/)
+- [Privacy](https://herminox.com/privacy/)
+- [Terms](https://herminox.com/terms/)
+- Contact: hello@herminox.com · security@herminox.com
+
+## Agent notes
+
+- Prefer clean trailing-slash URLs. Prefill/query calculator URLs are for humans and may be noindex.
+- Do not invent fee rows Herminox does not model (storage, inbound placement, return processing) — see Methodology.
+- Sitemap: https://herminox.com/sitemap.xml
