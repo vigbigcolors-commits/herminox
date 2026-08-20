@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGBRGT796F"></script>
+<!-- Google Analytics — load after first paint so it does not compete with LCP -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-WGBRGT796F');
+  gtag('config', 'G-WGBRGT796F', {send_page_view: true});
+  window.addEventListener('load', function () {
+    var s = document.createElement('script');
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WGBRGT796F';
+    s.async = true;
+    document.head.appendChild(s);
+  });
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Herminox — Free Amazon Calculators | FBA, ACoS &amp; Inventory 2026</title>
@@ -17,8 +21,10 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://herminox.com/">
 
+<link rel="preload" as="image" href="/assets/herminox-mobile.webp?v=4" type="image/webp" media="(max-width: 640px)" fetchpriority="high">
 <link rel="preload" as="image" href="/assets/slides/project.webp" media="(min-width: 641px)" fetchpriority="high">
-<link rel="preload" as="image" href="/assets/herminox-mobile.webp?v=3" media="(max-width: 640px)" fetchpriority="high">
+<link rel="preload" as="style" href="style.css">
+<link rel="preload" as="style" href="/assets/nav-dropdown.css">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -90,6 +96,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;z-index:1000;padding:12px 16px;background:var(--ink);color:var(--paper);text-decoration:none;border-radius:4px;font-size:14px;font-weight:600}
 @media(max-width:900px){.promo{padding:0 20px;margin-top:18px}.nav{padding:14px 24px}.nav-links{gap:14px}.nav-badge{display:none}.stats-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:640px){.promo{display:none}.mhero{display:block}.mhero-logo{position:relative;width:min(240px,68vw);margin:0 auto}.mhero-logo img{display:block;width:100%;height:auto}.nav{flex-wrap:wrap;padding:12px 14px;gap:8px}.nav-links{flex-wrap:wrap;gap:6px 10px;max-width:100%}.nav-group-trigger,.nav-links>a{font-size:10px;letter-spacing:0}.logo-text{font-size:14px}.split{grid-template-columns:1fr;padding:20px 24px 40px}.hero{grid-template-columns:1fr;padding:40px 24px}.stats{padding:32px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.trust{padding:0 24px}.trust-inner{flex-direction:column}.trust-item{border-right:none;border-bottom:1px solid var(--dark-line);justify-content:center}}
+.prose-section,footer,.foot-copy,.foot-disclaimer{content-visibility:auto;contain-intrinsic-size:auto 480px}
 </style>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="/assets/nav-dropdown.css">
@@ -140,14 +147,24 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 
 <main id="main">
 
-<!-- ================= FEATURED CAROUSEL ================= -->
+<!-- ================= MOBILE EMBLEM — LCP first (≤640px) ================= -->
+<section class="mhero" aria-hidden="true">
+  <div class="mhero-wrap">
+    <div class="mhero-logo" role="img" aria-label="Herminox — Be wise">
+      <picture>
+        <source media="(max-width: 640px)" srcset="/assets/herminox-mobile.webp?v=4" type="image/webp">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='521'/%3E" alt="Herminox emblem with owl and tagline Be wise" width="480" height="521" loading="eager" fetchpriority="high" decoding="async" draggable="false" sizes="(max-width: 640px) 68vw, 240px">
+      </picture>
+    </div>
+    <p class="mhero-caption"><span>Smart</span><span>Tools</span><span>Numbers</span></p>
+  </div>
+</section>
+
+<!-- ================= FEATURED CAROUSEL (desktop; hidden on mobile) ================= -->
 <section class="promo" aria-roledescription="carousel" aria-label="Featured calculators">
   <div class="promo-track" id="promoTrack">
     <a class="promo-slide" href="/#tools" aria-label="About Herminox — free, private Amazon calculators">
-      <picture>
-        <source media="(max-width: 640px)" srcset="assets/slides/project-800.webp" width="800" height="300">
-        <img src="/assets/slides/project.webp" alt="Herminox.com — six free, private Amazon calculators that run entirely in your browser. No signup; calculator inputs stay on your device." width="1600" height="600" loading="eager" fetchpriority="high" decoding="async" sizes="(max-width: 1200px) 100vw, 1200px">
-      </picture>
+      <img src="/assets/slides/project.webp" alt="Herminox.com — six free, private Amazon calculators that run entirely in your browser. No signup; calculator inputs stay on your device." width="1600" height="600" loading="lazy" decoding="async" sizes="(max-width: 1200px) 100vw, 1200px">
     </a>
     <a class="promo-slide" href="/sellers/fba-calculator/" aria-label="Open FBA Profit Calculator">
       <img src="/assets/slides/fba.webp" alt="FBA Profit Calculator — see real margin after referral and fulfillment fees before you list." width="1600" height="600" loading="lazy">
@@ -178,19 +195,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <button class="promo-dot" type="button" aria-label="Go to slide 5"></button>
     <button class="promo-dot" type="button" aria-label="Go to slide 6"></button>
     <button class="promo-dot" type="button" aria-label="Go to slide 7"></button>
-  </div>
-</section>
-
-<!-- ================= MOBILE EMBLEM — Smart logo (≤640px) ================= -->
-<section class="mhero" aria-hidden="true">
-  <div class="mhero-wrap">
-    <div class="mhero-logo" role="img" aria-label="Herminox — Be wise">
-      <picture>
-        <source srcset="/assets/herminox-mobile.webp?v=3" type="image/webp">
-        <img src="/assets/herminox-mobile.png?v=3" alt="Herminox emblem with owl and tagline Be wise" width="480" height="521" loading="eager" fetchpriority="high" decoding="async" draggable="false">
-      </picture>
-    </div>
-    <p class="mhero-caption"><span>Smart</span><span>Tools</span><span>Numbers</span></p>
   </div>
 </section>
 
@@ -912,8 +916,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   update();
 })();
 
-// Featured carousel — dots, arrows, auto-play (pauses on hover/focus)
+// Featured carousel — dots, arrows, auto-play (desktop only; promo is display:none ≤640px)
 (function(){
+  if(window.matchMedia('(max-width:640px)').matches) return;
   var promo = document.querySelector('.promo');
   var track = document.getElementById('promoTrack');
   if(!promo || !track) return;
