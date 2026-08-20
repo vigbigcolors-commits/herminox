@@ -935,10 +935,16 @@ body::before{
 }
 .hermi-dismiss:hover{background:var(--line);color:var(--ink)}
 
+@media(max-width:640px){
+  .calc-card{animation:none}
+  .calc-cta::after{animation:none}
+  .hero::after{animation:none}
+}
 @media(prefers-reduced-motion:reduce){
   .hermi-eye .hermi-lid{animation:none;transform:scaleY(0)}
   .hermi-bubble{animation:none}
   .hermi-btn:hover,.hermi-btn:active{transform:none}
+  .calc-card,.calc-cta::after,.hero::after{animation:none}
 }
 
 /* ============ FOOTER ============ */

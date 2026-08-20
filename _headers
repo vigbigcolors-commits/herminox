@@ -25,10 +25,10 @@
 
 # Global and shared CSS/JS
 /style.css
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=604800, must-revalidate
 
 /legal/style.css
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=604800, must-revalidate
 
 # Per-tool stylesheets and scripts — revalidate daily
 /sellers/fba-calculator/style.css
