@@ -180,14 +180,29 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 }
 .hx-tools__note-r{font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent5)}
 
-/* Brief — compact homepage substance */
+/* Brief — full-width dark band (contrasts cream cards) */
 .hx-brief{max-width:var(--max);margin:0 auto;padding:0 1.5rem 2rem}
-.hx-brief__inner{border-radius:1rem;border:1px solid var(--line);background:var(--paper2);padding:2rem;box-shadow:0 12px 30px rgba(41,34,20,.05)}
-.hx-brief h2{margin-top:.75rem;font-family:var(--display);font-size:clamp(1.75rem,3vw,2.25rem);font-weight:700;letter-spacing:-.03em;color:var(--ink)}
-.hx-brief__copy{margin-top:1.25rem;display:grid;gap:1rem;max-width:52rem}
-.hx-brief__copy p{font-size:.9375rem;line-height:1.7;color:var(--ink3)}
-.hx-brief__copy a{color:var(--accent4);text-decoration:underline;text-underline-offset:2px;font-weight:500}
-.hx-brief__copy a:hover{color:var(--ink)}
+.hx-brief__inner{
+  display:grid;gap:2rem;align-items:center;
+  border-radius:1rem;border:1px solid var(--ink);background:var(--ink);color:#fff;
+  padding:2rem;box-shadow:0 20px 50px rgba(41,34,20,.14);overflow:hidden;
+}
+@media(min-width:900px){
+  .hx-brief__inner{grid-template-columns:1.15fr .85fr;padding:2.25rem 2.25rem 2.25rem 2.5rem;gap:2.5rem}
+}
+.eyebrow--on-dark{color:#f2a51a}
+.hx-brief h2{margin-top:.75rem;font-family:var(--display);font-size:clamp(1.75rem,3vw,2.35rem);font-weight:700;letter-spacing:-.03em;color:#fff;line-height:1.05}
+.hx-brief h2 span{color:#f2a51a}
+.hx-brief__copy{margin-top:1.25rem;display:grid;gap:1rem}
+.hx-brief__copy p{font-size:.9375rem;line-height:1.7;color:#a0a8ba}
+.hx-brief__copy a{color:#ffc65c;text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.hx-brief__copy a:hover{color:#fff}
+.hx-brief__visual{position:relative;border-radius:1rem;overflow:hidden;border:1px solid rgba(242,165,26,.35);background:#0f162b;min-height:220px}
+.hx-brief__visual img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:960/590}
+.hx-brief__visual::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(135deg,rgba(242,165,26,.12),transparent 45%);
+}
 
 /* About */
 .hx-about{max-width:var(--max);margin:0 auto;padding:6rem 1.5rem}
