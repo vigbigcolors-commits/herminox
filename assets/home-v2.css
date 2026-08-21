@@ -180,24 +180,35 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 }
 .hx-tools__note-r{font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent5)}
 
-/* Brief — same --max width as tools/about; amber wash (not cream cards) */
-.hx-brief{max-width:var(--max);margin:0 auto;padding:0 1.5rem 2rem}
-.hx-brief__inner{
-  border-radius:1rem;
-  border:1px solid rgba(242,165,26,.35);
-  background:linear-gradient(135deg,#fff8eb 0%,#fff3d6 55%,#ffecd0 100%);
-  padding:2rem 2.25rem;
-  box-shadow:0 12px 30px rgba(41,34,20,.06);
+/* Brief — full --max panel (ink + amber), separate from cream tools */
+.hx-brief{max-width:var(--max);margin:0 auto;padding:0 1.5rem 4rem}
+.hx-brief__card{
+  position:relative;overflow:hidden;
+  border-radius:1rem;border:1px solid var(--ink);background:var(--ink);color:#fff;
+  padding:clamp(1.75rem,3vw,2.75rem) clamp(1.5rem,3vw,2.75rem);
+  box-shadow:0 24px 56px rgba(41,34,20,.18);
+}
+.hx-brief__card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--accent2),var(--accent3));
+}
+.hx-brief__meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1.25rem}
+.hx-brief__meta .eyebrow{color:var(--accent2)}
+.hx-brief__chip{
+  border-radius:999px;border:1px solid rgba(242,165,26,.45);background:rgba(242,165,26,.12);
+  padding:.3rem .75rem;font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--accent7);
 }
 .hx-brief h2{
-  margin-top:.75rem;font-family:var(--display);
-  font-size:clamp(1.75rem,3vw,2.35rem);font-weight:700;
-  letter-spacing:-.03em;color:var(--ink);line-height:1.05;
+  margin-top:1.25rem;font-family:var(--display);
+  font-size:clamp(1.85rem,3.4vw,2.6rem);font-weight:700;
+  letter-spacing:-.03em;color:#fff;line-height:1.05;max-width:28ch;
 }
-.hx-brief__copy{margin-top:1.25rem;max-width:none}
-.hx-brief__copy p{font-size:.9375rem;line-height:1.7;color:var(--ink3)}
-.hx-brief__copy a{color:var(--accent4);text-decoration:underline;text-underline-offset:2px;font-weight:500}
-.hx-brief__copy a:hover{color:var(--ink)}
+.hx-brief h2 span{color:var(--accent2)}
+.hx-brief__copy{
+  margin-top:1.35rem;font-size:.96875rem;line-height:1.75;color:#a8b0c0;max-width:none;
+}
+.hx-brief__copy a{color:var(--accent7);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.hx-brief__copy a:hover{color:#fff}
 
 /* About */
 .hx-about{max-width:var(--max);margin:0 auto;padding:6rem 1.5rem}
