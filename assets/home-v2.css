@@ -22,7 +22,7 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .hx-bg__grid{
   position:absolute;inset:0;
   background-color:var(--paper);
-  background-image:linear-gradient(to right,rgba(23,32,57,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(23,32,57,.045) 1px,transparent 1px);
+  background-image:linear-gradient(to right,rgba(23,32,57,.11) 1px,transparent 1px),linear-gradient(to bottom,rgba(23,32,57,.11) 1px,transparent 1px);
   background-size:42px 42px;
 }
 .hx-bg__glow{position:absolute;inset:0;background:radial-gradient(ellipse 75% 45% at 50% 0%,rgba(244,188,78,.22),transparent 72%)}
