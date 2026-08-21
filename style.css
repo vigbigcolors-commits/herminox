@@ -164,7 +164,8 @@ body::before{
   /* z-index raised to 200 so nav-dropdown (z-index:999) clears everything */
 }
 .logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
-.logo-mark{color:var(--ink)}
+.logo-mark{width:28px;height:28px;border-radius:999px;flex-shrink:0;display:block}
+.foot .logo-mark{width:22px;height:22px}
 .logo-text{font-family:var(--mono);font-size:16px;font-weight:500;letter-spacing:-.02em}
 .logo-accent{color:var(--accent-deep)}
 .nav-links{display:flex;gap:24px;align-items:center}
