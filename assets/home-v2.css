@@ -199,6 +199,15 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 }
 .hx-tools__note-r{font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent5)}
 
+/* Brief — compact homepage substance */
+.hx-brief{max-width:var(--max);margin:0 auto;padding:0 1.5rem 2rem}
+.hx-brief__inner{border-radius:1rem;border:1px solid var(--line);background:var(--paper2);padding:2rem;box-shadow:0 12px 30px rgba(41,34,20,.05)}
+.hx-brief h2{margin-top:.75rem;font-family:var(--display);font-size:clamp(1.75rem,3vw,2.25rem);font-weight:700;letter-spacing:-.03em;color:var(--ink)}
+.hx-brief__copy{margin-top:1.25rem;display:grid;gap:1rem;max-width:52rem}
+.hx-brief__copy p{font-size:.9375rem;line-height:1.7;color:var(--ink3)}
+.hx-brief__copy a{color:var(--accent4);text-decoration:underline;text-underline-offset:2px;font-weight:500}
+.hx-brief__copy a:hover{color:var(--ink)}
+
 /* About */
 .hx-about{max-width:var(--max);margin:0 auto;padding:6rem 1.5rem}
 .hx-about__grid{display:grid;gap:3rem}
