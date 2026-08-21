@@ -127,9 +127,13 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 .hx-panel__ico{
   flex-shrink:0;width:3.5rem;height:3.5rem;border-radius:.875rem;
   display:flex;align-items:center;justify-content:center;
-  color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18);
+  color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18);overflow:hidden;
 }
 .hx-panel__ico svg{width:1.5rem;height:1.5rem}
+.hx-panel__ico--img{background:transparent;box-shadow:none;width:4.25rem;height:4.25rem;border-radius:999px;border:1px solid var(--gold-line)}
+.hx-panel--buyers .hx-panel__ico--img{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.06)}
+.hx-panel--sellers .hx-panel__ico--img{border-color:var(--gold-line);background:var(--paper3)}
+.hx-panel__ico--img img{width:2.85rem;height:auto;object-fit:contain}
 .hx-panel--buyers .hx-panel__ico{background:var(--accent2);color:#fff}
 .hx-panel--sellers .hx-panel__ico{background:var(--amber);color:#fff}
 .hx-panel__copy{min-width:0;flex:1}
